@@ -3,6 +3,23 @@ import { Card } from '@/components/ui/card';
 import { House, Armchair, ChefHat, Shower, Table, TreeEvergreen, Fire, Car, WifiHigh, Bed, PawPrint, Waves } from '@phosphor-icons/react';
 import cottageExterior from '@/assets/cottage-exterior.jpg';
 import cottageExteriorMobile from '@/assets/cottage-exterior-mobile.webp';
+import altana from '@/assets/altana.webp';
+import domekBok from '@/assets/domek-bok.webp';
+import domekNaDzialce from '@/assets/domek-na-dzialce.webp';
+import domekPrzod from '@/assets/domek-przod.webp';
+import domekZTarasem from '@/assets/domek-z-tarasem.webp';
+import domekZewnatrz from '@/assets/domekzewnatrz.webp';
+import kanapa from '@/assets/kanapa.webp';
+import kuchnia from '@/assets/kuchnia.webp';
+import pomostOZmierzchu from '@/assets/pomost-o-zmierzchu.webp';
+import sypialnia from '@/assets/sypialnia.webp';
+import tarasWieczorem from '@/assets/taras-wieczorem.webp';
+import tarasZDachu from '@/assets/taras-z-dachu.webp';
+import wejscieDoDomu from '@/assets/wejscie-do-domku.webp';
+import widokNaLas from '@/assets/widok-na-las.webp';
+import widokZOgrodu from '@/assets/widok-z-ogrodu.webp';
+import wnetrzeSalon from '@/assets/wnetrze-salon.webp';
+import zachodNadJeziorem from '@/assets/zachod-nad-jeziorem.webp';
 
 const Galeria = () => {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
@@ -33,19 +50,26 @@ const Galeria = () => {
   };
 
   const exteriorImages = [
-    { src: altana, srcMobile: altana, alt: 'Zewnętrzny widok domku Lazur Resort - luksusowy domek letniskowy nad morzem' },
-    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Taras z meblami ogrodowymi - miejsce relaksu w Lazur Resort' },
-    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Ogród przy domku - prywatna przestrzeń wypoczynkowa' },
-    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Parking przy domku - bezpłatne miejsce postojowe' },
-    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Wejście do domku - eleganckie i funkcjonalne wejście' },
+    { src: domekZewnatrz, srcMobile: domekZewnatrz, alt: 'Domek Lazur Resort od zewnątrz - luksusowy domek letniskowy nad morzem' },
+    { src: domekNaDzialce, srcMobile: domekNaDzialce, alt: 'Domek na działce - widok ogólny całej nieruchomości' },
+    { src: domekBok, srcMobile: domekBok, alt: 'Widok boczny domku - architektura i otoczenie' },
+    { src: domekPrzod, srcMobile: domekPrzod, alt: 'Główne wejście do domku - eleganckie i funkcjonalne wejście' },
+    { src: domekZTarasem, srcMobile: domekZTarasem, alt: 'Domek z tarasem - przestrzeń do relaksu na świeżym powietrzu' },
+    { src: tarasZDachu, srcMobile: tarasZDachu, alt: 'Widok tarasu z perspektywy dachu - panorama okolicy' },
+    { src: wejscieDoDomu, srcMobile: wejscieDoDomu, alt: 'Wejście do domku - stylowe i komfortowe wejście' },
+    { src: widokZOgrodu, srcMobile: widokZOgrodu, alt: 'Widok z ogrodu na domek - piękne otoczenie przyrodnicze' },
+    { src: altana, srcMobile: altana, alt: 'Altana ogrodowa - dodatkowa przestrzeń relaksowa' },
+    { src: tarasWieczorem, srcMobile: tarasWieczorem, alt: 'Taras wieczorem - romantyczny nastrój i atmosfera' },
+    { src: widokNaLas, srcMobile: widokNaLas, alt: 'Widok na las z okolic domku - bliskość natury' },
+    { src: pomostOZmierzchu, srcMobile: pomostOZmierzchu, alt: 'Pomost o zmierzchu - spokojne miejsce nad wodą' },
+    { src: zachodNadJeziorem, srcMobile: zachodNadJeziorem, alt: 'Zachód słońca nad jeziorem - malownicze widoki' },
   ];
 
   const interiorImages = [
-    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Salon z rozkładaną sofą - komfortowa przestrzeń wypoczynkowa dla 8 osób' },
-    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Kuchnia z pełnym wyposażeniem - nowoczesne urządzenia AGD' },
-    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Sypialnia główna - komfortowe łóżko dla pary' },
-    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Druga sypialnia - dodatkowe miejsca noclegowe' },
-    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Łazienka z prysznicem - nowoczesne wyposażenie sanitarne' },
+    { src: wnetrzeSalon, srcMobile: wnetrzeSalon, alt: 'Salon z rozkładaną sofą - komfortowa przestrzeń wypoczynkowa dla 8 osób' },
+    { src: kanapa, srcMobile: kanapa, alt: 'Wygodna kanapa w salonie - miejsce relaksu dla całej rodziny' },
+    { src: kuchnia, srcMobile: kuchnia, alt: 'Kuchnia z pełnym wyposażeniem - nowoczesne urządzenia AGD' },
+    { src: sypialnia, srcMobile: sypialnia, alt: 'Sypialnia - komfortowe łóżko i przytulne wnętrze' },
   ];
 
   return (
