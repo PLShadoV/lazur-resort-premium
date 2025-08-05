@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Card } from '@/components/ui/card';
-import { House, Armchair, ChefHat, Shower, Table, TreeEvergreen, Fire, Car, WifiHigh, Bed, PawPrint, Waves } from '@phosphor-icons/react';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { House, Armchair, ChefHat, Shower, Table, TreeEvergreen, Fire, Car, WifiHigh, Bed, PawPrint, Waves, X, CaretLeft, CaretRight } from '@phosphor-icons/react';
 import cottageExterior from '@/assets/cottage-exterior.jpg';
 import cottageExteriorMobile from '@/assets/cottage-exterior-mobile.webp';
 import altana from '@/assets/altana.webp';
@@ -23,6 +25,8 @@ import zachodNadJeziorem from '@/assets/zachod-nad-jeziorem.webp';
 
 const Galeria = () => {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [currentGallery, setCurrentGallery] = useState<'exterior' | 'interior'>('exterior');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -51,9 +55,9 @@ const Galeria = () => {
 
   const exteriorImages = [
     { src: domekZewnatrz, srcMobile: domekZewnatrz, alt: 'Domek Lazur Resort od zewnątrz - luksusowy domek letniskowy nad morzem' },
-    { src: domekNaDzialce, srcMobile: domekNaDzialce, alt: 'Domek na działce - widok ogólny całej nieruchomości' },
-    { src: domekBok, srcMobile: domekBok, alt: 'Widok boczny domku - architektura i otoczenie' },
-    { src: domekPrzod, srcMobile: domekPrzod, alt: 'Główne wejście do domku - eleganckie i funkcjonalne wejście' },
+    { src: domekPrzod, srcMobile: domekPrzod, alt: 'Domek na działce - widok ogólny całej nieruchomości' },
+    { src: domekNaDzialce, srcMobile: domekNaDzialce, alt: 'Widok boczny domku - architektura i otoczenie' },
+    { src: domekBok, srcMobile: domekBok, alt: 'Główne wejście do domku - eleganckie i funkcjonalne wejście' },
     { src: domekZTarasem, srcMobile: domekZTarasem, alt: 'Domek z tarasem - przestrzeń do relaksu na świeżym powietrzu' },
     { src: tarasZDachu, srcMobile: tarasZDachu, alt: 'Widok tarasu z perspektywy dachu - panorama okolicy' },
     { src: wejscieDoDomu, srcMobile: wejscieDoDomu, alt: 'Wejście do domku - stylowe i komfortowe wejście' },
@@ -71,6 +75,55 @@ const Galeria = () => {
     { src: kuchnia, srcMobile: kuchnia, alt: 'Kuchnia z pełnym wyposażeniem - nowoczesne urządzenia AGD' },
     { src: sypialnia, srcMobile: sypialnia, alt: 'Sypialnia - komfortowe łóżko i przytulne wnętrze' },
   ];
+
+  const allImages = [...exteriorImages, ...interiorImages];
+
+  const openLightbox = useCallback((index: number, gallery: 'exterior' | 'interior') => {
+    const galleryOffset = gallery === 'exterior' ? 0 : exteriorImages.length;
+    setSelectedImageIndex(galleryOffset + index);
+    setCurrentGallery(gallery);
+  }, [exteriorImages.length]);
+
+  const closeLightbox = useCallback(() => {
+    setSelectedImageIndex(null);
+  }, []);
+
+  const goToPrevious = useCallback(() => {
+    if (selectedImageIndex !== null) {
+      const newIndex = selectedImageIndex > 0 ? selectedImageIndex - 1 : allImages.length - 1;
+      setSelectedImageIndex(newIndex);
+      setCurrentGallery(newIndex < exteriorImages.length ? 'exterior' : 'interior');
+    }
+  }, [selectedImageIndex, allImages.length, exteriorImages.length]);
+
+  const goToNext = useCallback(() => {
+    if (selectedImageIndex !== null) {
+      const newIndex = selectedImageIndex < allImages.length - 1 ? selectedImageIndex + 1 : 0;
+      setSelectedImageIndex(newIndex);
+      setCurrentGallery(newIndex < exteriorImages.length ? 'exterior' : 'interior');
+    }
+  }, [selectedImageIndex, allImages.length, exteriorImages.length]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (selectedImageIndex !== null) {
+        switch (event.key) {
+          case 'Escape':
+            closeLightbox();
+            break;
+          case 'ArrowLeft':
+            goToPrevious();
+            break;
+          case 'ArrowRight':
+            goToNext();
+            break;
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImageIndex, closeLightbox, goToPrevious, goToNext]);
 
   return (
     <div className="min-h-screen pt-16">
@@ -97,7 +150,8 @@ const Galeria = () => {
             {exteriorImages.map((image, index) => (
               <Card
                 key={index}
-                className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300 group"
+                className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300 group cursor-pointer"
+                onClick={() => openLightbox(index, 'exterior')}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <picture>
@@ -128,7 +182,8 @@ const Galeria = () => {
             {interiorImages.map((image, index) => (
               <Card
                 key={index}
-                className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300 group"
+                className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300 group cursor-pointer"
+                onClick={() => openLightbox(index, 'interior')}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <picture>
@@ -227,6 +282,66 @@ const Galeria = () => {
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      <Dialog open={selectedImageIndex !== null} onOpenChange={closeLightbox}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 border-0 bg-black/95">
+          <div className="relative w-full h-[95vh] flex items-center justify-center">
+            {/* Close button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute top-4 right-4 z-50 text-white hover:bg-white/20"
+              onClick={closeLightbox}
+            >
+              <X size={24} />
+            </Button>
+
+            {/* Previous button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20"
+              onClick={goToPrevious}
+            >
+              <CaretLeft size={32} />
+            </Button>
+
+            {/* Next button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20"
+              onClick={goToNext}
+            >
+              <CaretRight size={32} />
+            </Button>
+
+            {/* Image */}
+            {selectedImageIndex !== null && (
+              <div className="w-full h-full flex items-center justify-center p-8">
+                <img
+                  src={allImages[selectedImageIndex].src}
+                  alt={allImages[selectedImageIndex].alt}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+            )}
+
+            {/* Image counter and description */}
+            {selectedImageIndex !== null && (
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-white">
+                <p className="text-sm mb-2">
+                  {selectedImageIndex + 1} / {allImages.length}
+                </p>
+                <p className="text-sm max-w-lg mx-auto px-4">
+                  {allImages[selectedImageIndex].alt}
+                </p>
+              </div>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
