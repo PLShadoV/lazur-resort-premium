@@ -6,10 +6,10 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Autoplay from 'embla-carousel-autoplay';
 import { House, Waves, Users, Car, WifiHigh, PawPrint, MapPin, Star, Bicycle, TreeEvergreen } from '@phosphor-icons/react';
 import heroDrone from '@/assets/hero-drone.webp';
-import heroDroneMobile from '@/assets/hero-drone-mobile.webp';
+import heroDroneMobile from '@/assets/hero-drone.webp';
 import cottageExterior from '@/assets/domekzewnatrz.webp';
-import cottageExteriorMobile from '@/assets/cottage-exterior-mobile.webp';
-import cuteDogBeach from '@/assets/cute-dog-beach.jpg';
+import cottageExteriorMobile from '@/assets/domekzewnatrz.webp';
+import cuteDogBeach from '@/assets/cute-dog-beach-mobile.webp';
 import cuteDogBeachMobile from '@/assets/cute-dog-beach-mobile.webp';
 import bicycleForestPath from '@/assets/bicycle-forest-path.jpg';
 import bicycleForestPathMobile from '@/assets/bicycle-forest-path-mobile.webp';
