@@ -61,7 +61,25 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Lazur Resort Custom Colors
+				ocean: {
+					DEFAULT: 'hsl(var(--ocean-blue))',
+					light: 'hsl(var(--ocean-light))'
+				},
+				sand: 'hsl(var(--sand))',
+				coral: 'hsl(var(--coral))'
+			},
+			fontFamily: {
+				inter: ['Inter', 'sans-serif'],
+			},
+			spacing: {
+				luxury: 'var(--space-luxury)',
+			},
+			boxShadow: {
+				soft: 'var(--shadow-soft)',
+				luxury: 'var(--shadow-luxury)',
+				glow: 'var(--shadow-glow)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

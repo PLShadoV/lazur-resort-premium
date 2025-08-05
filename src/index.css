@@ -2,41 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Lazur Resort Design System - Luxury Seaside Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Colors - Navy Blue Theme */
+    --background: 220 15% 98%;
+    --foreground: 220 60% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 15% 100%;
+    --card-foreground: 220 60% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 15% 100%;
+    --popover-foreground: 220 60% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Lazur Resort Navy (#081c4c) */
+    --primary: 220 60% 15%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Ocean Teal */
+    --secondary: 180 40% 85%;
+    --secondary-foreground: 220 60% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Soft Gray */
+    --muted: 220 10% 95%;
+    --muted-foreground: 220 20% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Luxury Gold */
+    --accent: 45 85% 65%;
+    --accent-foreground: 220 60% 15%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 15% 90%;
+    --input: 220 15% 95%;
+    --ring: 220 60% 15%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Luxury Theme Extensions */
+    --ocean-blue: 195 85% 55%;
+    --ocean-light: 195 70% 85%;
+    --sand: 45 55% 88%;
+    --coral: 15 85% 70%;
+    
+    /* Gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(var(--ocean-blue)), hsl(var(--primary)));
+    --gradient-sunset: linear-gradient(135deg, hsl(var(--coral)), hsl(var(--accent)));
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.1);
+    --shadow-luxury: 0 10px 40px -10px hsl(var(--primary) / 0.15);
+    --shadow-glow: 0 0 30px hsl(var(--ocean-blue) / 0.3);
+    
+    /* Typography */
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Spacing */
+    --space-luxury: 4rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +126,108 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-light;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    @apply font-light tracking-tight;
+  }
+}
+
+@layer components {
+  /* Luxury Button Styles */
+  .btn-luxury {
+    @apply relative px-8 py-4 font-medium text-primary-foreground bg-primary rounded-lg;
+    @apply shadow-lg transition-all duration-300 ease-out;
+    @apply hover:shadow-2xl hover:scale-105;
+    box-shadow: 
+      inset 0 1px 0 rgba(255,255,255,0.1),
+      0 4px 14px 0 rgba(8, 28, 76, 0.39),
+      0 0 0 1px rgba(8, 28, 76, 0.1);
+  }
+
+  .btn-luxury:hover {
+    box-shadow: 
+      inset 0 1px 0 rgba(255,255,255,0.2),
+      0 8px 25px 0 rgba(8, 28, 76, 0.4),
+      0 0 0 1px rgba(8, 28, 76, 0.2),
+      0 0 30px rgba(52, 152, 219, 0.3);
+  }
+
+  /* Glass Morphism Cards */
+  .glass-card {
+    @apply backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  }
+
+  /* Animations */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    filter: blur(10px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  /* Floating Action Buttons */
+  .floating-buttons {
+    @apply fixed right-6 bottom-6 z-50 flex flex-col gap-3;
+  }
+
+  .floating-btn {
+    @apply w-14 h-14 rounded-full shadow-lg transition-all duration-300;
+    @apply hover:scale-110 hover:shadow-xl backdrop-blur-md;
+  }
+
+  .floating-toggle {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .floating-phone {
+    @apply bg-green-500 text-white;
+  }
+
+  .floating-mail {
+    @apply bg-blue-500 text-white;
+  }
+
+  .floating-map {
+    @apply bg-red-500 text-white;
+  }
+
+  .floating-calendar {
+    @apply bg-purple-500 text-white;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .floating-buttons {
+    @apply right-4 bottom-4;
+  }
+
+  .floating-btn {
+    @apply w-12 h-12;
   }
 }
