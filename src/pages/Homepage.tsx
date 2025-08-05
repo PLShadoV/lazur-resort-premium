@@ -6,9 +6,13 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Autoplay from 'embla-carousel-autoplay';
 import { House, Waves, Users, Car, WifiHigh, PawPrint, MapPin, Star, Bicycle, TreeEvergreen } from '@phosphor-icons/react';
 import heroDrone from '@/assets/hero-drone.webp';
+import heroDroneMobile from '@/assets/hero-drone-mobile.webp';
 import cottageExterior from '@/assets/domekzewnatrz.webp';
+import cottageExteriorMobile from '@/assets/cottage-exterior-mobile.webp';
 import cuteDogBeach from '@/assets/cute-dog-beach.jpg';
+import cuteDogBeachMobile from '@/assets/cute-dog-beach-mobile.webp';
 import bicycleForestPath from '@/assets/bicycle-forest-path.jpg';
+import bicycleForestPathMobile from '@/assets/bicycle-forest-path-mobile.webp';
 const Homepage = () => {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
   useEffect(() => {
@@ -109,11 +113,17 @@ const Homepage = () => {
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
-        backgroundImage: `url(${heroDrone})`
-      }}>
+        <picture className="absolute inset-0">
+          <source media="(max-width: 768px)" srcSet={heroDroneMobile} />
+          <img 
+            src={heroDrone} 
+            alt="Lazur Resort - Luksusowe domki letniskowe nad Bałtykiem w Rogowie"
+            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+          />
           <div className="absolute inset-0 bg-primary/30"></div>
-        </div>
+        </picture>
         
         <div className="relative z-10 text-center text-white px-4 fade-in-up">
           <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-6">
@@ -163,7 +173,17 @@ const Homepage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img src={cottageExterior} alt="Domek Lazur Resort" className="rounded-2xl shadow-luxury w-full" />
+              <picture>
+                <source media="(max-width: 768px)" srcSet={cottageExteriorMobile} />
+                <img 
+                  src={cottageExterior} 
+                  alt="Domek Lazur Resort - Luksusowy domek letniskowy nad morzem w Rogowie" 
+                  className="rounded-2xl shadow-luxury w-full" 
+                  loading="lazy"
+                  width="576"
+                  height="512"
+                />
+              </picture>
             </div>
             <div className="space-y-6">
               <h2 className="text-4xl font-light tracking-tight">
@@ -211,11 +231,17 @@ const Homepage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <Card className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300">
               <div className="relative aspect-[16/9] overflow-hidden">
-                <img 
-                  src={cuteDogBeach} 
-                  alt="Pobyt z psem nad morzem"
-                  className="w-full h-full object-cover"
-                />
+                <picture>
+                  <source media="(max-width: 768px)" srcSet={cuteDogBeachMobile} />
+                  <img 
+                    src={cuteDogBeach} 
+                    alt="Pobyt z psem nad morzem - domki przyjazne zwierzętom w Lazur Resort"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    width="576"
+                    height="512"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
                   <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
                     <div className="flex items-center gap-3 mb-2 sm:mb-3">
@@ -241,11 +267,17 @@ const Homepage = () => {
 
             <Card className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300">
               <div className="relative aspect-[16/9] overflow-hidden">
-                <img 
-                  src={bicycleForestPath} 
-                  alt="Wycieczki rowerowe po lasach"
-                  className="w-full h-full object-cover"
-                />
+                <picture>
+                  <source media="(max-width: 768px)" srcSet={bicycleForestPathMobile} />
+                  <img 
+                    src={bicycleForestPath} 
+                    alt="Wycieczki rowerowe po lasach - ścieżki rowerowe koło Lazur Resort"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    width="576"
+                    height="512"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                     <div className="flex items-center gap-3 mb-3">

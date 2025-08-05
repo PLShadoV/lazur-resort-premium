@@ -12,7 +12,14 @@ export const Footer = () => {
           {/* Logo & Description */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img src={lazurLogo} alt="Lazur Resort" className="h-8 w-auto" />
+              <img 
+                src={lazurLogo} 
+                alt="Lazur Resort - Luksusowe domki letniskowe nad Bałtykiem w Rogowie" 
+                className="h-8 w-auto" 
+                loading="lazy"
+                width="96"
+                height="32"
+              />
               <span className="font-medium text-lg">Lazur Resort</span>
             </div>
             <p className="text-white/80 leading-relaxed">

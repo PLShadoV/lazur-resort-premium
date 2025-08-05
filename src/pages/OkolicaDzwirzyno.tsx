@@ -38,8 +38,11 @@ const OkolicaDzwirzyno = () => {
             <div className="relative">
               <img
                 src={dzwirzynoImage}
-                alt="Widok na jezioro Resko w Dźwirzyno z lotu ptaka"
+                alt="Widok na jezioro Resko w Dźwirzyno z lotu ptaka - idealne miejsce na wypoczynek nad jeziorem i morzem"
                 className="w-full h-80 lg:h-96 object-cover rounded-2xl shadow-luxury"
+                loading="lazy"
+                width="400"
+                height="320"
               />
             </div>
           </div>

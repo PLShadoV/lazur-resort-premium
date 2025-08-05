@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { House, Armchair, ChefHat, Shower, Table, TreeEvergreen, Fire, Car, WifiHigh, Bed, PawPrint, Waves } from '@phosphor-icons/react';
 import cottageExterior from '@/assets/cottage-exterior.jpg';
+import cottageExteriorMobile from '@/assets/cottage-exterior-mobile.webp';
 
 const Galeria = () => {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
@@ -32,19 +33,19 @@ const Galeria = () => {
   };
 
   const exteriorImages = [
-    { src: cottageExterior, alt: 'Zewnętrzny widok domku Lazur Resort' },
-    { src: cottageExterior, alt: 'Taras z meblami ogrodowymi' },
-    { src: cottageExterior, alt: 'Ogród przy domku' },
-    { src: cottageExterior, alt: 'Parking przy domku' },
-    { src: cottageExterior, alt: 'Wejście do domku' },
+    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Zewnętrzny widok domku Lazur Resort - luksusowy domek letniskowy nad morzem' },
+    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Taras z meblami ogrodowymi - miejsce relaksu w Lazur Resort' },
+    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Ogród przy domku - prywatna przestrzeń wypoczynkowa' },
+    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Parking przy domku - bezpłatne miejsce postojowe' },
+    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Wejście do domku - eleganckie i funkcjonalne wejście' },
   ];
 
   const interiorImages = [
-    { src: cottageExterior, alt: 'Salon z rozkładaną sofą' },
-    { src: cottageExterior, alt: 'Kuchnia z pełnym wyposażeniem' },
-    { src: cottageExterior, alt: 'Sypialnia główna' },
-    { src: cottageExterior, alt: 'Druga sypialnia' },
-    { src: cottageExterior, alt: 'Łazienka z prysznicem' },
+    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Salon z rozkładaną sofą - komfortowa przestrzeń wypoczynkowa dla 8 osób' },
+    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Kuchnia z pełnym wyposażeniem - nowoczesne urządzenia AGD' },
+    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Sypialnia główna - komfortowe łóżko dla pary' },
+    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Druga sypialnia - dodatkowe miejsca noclegowe' },
+    { src: cottageExterior, srcMobile: cottageExteriorMobile, alt: 'Łazienka z prysznicem - nowoczesne wyposażenie sanitarne' },
   ];
 
   return (
@@ -75,11 +76,17 @@ const Galeria = () => {
                 className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300 group"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <picture>
+                    <source media="(max-width: 768px)" srcSet={image.srcMobile} />
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      width="576"
+                      height="512"
+                    />
+                  </picture>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-4 left-4 right-4">
                       <p className="text-white text-sm font-medium">{image.alt}</p>
@@ -100,11 +107,17 @@ const Galeria = () => {
                 className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300 group"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <picture>
+                    <source media="(max-width: 768px)" srcSet={image.srcMobile} />
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      width="576"
+                      height="512"
+                    />
+                  </picture>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-4 left-4 right-4">
                       <p className="text-white text-sm font-medium">{image.alt}</p>

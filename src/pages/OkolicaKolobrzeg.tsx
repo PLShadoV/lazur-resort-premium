@@ -2,6 +2,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { MapPin, Phone, Clock, Camera, Waves, Umbrella, TreeEvergreen } from '@phosphor-icons/react';
 import kolobrzegBeach from '@/assets/kolobrzeg-beach.jpg';
+import kolobrzegBeachMobile from '@/assets/kolobrzeg-beach-mobile.webp';
 import latarniaKolobrzeg from '@/assets/latarnia-kolobrzeg.jpg';
 import moloKolobrzeg from '@/assets/molo-kolobrzeg.jpg';
 
@@ -10,13 +11,18 @@ export const OkolicaKolobrzeg = () => {
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ 
-            backgroundImage: `url(${kolobrzegBeach})`,
-            filter: 'brightness(0.7)'
-          }}
-        />
+        <picture className="absolute inset-0">
+          <source media="(max-width: 768px)" srcSet={kolobrzegBeachMobile} />
+          <img 
+            src={kolobrzegBeach} 
+            alt="Plaża w Kołobrzegu - piękne polskie wybrzeże Bałtyku"
+            className="w-full h-full object-cover"
+            style={{ filter: 'brightness(0.7)' }}
+            loading="lazy"
+            width="608"
+            height="512"
+          />
+        </picture>
         <div className="relative z-10 text-center text-white">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Domki na wynajem Kołobrzeg
@@ -50,8 +56,11 @@ export const OkolicaKolobrzeg = () => {
             <div className="relative">
               <img 
                 src={latarniaKolobrzeg} 
-                alt="Latarnia morska w Kołobrzegu" 
+                alt="Latarnia morska w Kołobrzegu - charakterystyczny symbol miasta" 
                 className="rounded-xl shadow-lg w-full object-cover h-[400px]"
+                loading="lazy"
+                width="400"
+                height="400"
               />
             </div>
           </div>
@@ -65,8 +74,11 @@ export const OkolicaKolobrzeg = () => {
             <div className="order-2 lg:order-1 relative">
               <img 
                 src={moloKolobrzeg} 
-                alt="Molo w Kołobrzegu" 
+                alt="Molo w Kołobrzegu - popularne miejsce spacerów nad Bałtykiem" 
                 className="rounded-xl shadow-lg w-full object-cover h-[400px]"
+                loading="lazy"
+                width="400"
+                height="400"
               />
             </div>
             <div className="order-1 lg:order-2">

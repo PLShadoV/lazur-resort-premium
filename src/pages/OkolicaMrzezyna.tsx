@@ -38,8 +38,11 @@ const OkolicaMrzezyna = () => {
             <div className="relative">
               <img
                 src={mrzezynaImage}
-                alt="Widok na Mrzeżyno z lotu ptaka"
+                alt="Widok na Mrzeżyno z lotu ptaka - urokliwa nadmorska miejscowość z portem rybackim"
                 className="w-full h-80 lg:h-96 object-cover rounded-2xl shadow-luxury"
+                loading="lazy"
+                width="400"
+                height="320"
               />
             </div>
           </div>
