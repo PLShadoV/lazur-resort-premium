@@ -171,10 +171,14 @@
   }
 
   .scroll-reveal {
-    opacity: 0.5;
+    opacity: 0.75;
     transform: translateY(50px) scale(0.95);
     filter: blur(10px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hero-title {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   }
 
   .scroll-reveal.revealed {
@@ -246,6 +250,6 @@
 
   /* Mobile specific adjustments */
   .floating-buttons {
-    @apply bottom-6 right-1/2 translate-x-1/2 top-auto translate-y-0;
+    @apply bottom-6 right-4 translate-x-0 top-auto translate-y-0;
   }
 }

@@ -12,7 +12,7 @@ const OkolicaMrzezyna = () => {
           {/* Hero Section with Image and Content */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
-              <h1 className="text-4xl lg:text-5xl font-light tracking-tight text-foreground mb-6">
+              <h1 className="text-4xl lg:text-5xl font-light tracking-tight text-foreground mb-6 hero-title">
                 Mrzeżyno – <span className="text-primary">port rybacki i klimatyczne plaże</span>
               </h1>
               <p className="text-lg text-foreground/70 leading-relaxed mb-6">
