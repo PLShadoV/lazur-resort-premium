@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Phone, Envelope, MapPin, Calendar, CaretUp, CaretDown } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 export const FloatingButtons = () => {
   const [isExpanded, setIsExpanded] = useState(true);
+  const navigate = useNavigate();
 
   const buttons = [
     {
@@ -15,7 +17,7 @@ export const FloatingButtons = () => {
     {
       icon: Envelope,
       className: 'floating-mail',
-      action: () => window.location.href = '/kontakt',
+      action: () => navigate('/kontakt'),
       label: 'Kontakt',
     },
     {
@@ -27,7 +29,7 @@ export const FloatingButtons = () => {
     {
       icon: Calendar,
       className: 'floating-calendar',
-      action: () => window.location.href = '/rezerwacja',
+      action: () => navigate('/rezerwacja'),
       label: 'Rezerwacja',
     },
   ];
