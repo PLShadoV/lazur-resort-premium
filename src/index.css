@@ -126,7 +126,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-light;
+    @apply bg-background text-foreground font-light text-lg;
     font-family: var(--font-body);
   }
 
@@ -185,7 +185,7 @@
 
   /* Floating Action Buttons */
   .floating-buttons {
-    @apply fixed top-1/2 right-6 -translate-y-1/2 z-50 flex flex-col gap-3;
+    @apply fixed bottom-6 right-1/2 translate-x-1/2 z-50 flex flex-col gap-3;
   }
 
   .floating-btn {
@@ -222,22 +222,30 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (min-width: 769px) {
   .floating-buttons {
-    @apply top-1/2 right-4 -translate-y-1/2;
+    @apply top-1/2 right-6 -translate-y-1/2 bottom-auto translate-x-0;
   }
+}
 
+@media (max-width: 768px) {
   .floating-btn {
     @apply w-12 h-12;
   }
   
-  /* Increased font sizes for better mobile readability */
-  .text-base { font-size: 1.25rem; }
-  .text-lg { font-size: 1.375rem; }
-  .text-xl { font-size: 1.5rem; }
-  .text-2xl { font-size: 1.75rem; }
-  .text-3xl { font-size: 2.125rem; }
-  .text-4xl { font-size: 2.75rem; }
-  .text-5xl { font-size: 3.5rem; }
-  .text-6xl { font-size: 4.25rem; }
+  /* Increased font sizes for better readability */
+  .text-sm { font-size: 0.95rem; }
+  .text-base { font-size: 1.125rem; }
+  .text-lg { font-size: 1.25rem; }
+  .text-xl { font-size: 1.375rem; }
+  .text-2xl { font-size: 1.5rem; }
+  .text-3xl { font-size: 1.875rem; }
+  .text-4xl { font-size: 2.25rem; }
+  .text-5xl { font-size: 3rem; }
+  .text-6xl { font-size: 3.75rem; }
+
+  /* Mobile specific adjustments */
+  .floating-buttons {
+    @apply bottom-6 right-1/2 translate-x-1/2 top-auto translate-y-0;
+  }
 }

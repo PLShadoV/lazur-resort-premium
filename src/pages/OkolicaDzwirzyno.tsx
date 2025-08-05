@@ -1,81 +1,154 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { MapPin, Clock, Car } from '@phosphor-icons/react';
+import { MapPin, Clock, Car, Waves, Tree, Boat, Binoculars } from '@phosphor-icons/react';
+import dzwirzynoImage from '@/assets/dzwirzyno-lake.jpg';
 
 const OkolicaDzwirzyno = () => {
   return (
     <div className="min-h-screen pt-16 bg-background">
       <div className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-6xl font-light tracking-tight text-foreground mb-6">
-              Domki na wynajem <span className="text-primary">Dźwirzyno</span>
-            </h1>
-            <p className="text-xl text-foreground/70 leading-relaxed">
-              Wyjątkowe miejsce między morzem a jeziorem Resko Przymorskie - raj dla miłośników natury.
-            </p>
+        <div className="max-w-7xl mx-auto">
+          {/* Hero Section with Image and Content */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <h1 className="text-4xl lg:text-5xl font-light tracking-tight text-foreground mb-6">
+                Dźwirzyno – <span className="text-primary">między morzem a jeziorem</span>
+              </h1>
+              <p className="text-lg text-foreground/70 leading-relaxed mb-6">
+                Dźwirzyno to cicha, malowniczo położona miejscowość nad morzem, usytuowana 
+                pomiędzy Mrzeżynem a Dziwnowem. To idealne miejsce dla osób poszukujących 
+                wytchnienia od miejskiego zgiełku.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                  domki nad morzem
+                </span>
+                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                  jezioro Resko Przymorskie
+                </span>
+                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                  sporty wodne
+                </span>
+                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                  cisza i spokój
+                </span>
+              </div>
+            </div>
+            <div className="relative">
+              <img
+                src={dzwirzynoImage}
+                alt="Widok na jezioro Resko w Dźwirzyno z lotu ptaka"
+                className="w-full h-80 lg:h-96 object-cover rounded-2xl shadow-luxury"
+              />
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {/* Key Information Cards */}
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
             <Card className="glass-card border-0">
               <CardContent className="p-6 text-center">
-                <Car size={32} className="text-primary mx-auto mb-4" />
+                <Car size={32} style={{ color: '#967d48' }} className="mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-foreground mb-2">Odległość</h3>
                 <p className="text-foreground/70">12 km od Lazur Resort</p>
               </CardContent>
             </Card>
             <Card className="glass-card border-0">
               <CardContent className="p-6 text-center">
-                <Clock size={32} className="text-primary mx-auto mb-4" />
+                <Clock size={32} style={{ color: '#967d48' }} className="mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-foreground mb-2">Czas dojazdu</h3>
                 <p className="text-foreground/70">15 minut samochodem</p>
               </CardContent>
             </Card>
             <Card className="glass-card border-0">
               <CardContent className="p-6 text-center">
-                <MapPin size={32} className="text-primary mx-auto mb-4" />
+                <MapPin size={32} style={{ color: '#967d48' }} className="mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-foreground mb-2">Typ miejscowości</h3>
                 <p className="text-foreground/70">Kurort nadmorski</p>
               </CardContent>
             </Card>
           </div>
 
-          <div className="prose prose-lg max-w-none text-foreground/80 mb-12">
-            <h2 className="text-2xl font-light text-foreground mb-6">Atrakcje Dźwirżyna</h2>
+          {/* Attractions Section */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-light text-foreground mb-8 text-center">Atrakcje Dźwirżyna</h2>
             
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl font-medium text-foreground mb-3">Jezioro Resko Przymorskie</h3>
-                <p>
-                  Największa atrakcja regionu - jezioro słodkowodne oddzielone od morza tylko wąskim pasem lądu. 
-                  Idealne do pływania, wędkowania i sportów wodnych.
-                </p>
-              </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="glass-card border-0">
+                <CardContent className="p-8">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <Waves size={24} style={{ color: '#967d48' }} />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-medium text-foreground mb-3">Jezioro Resko Przymorskie</h3>
+                      <p className="text-foreground/70 leading-relaxed">
+                        Największa atrakcja regionu - jezioro słodkowodne oddzielone od morza tylko wąskim pasem lądu. 
+                        Idealne do pływania, wędkowania i sportów wodnych.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
 
-              <div>
-                <h3 className="text-xl font-medium text-foreground mb-3">Plaża morska</h3>
-                <p>
-                  Szeroka plaża z drobnym piaskiem, otoczona wydmami porośniętymi sosną. 
-                  Mniej zatłoczona niż inne nadmorskie kurorty.
-                </p>
-              </div>
+              <Card className="glass-card border-0">
+                <CardContent className="p-8">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <MapPin size={24} style={{ color: '#967d48' }} />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-medium text-foreground mb-3">Plaża morska</h3>
+                      <p className="text-foreground/70 leading-relaxed">
+                        Szeroka plaża z drobnym piaskiem, otoczona wydmami porośniętymi sosną. 
+                        Mniej zatłoczona niż inne nadmorskie kurorty.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
 
-              <div>
-                <h3 className="text-xl font-medium text-foreground mb-3">Wypożyczalnie sprzętu wodnego</h3>
-                <p>
-                  Możliwość wypożyczenia kajaków, rowerów wodnych, desek SUP oraz sprzętu wędkarskiego. 
-                  Doskonałe warunki do aktywnego wypoczynku na wodzie.
-                </p>
-              </div>
+              <Card className="glass-card border-0">
+                <CardContent className="p-8">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <Boat size={24} style={{ color: '#967d48' }} />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-medium text-foreground mb-3">Wypożyczalnie sprzętu wodnego</h3>
+                      <p className="text-foreground/70 leading-relaxed">
+                        Możliwość wypożyczenia kajaków, rowerów wodnych, desek SUP oraz sprzętu wędkarskiego. 
+                        Doskonałe warunki do aktywnego wypoczynku na wodzie.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
 
-              <div>
-                <h3 className="text-xl font-medium text-foreground mb-3">Ścieżki spacerowe</h3>
-                <p>
-                  Malownicze ścieżki wokół jeziora i przez nadmorskie lasy. 
-                  Idealne na romantyczne spacery i obserwację ptaków.
-                </p>
-              </div>
+              <Card className="glass-card border-0">
+                <CardContent className="p-8">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <Tree size={24} style={{ color: '#967d48' }} />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-medium text-foreground mb-3">Ścieżki spacerowe</h3>
+                      <p className="text-foreground/70 leading-relaxed">
+                        Malownicze ścieżki wokół jeziora i przez nadmorskie lasy. 
+                        Idealne na romantyczne spacery i obserwację ptaków.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
 

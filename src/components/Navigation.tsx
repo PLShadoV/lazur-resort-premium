@@ -148,6 +148,7 @@ export const Navigation = () => {
           className={`lg:hidden fixed top-16 right-0 bottom-0 w-80 bg-primary shadow-luxury transform transition-transform duration-300 ${
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
+          style={{ backgroundColor: 'hsl(var(--primary))' }}
         >
           <div className="p-6 space-y-4">
             {navItems.map((item) => (
