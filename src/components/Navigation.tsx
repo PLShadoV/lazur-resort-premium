@@ -147,7 +147,7 @@ export const Navigation = () => {
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
           style={{ 
-            backgroundColor: 'hsl(222, 84%, 23%)', 
+            backgroundColor: 'hsl(var(--primary))', 
             opacity: 1,
             backdropFilter: 'none'
           }}
