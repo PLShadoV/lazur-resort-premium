@@ -111,11 +111,17 @@ const Homepage = () => {
           <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-6">
             Lazur Resort
           </h1>
-          <p className="text-xl md:text-2xl font-light mb-8 opacity-90 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl font-light mb-6 opacity-90 max-w-3xl mx-auto">
             Luksusowe domki letniskowe nad morzem w Rogowie
           </p>
-          <p className="text-lg md:text-xl font-light mb-12 opacity-80 max-w-2xl mx-auto">
-            Odkryj spokój i komfort w naszych domkach między Kołobrzegiem a Mrzeżynem
+          <p className="text-lg md:text-xl font-light mb-8 opacity-80 max-w-2xl mx-auto">
+            Odkryj spokój i komfort w naszych ekskluzywnych domkach położonych między Kołobrzegiem a Mrzeżynem. 
+            Zaledwie 400 metrów od pięknej, piaszczystej plaży Bałtyku.
+          </p>
+          <p className="text-md md:text-lg font-light mb-12 opacity-75 max-w-3xl mx-auto">
+            Lazur Resort to 4 identyczne, w pełni wyposażone domki dla maksymalnie 8 osób każdy. 
+            Idealna lokalizacja w malowniczym Rogowie zapewnia ciszy i spokój, 
+            a jednocześnie łatwy dostęp do najpiękniejszych atrakcji zachodniopomorskiego wybrzeża.
           </p>
           
           <Button asChild className="btn-luxury text-lg px-12 py-6">
@@ -163,12 +169,17 @@ const Homepage = () => {
             </div>
             <div className="space-y-6">
               <h2 className="text-4xl font-light tracking-tight">
-                Nasze domki letniskowe nad morzem
+                Nasze luksusowe domki letniskowe nad morzem
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                4 identyczne domki w Rogowie, każdy dla maksymalnie 8 osób. 
-                Nowoczesne wnętrza z pełnym wyposażeniem, przestronne tarasy 
-                i prywatne ogrody.
+                Lazur Resort oferuje 4 identyczne domki w Rogowie, każdy zaprojektowany z myślą 
+                o maksymalnym komforcie dla maksymalnie 8 osób. Nowoczesne wnętrza łączą elegancję 
+                z funkcjonalnością, a przestronne tarasy i prywatne ogrody zapewniają pełną prywatność.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Każdy domek wyposażony jest w najwyższej jakości sprzęty i meble. Duże okna wpuszczają 
+                dużo naturalnego światła, tworząc przyjazną i ciepłą atmosferę. Idealne miejsce na 
+                rodzinne wakacje, wyjazd z przyjaciółmi czy romantyczny weekend nad morzem.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center space-x-3">
@@ -257,7 +268,7 @@ const Homepage = () => {
                 <MapPin size={24} weight="light" className="text-ocean" />
                 <div>
                   <h3 className="font-medium">Adres</h3>
-                  <p className="text-muted-foreground">72-330 Rogowo, województwo zachodniopomorskie</p>
+                  <p className="text-muted-foreground">Makowa 6, 72-330 Rogowo, województwo zachodniopomorskie</p>
                 </div>
               </div>
               
@@ -274,7 +285,7 @@ const Homepage = () => {
 
             <div className="bg-white rounded-2xl p-6 shadow-luxury">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2349.123!2d15.123!3d54.123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sRogowo!5e0!3m2!1spl!2spl!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2338.8234567!2d15.5773896!3d54.2823456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47aa5e5e5e5e5e5e%3A0x5e5e5e5e5e5e5e5e!2sMakowa+6%2C+72-330+Rogowo!5e0!3m2!1spl!2spl!4v1645123456789"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}

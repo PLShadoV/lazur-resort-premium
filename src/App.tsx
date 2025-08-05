@@ -12,6 +12,12 @@ import Cennik from "./pages/Cennik";
 import Kontakt from "./pages/Kontakt";
 import Rezerwacja from "./pages/Rezerwacja";
 import NotFound from "./pages/NotFound";
+import Okolica from "./pages/Okolica";
+import OkolicaMrzezyna from "./pages/OkolicaMrzezyna";
+import OkolicaDzwirzyno from "./pages/OkolicaDzwirzyno";
+import OkolicaKolobrzeg from "./pages/OkolicaKolobrzeg";
+import OkolicaZPsem from "./pages/OkolicaZPsem";
+import OkolicaSciezkiRowerowe from "./pages/OkolicaSciezkiRowerowe";
 
 const queryClient = new QueryClient();
 
@@ -30,7 +36,12 @@ const App = () => {
               <Route path="/cennik" element={<Cennik />} />
               <Route path="/kontakt" element={<Kontakt />} />
               <Route path="/rezerwacja" element={<Rezerwacja />} />
-              {/* Area pages will be added */}
+              <Route path="/okolica" element={<Okolica />} />
+              <Route path="/okolica/mrzezyna" element={<OkolicaMrzezyna />} />
+              <Route path="/okolica/dzwirzyno" element={<OkolicaDzwirzyno />} />
+              <Route path="/okolica/kolobrzeg" element={<OkolicaKolobrzeg />} />
+              <Route path="/okolica/z-psem" element={<OkolicaZPsem />} />
+              <Route path="/okolica/sciezki-rowerowe" element={<OkolicaSciezkiRowerowe />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
