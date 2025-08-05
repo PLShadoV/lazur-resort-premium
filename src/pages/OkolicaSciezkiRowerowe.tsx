@@ -106,61 +106,35 @@ const OkolicaSciezkiRowerowe = () => {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <Card className="glass-card border-0">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-light text-foreground mb-6">
-                  Wypożyczalnia rowerów
-                </h2>
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="font-medium text-foreground mb-2">Dostępne rowery:</h3>
-                    <ul className="space-y-2 text-foreground/80">
-                      <li className="break-words">• Rowery trekkingowe dla dorosłych</li>
-                      <li className="break-words">• Rowery dziecięce (różne rozmiary)</li>
-                      <li className="break-words">• Fotelik rowerowy dla małych dzieci</li>
-                      <li className="break-words">• Przyczepka rowerowa</li>
-                    </ul>
+          <div className="flex justify-center mb-12">
+            <div className="max-w-lg">
+              <Card className="glass-card border-0">
+                <CardContent className="p-8">
+                  <h2 className="text-2xl font-light text-foreground mb-6 text-center">
+                    Przydatne informacje
+                  </h2>
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="font-medium text-foreground mb-2">Bezpieczeństwo:</h3>
+                      <ul className="space-y-2 text-foreground/80">
+                        <li className="break-words">• Zawsze używaj kasku</li>
+                        <li className="break-words">• Jedź po prawej stronie drogi</li>
+                        <li className="break-words">• Unikaj jazdy po zmroku</li>
+                        <li className="break-words">• Zabierz telefon i wodę</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-foreground mb-2">Najlepszy czas:</h3>
+                      <ul className="space-y-2 text-foreground/80">
+                        <li className="break-words">• Maj - Wrzesień (sezon letni)</li>
+                        <li className="break-words">• Rano (mniej turystów)</li>
+                        <li className="break-words">• Wczesnym wieczorem (piękne światło)</li>
+                      </ul>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-medium text-foreground mb-2">W zestawie:</h3>
-                    <ul className="space-y-2 text-foreground/80">
-                      <li className="break-words">• Kask ochronny</li>
-                      <li className="break-words">• Zestaw naprawczy</li>
-                      <li className="break-words">• Mapka tras</li>
-                      <li className="break-words">• Koszyk na rzeczy</li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-card border-0">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-light text-foreground mb-6">
-                  Przydatne informacje
-                </h2>
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="font-medium text-foreground mb-2">Bezpieczeństwo:</h3>
-                    <ul className="space-y-2 text-foreground/80">
-                      <li className="break-words">• Zawsze używaj kasku</li>
-                      <li className="break-words">• Jedź po prawej stronie drogi</li>
-                      <li className="break-words">• Unikaj jazdy po zmroku</li>
-                      <li className="break-words">• Zabierz telefon i wodę</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-foreground mb-2">Najlepszy czas:</h3>
-                    <ul className="space-y-2 text-foreground/80">
-                      <li className="break-words">• Maj - Wrzesień (sezon letni)</li>
-                      <li className="break-words">• Rano (mniej turystów)</li>
-                      <li className="break-words">• Wczesnym wieczorem (piękne światło)</li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
           <div className="text-center flex flex-col sm:flex-row gap-4 justify-center">

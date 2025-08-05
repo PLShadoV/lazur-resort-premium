@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { List, X, CaretDown } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
-// Using uploaded logo image
-const lazurLogo = '/lovable-uploads/8b4ddeb2-e7a9-46bf-8902-865f5f51bcd2.png';
+import lazurLogo from '@/assets/lazur-logo.png';
 
 interface NavItem {
   label: string;
@@ -67,11 +66,11 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20">
-              <span className="text-white font-bold text-xl tracking-wide">
-                Lazur Resort
-              </span>
-            </div>
+            <img 
+              src={lazurLogo} 
+              alt="Lazur Resort Logo" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
