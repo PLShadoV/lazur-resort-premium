@@ -58,10 +58,10 @@ export const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-primary/95 backdrop-blur-md shadow-luxury'
-          : 'bg-primary'
+          ? 'backdrop-blur-md shadow-luxury'
+          : ''
       }`}
-      style={{ backgroundColor: isScrolled ? 'hsla(var(--primary), 0.95)' : 'hsl(var(--primary))' }}
+      style={{ backgroundColor: isScrolled ? '#081c4c' : '#081c4c' }}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
@@ -133,7 +133,8 @@ export const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-white p-2"
+            className="lg:hidden text-white p-2 rounded-md"
+            style={{ backgroundColor: '#081c4c' }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -147,7 +148,7 @@ export const Navigation = () => {
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
           style={{ 
-            backgroundColor: 'hsl(var(--primary))', 
+            backgroundColor: '#081c4c', 
             opacity: 1,
             backdropFilter: 'none'
           }}
