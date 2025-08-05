@@ -243,19 +243,19 @@ const Homepage = () => {
                   />
                 </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
-                    <div className="flex items-center gap-3 mb-2 sm:mb-3">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                        <PawPrint size={20} weight="light" style={{ color: '#967d48' }} className="sm:hidden" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-6 text-white">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-3">
+                      <div className="w-8 h-8 sm:w-12 sm:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                        <PawPrint size={16} weight="light" style={{ color: '#967d48' }} className="sm:hidden" />
                         <PawPrint size={24} weight="light" style={{ color: '#967d48' }} className="hidden sm:block" />
                       </div>
-                      <h3 className="text-lg sm:text-2xl font-medium">Pobyt z czworonogiem</h3>
+                      <h3 className="text-base sm:text-2xl font-medium">Pobyt z czworonogiem</h3>
                     </div>
-                    <p className="text-white/90 leading-relaxed mb-2 sm:mb-3 text-sm sm:text-base">
+                    <p className="text-white/90 leading-relaxed mb-1 sm:mb-3 text-xs sm:text-base">
                       Akceptujemy zwierzęta domowe. Duże tereny zielone i bliskość 
                       plaży to idealne warunki dla Twojego pupila.
                     </p>
-                    <ul className="space-y-1 text-xs sm:text-sm text-white/80">
+                    <ul className="space-y-0.5 text-xs sm:text-sm text-white/80">
                       <li>• Zwierzęta dozwolone za dopłatą 15 zł/dobę</li>
                       <li>• Duży ogród przy każdym domku</li>
                       <li>• Blisko plaża przyjazna psom</li>
@@ -279,19 +279,19 @@ const Homepage = () => {
                   />
                 </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
-                    <div className="flex items-center gap-3 mb-2 sm:mb-3">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                        <Bicycle size={20} weight="light" style={{ color: '#967d48' }} className="sm:hidden" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-6 text-white">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-3">
+                      <div className="w-8 h-8 sm:w-12 sm:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                        <Bicycle size={16} weight="light" style={{ color: '#967d48' }} className="sm:hidden" />
                         <Bicycle size={24} weight="light" style={{ color: '#967d48' }} className="hidden sm:block" />
                       </div>
-                      <h3 className="text-lg sm:text-2xl font-medium">Rowerem nad morzem</h3>
+                      <h3 className="text-base sm:text-2xl font-medium">Rowerem nad morzem</h3>
                     </div>
-                    <p className="text-white/90 leading-relaxed mb-2 sm:mb-3 text-sm sm:text-base">
+                    <p className="text-white/90 leading-relaxed mb-1 sm:mb-3 text-xs sm:text-base">
                       Odkryj urokliwe ścieżki rowerowe łączące Rogowo z Mrzeżynem, 
                       Dźwirzynem i Kołobrzegiem.
                     </p>
-                    <ul className="space-y-1 text-xs sm:text-sm text-white/80">
+                    <ul className="space-y-0.5 text-xs sm:text-sm text-white/80">
                       <li>• Trasy dla całej rodziny</li>
                       <li>• Przepiękne widoki na morze</li>
                       <li>• Bezpieczne ścieżki rowerowe</li>
