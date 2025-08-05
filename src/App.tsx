@@ -15,29 +15,31 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <div className="min-h-screen bg-background">
-          <Navigation />
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/galeria" element={<Galeria />} />
-            <Route path="/cennik" element={<Cennik />} />
-            <Route path="/kontakt" element={<Kontakt />} />
-            <Route path="/rezerwacja" element={<Rezerwacja />} />
-            {/* Area pages will be added */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
-          <FloatingButtons />
-        </div>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <div className="min-h-screen bg-background">
+            <Navigation />
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/galeria" element={<Galeria />} />
+              <Route path="/cennik" element={<Cennik />} />
+              <Route path="/kontakt" element={<Kontakt />} />
+              <Route path="/rezerwacja" element={<Rezerwacja />} />
+              {/* Area pages will be added */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <Footer />
+            <FloatingButtons />
+          </div>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
