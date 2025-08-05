@@ -3,7 +3,7 @@ import { Phone, Envelope, MapPin, Calendar, CaretUp, CaretDown } from '@phosphor
 import { Button } from '@/components/ui/button';
 
 export const FloatingButtons = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const buttons = [
     {

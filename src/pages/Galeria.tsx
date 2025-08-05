@@ -31,17 +31,20 @@ const Galeria = () => {
     }
   };
 
-  // Using the uploaded cottage image multiple times for demo
-  const galleryImages = [
-    { src: cottageExterior, alt: 'Zewnętrzny widok domku Lazur Resort', category: 'Exterior' },
-    { src: cottageExterior, alt: 'Taras z meblami ogrodowymi', category: 'Exterior' },
-    { src: cottageExterior, alt: 'Ogród przy domku', category: 'Exterior' },
-    { src: cottageExterior, alt: 'Parking przy domku', category: 'Exterior' },
-    { src: cottageExterior, alt: 'Salon z rozkładaną sofą', category: 'Interior' },
-    { src: cottageExterior, alt: 'Kuchnia z pełnym wyposażeniem', category: 'Interior' },
-    { src: cottageExterior, alt: 'Sypialnia główna', category: 'Interior' },
-    { src: cottageExterior, alt: 'Druga sypialnia', category: 'Interior' },
-    { src: cottageExterior, alt: 'Łazienka z prysznicem', category: 'Interior' },
+  const exteriorImages = [
+    { src: cottageExterior, alt: 'Zewnętrzny widok domku Lazur Resort' },
+    { src: cottageExterior, alt: 'Taras z meblami ogrodowymi' },
+    { src: cottageExterior, alt: 'Ogród przy domku' },
+    { src: cottageExterior, alt: 'Parking przy domku' },
+    { src: cottageExterior, alt: 'Wejście do domku' },
+  ];
+
+  const interiorImages = [
+    { src: cottageExterior, alt: 'Salon z rozkładaną sofą' },
+    { src: cottageExterior, alt: 'Kuchnia z pełnym wyposażeniem' },
+    { src: cottageExterior, alt: 'Sypialnia główna' },
+    { src: cottageExterior, alt: 'Druga sypialnia' },
+    { src: cottageExterior, alt: 'Łazienka z prysznicem' },
   ];
 
   return (
@@ -59,11 +62,14 @@ const Galeria = () => {
         </div>
       </section>
 
-      {/* Gallery Grid */}
+      {/* Exterior Gallery */}
       <section ref={addToRefs} className="py-16 scroll-reveal">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {galleryImages.map((image, index) => (
+          <h2 className="text-3xl font-light tracking-tight mb-8 text-center">
+            Widoki zewnętrzne
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {exteriorImages.map((image, index) => (
               <Card
                 key={index}
                 className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300 group"
@@ -77,7 +83,31 @@ const Galeria = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-4 left-4 right-4">
                       <p className="text-white text-sm font-medium">{image.alt}</p>
-                      <p className="text-white/80 text-xs">{image.category}</p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <h2 className="text-3xl font-light tracking-tight mb-8 text-center">
+            Wnętrza domków
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {interiorImages.map((image, index) => (
+              <Card
+                key={index}
+                className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300 group"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <p className="text-white text-sm font-medium">{image.alt}</p>
                     </div>
                   </div>
                 </div>

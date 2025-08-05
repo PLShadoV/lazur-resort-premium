@@ -5,6 +5,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { House, Waves, Users, Car, WifiHigh, PawPrint, MapPin, Star, Bicycle, TreeEvergreen } from '@phosphor-icons/react';
 import heroDrone from '@/assets/hero-drone.jpg';
 import cottageExterior from '@/assets/cottage-exterior.jpg';
+import cuteDogBeach from '@/assets/cute-dog-beach.jpg';
+import bicycleForestPath from '@/assets/bicycle-forest-path.jpg';
 const Homepage = () => {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
   useEffect(() => {
@@ -52,19 +54,28 @@ const Homepage = () => {
     title: 'Akceptujemy zwierzęta',
     description: 'Twój czworonóg też jest mile widziany'
   }];
-  const reviews = [{
-    name: 'Anna Kowalska',
-    rating: 5,
-    text: 'Przepiękne miejsce na wypoczynek z rodziną. Domki bardzo czyste i dobrze wyposażone. Bliskość morza to ogromny plus!'
-  }, {
-    name: 'Piotr Nowak',
-    rating: 5,
-    text: 'Wspaniały pobyt w Lazur Resort. Spokojne miejsce, profesjonalna obsługa. Na pewno wrócimy!'
-  }, {
-    name: 'Magdalena Wiśniewska',
-    rating: 5,
-    text: 'Idealne miejsce na wakacje z psem. Dużo miejsca, blisko plaża. Gorąco polecam!'
-  }];
+  const reviews = [
+    {
+      name: "Magdalena",
+      rating: 5,
+      text: "Piękne miejsce, świetne do wypoczynku z dziećmi. Domki bardzo czyste i dobrze wyposażone. Blisko do plaży, co jest ogromnym atutem."
+    },
+    {
+      name: "Piotr K.",
+      rating: 5,
+      text: "Wspaniała lokalizacja, cisza i spokój. Właściciele bardzo mili i pomocni. Gorąco polecamy!"
+    },
+    {
+      name: "Anna W.",
+      rating: 5,
+      text: "Doskonałe miejsce na wakacje z rodziną. Domki komfortowe, a okolica piękna. Na pewno wrócimy!"
+    },
+    {
+      name: "Michał J.",
+      rating: 5,
+      text: "Świetna lokalizacja, blisko morza i lasu. Domki czyste i wygodne. Idealne miejsce na relaks."
+    }
+  ];
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -168,40 +179,62 @@ const Homepage = () => {
       <section ref={addToRefs} className="py-20 scroll-reveal">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <Card className="glass-card p-8">
-              <div className="text-center mb-8">
-                <PawPrint size={64} weight="light" className="mx-auto mb-4 text-ocean" />
-                <h3 className="text-2xl font-light tracking-tight mb-4">
-                  Pobyt z czworonogiem
-                </h3>
-                <p className="text-muted-foreground">
-                  Akceptujemy zwierzęta domowe. Duże tereny zielone i bliskość 
-                  plaży to idealne warunki dla Twojego pupila.
-                </p>
+            <Card className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300">
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <img 
+                  src={cuteDogBeach} 
+                  alt="Pobyt z psem nad morzem"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                        <PawPrint size={24} weight="light" style={{ color: '#967d48' }} />
+                      </div>
+                      <h3 className="text-2xl font-medium">Pobyt z czworonogiem</h3>
+                    </div>
+                    <p className="text-white/90 leading-relaxed mb-3">
+                      Akceptujemy zwierzęta domowe. Duże tereny zielone i bliskość 
+                      plaży to idealne warunki dla Twojego pupila.
+                    </p>
+                    <ul className="space-y-1 text-sm text-white/80">
+                      <li>• Zwierzęta dozwolone za dopłatą 15 zł/dobę</li>
+                      <li>• Duży ogród przy każdym domku</li>
+                      <li>• Blisko plaża przyjazna psom</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <ul className="space-y-2 text-center">
-                <li>• Zwierzęta dozwolone za dopłatą 15 zł/dobę</li>
-                <li>• Duży ogród przy każdym domku</li>
-                <li>• Blisko plaża przyjazna psom</li>
-              </ul>
             </Card>
 
-            <Card className="glass-card p-8">
-              <div className="text-center mb-8">
-                <Bicycle size={64} weight="light" className="mx-auto mb-4 text-ocean" />
-                <h3 className="text-2xl font-light tracking-tight mb-4">
-                  Rowerem nad morzem
-                </h3>
-                <p className="text-muted-foreground">
-                  Odkryj urokliwe ścieżki rowerowe łączące Rogowo z Mrzeżynem, 
-                  Dźwirzynem i Kołobrzegiem.
-                </p>
+            <Card className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300">
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <img 
+                  src={bicycleForestPath} 
+                  alt="Wycieczki rowerowe po lasach"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                        <Bicycle size={24} weight="light" style={{ color: '#967d48' }} />
+                      </div>
+                      <h3 className="text-2xl font-medium">Rowerem nad morzem</h3>
+                    </div>
+                    <p className="text-white/90 leading-relaxed mb-3">
+                      Odkryj urokliwe ścieżki rowerowe łączące Rogowo z Mrzeżynem, 
+                      Dźwirzynem i Kołobrzegiem.
+                    </p>
+                    <ul className="space-y-1 text-sm text-white/80">
+                      <li>• Trasy dla całej rodziny</li>
+                      <li>• Przepiękne widoki na morze</li>
+                      <li>• Bezpieczne ścieżki rowerowe</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <ul className="space-y-2 text-center">
-                <li>• Trasy dla całej rodziny</li>
-                <li>• Przepiękne widoki na morze</li>
-                <li>• Bezpieczne ścieżki rowerowe</li>
-              </ul>
             </Card>
           </div>
         </div>
