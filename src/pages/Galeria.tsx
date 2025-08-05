@@ -7,7 +7,7 @@ import cottageExterior from '@/assets/cottage-exterior.jpg';
 import cottageExteriorMobile from '@/assets/cottage-exterior-mobile.webp';
 import altana from '@/assets/altana.webp';
 import domekBok from '@/assets/domek-bok.webp';
-import domekNaDzialce from '@/assets/domek-na-dzialce.webp';
+import lozko from '@/assets/domek-na-dzialce.webp';
 import domekPrzod from '@/assets/domek-przod.webp';
 import domekZTarasem from '@/assets/domek-z-tarasem.webp';
 import domekZewnatrz from '@/assets/domekzewnatrz.webp';
@@ -15,7 +15,7 @@ import kanapa from '@/assets/kanapa.webp';
 import kuchnia from '@/assets/kuchnia.webp';
 import pomostOZmierzchu from '@/assets/pomost-o-zmierzchu.webp';
 import sypialnia from '@/assets/sypialnia.webp';
-import tarasWieczorem from '@/assets/taras-wieczorem.webp';
+import sypialnialozko from '@/assets/taras-wieczorem.webp';
 import tarasZDachu from '@/assets/taras-z-dachu.webp';
 import wejscieDoDomu from '@/assets/wejscie-do-domku.webp';
 import widokNaLas from '@/assets/widok-na-las.webp';
@@ -56,13 +56,11 @@ const Galeria = () => {
   const exteriorImages = [
     { src: domekZewnatrz, srcMobile: domekZewnatrz, alt: 'Domek Lazur Resort od zewnątrz - luksusowy domek letniskowy nad morzem' },
     { src: domekPrzod, srcMobile: domekPrzod, alt: 'Domek na działce - widok ogólny całej nieruchomości' },
-    { src: domekNaDzialce, srcMobile: domekNaDzialce, alt: 'Widok boczny domku - architektura i otoczenie' },
     { src: domekBok, srcMobile: domekBok, alt: 'Główne wejście do domku - eleganckie i funkcjonalne wejście' },
     { src: domekZTarasem, srcMobile: domekZTarasem, alt: 'Domek z tarasem - przestrzeń do relaksu na świeżym powietrzu' },
     { src: tarasZDachu, srcMobile: tarasZDachu, alt: 'Widok tarasu z perspektywy dachu - panorama okolicy' },
     { src: wejscieDoDomu, srcMobile: wejscieDoDomu, alt: 'Wejście do domku - stylowe i komfortowe wejście' },
     { src: altana, srcMobile: altana, alt: 'Altana ogrodowa - dodatkowa przestrzeń relaksowa' },
-    { src: tarasWieczorem, srcMobile: tarasWieczorem, alt: 'Taras wieczorem - romantyczny nastrój i atmosfera' },
     { src: widokNaLas, srcMobile: widokNaLas, alt: 'Widok na las z okolic domku - bliskość natury' },
     { src: pomostOZmierzchu, srcMobile: pomostOZmierzchu, alt: 'Pomost o zmierzchu - spokojne miejsce nad wodą' },
     { src: zachodNadJeziorem, srcMobile: zachodNadJeziorem, alt: 'Zachód słońca nad jeziorem - malownicze widoki' },
@@ -72,6 +70,8 @@ const Galeria = () => {
     { src: wnetrzeSalon, srcMobile: wnetrzeSalon, alt: 'Salon z rozkładaną sofą - komfortowa przestrzeń wypoczynkowa dla 8 osób' },
     { src: kanapa, srcMobile: kanapa, alt: 'Wygodna kanapa w salonie - miejsce relaksu dla całej rodziny' },
     { src: kuchnia, srcMobile: kuchnia, alt: 'Kuchnia z pełnym wyposażeniem - nowoczesne urządzenia AGD' },
+    { src: sypialnialozko, srcMobile: tarasWieczorem, alt: 'Łóżko podwójne w sypialni' },
+    { src: lozko, srcMobile: domekNaDzialce, alt: 'Łóżko rozkładane' },
     { src: sypialnia, srcMobile: sypialnia, alt: 'Sypialnia - komfortowe łóżko i przytulne wnętrze' },
     { src: lazienka, srcMobile: lazienka, alt: 'Widok na łazienkę z prysznicem' },
   ];
