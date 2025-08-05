@@ -134,7 +134,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/60">
           <p>
-            © 2024 Lazur Resort Rogowo. Wszystkie prawa zastrzeżone. |{' '}
+            © {new Date().getFullYear()} Lazur Resort Rogowo. Wszystkie prawa zastrzeżone. |{' '}
             <Link to="/polityka-prywatnosci" className="hover:text-white transition-colors">
               Polityka prywatności
             </Link>

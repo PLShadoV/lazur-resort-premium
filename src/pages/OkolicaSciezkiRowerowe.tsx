@@ -163,12 +163,16 @@ const OkolicaSciezkiRowerowe = () => {
             </Card>
           </div>
 
-          <div className="text-center">
-            <Button asChild className="btn-luxury mr-4">
-              <Link to="/rezerwacja">Zarezerwuj pobyt</Link>
+          <div className="text-center flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild className="btn-luxury">
+              <Link to="/rezerwacja">
+                <span className="text-sm sm:text-base">Zarezerwuj pobyt</span>
+              </Link>
             </Button>
             <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
-              <Link to="/okolica">Wróć do okolicy</Link>
+              <Link to="/okolica">
+                <span className="text-sm sm:text-base">Wróć do okolicy</span>
+              </Link>
             </Button>
           </div>
         </div>

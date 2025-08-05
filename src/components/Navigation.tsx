@@ -153,7 +153,7 @@ export const Navigation = () => {
             backdropFilter: 'none'
           }}
         >
-          <div className="p-6 space-y-4">
+          <div className="p-6 space-y-4 overflow-y-auto max-h-full">
             {navItems.map((item) => (
               <div key={item.label}>
                 {item.children ? (
