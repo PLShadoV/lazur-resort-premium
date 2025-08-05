@@ -61,6 +61,7 @@ export const Navigation = () => {
           ? 'bg-primary/95 backdrop-blur-md shadow-luxury'
           : 'bg-primary'
       }`}
+      style={{ backgroundColor: isScrolled ? 'hsla(var(--primary), 0.95)' : 'hsl(var(--primary))' }}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
