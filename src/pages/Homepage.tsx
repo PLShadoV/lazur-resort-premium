@@ -2,108 +2,75 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { 
-  House, 
-  Waves, 
-  Users, 
-  Car, 
-  WifiHigh,
-  PawPrint,
-  MapPin,
-  Star,
-  Bicycle,
-  TreeEvergreen
-} from '@phosphor-icons/react';
+import { House, Waves, Users, Car, WifiHigh, PawPrint, MapPin, Star, Bicycle, TreeEvergreen } from '@phosphor-icons/react';
 import heroDrone from '@/assets/hero-drone.jpg';
 import cottageExterior from '@/assets/cottage-exterior.jpg';
-
 const Homepage = () => {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    sectionsRef.current.forEach((section) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    sectionsRef.current.forEach(section => {
       if (section) observer.observe(section);
     });
-
     return () => observer.disconnect();
   }, []);
-
   const addToRefs = (el: HTMLElement | null) => {
     if (el && !sectionsRef.current.includes(el)) {
       sectionsRef.current.push(el);
     }
   };
-
-  const features = [
-    {
-      icon: House,
-      title: 'Komfortowe domki',
-      description: 'Luksusowe domki dla maksymalnie 8 osób z pełnym wyposażeniem'
-    },
-    {
-      icon: Waves,
-      title: 'Blisko morza',
-      description: 'Zaledwie 400 metrów do pięknej plaży w Rogowie'
-    },
-    {
-      icon: Users,
-      title: 'Dla rodzin',
-      description: 'Idealne miejsce na wypoczynek z dziećmi i przyjaciółmi'
-    },
-    {
-      icon: Car,
-      title: 'Bezpłatny parking',
-      description: 'Prywatny parking przy każdym domku'
-    },
-    {
-      icon: WifiHigh,
-      title: 'WiFi i TV',
-      description: 'Darmowy internet oraz telewizja satelitarna'
-    },
-    {
-      icon: PawPrint,
-      title: 'Akceptujemy zwierzęta',
-      description: 'Twój czworonóg też jest mile widziany'
-    }
-  ];
-
-  const reviews = [
-    {
-      name: 'Anna Kowalska',
-      rating: 5,
-      text: 'Przepiękne miejsce na wypoczynek z rodziną. Domki bardzo czyste i dobrze wyposażone. Bliskość morza to ogromny plus!'
-    },
-    {
-      name: 'Piotr Nowak',
-      rating: 5,
-      text: 'Wspaniały pobyt w Lazur Resort. Spokojne miejsce, profesjonalna obsługa. Na pewno wrócimy!'
-    },
-    {
-      name: 'Magdalena Wiśniewska',
-      rating: 5,
-      text: 'Idealne miejsce na wakacje z psem. Dużo miejsca, blisko plaża. Gorąco polecam!'
-    }
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const features = [{
+    icon: House,
+    title: 'Komfortowe domki',
+    description: 'Luksusowe domki dla maksymalnie 8 osób z pełnym wyposażeniem'
+  }, {
+    icon: Waves,
+    title: 'Blisko morza',
+    description: 'Zaledwie 400 metrów do pięknej plaży w Rogowie'
+  }, {
+    icon: Users,
+    title: 'Dla rodzin',
+    description: 'Idealne miejsce na wypoczynek z dziećmi i przyjaciółmi'
+  }, {
+    icon: Car,
+    title: 'Bezpłatny parking',
+    description: 'Prywatny parking przy każdym domku'
+  }, {
+    icon: WifiHigh,
+    title: 'WiFi i TV',
+    description: 'Darmowy internet oraz telewizja satelitarna'
+  }, {
+    icon: PawPrint,
+    title: 'Akceptujemy zwierzęta',
+    description: 'Twój czworonóg też jest mile widziany'
+  }];
+  const reviews = [{
+    name: 'Anna Kowalska',
+    rating: 5,
+    text: 'Przepiękne miejsce na wypoczynek z rodziną. Domki bardzo czyste i dobrze wyposażone. Bliskość morza to ogromny plus!'
+  }, {
+    name: 'Piotr Nowak',
+    rating: 5,
+    text: 'Wspaniały pobyt w Lazur Resort. Spokojne miejsce, profesjonalna obsługa. Na pewno wrócimy!'
+  }, {
+    name: 'Magdalena Wiśniewska',
+    rating: 5,
+    text: 'Idealne miejsce na wakacje z psem. Dużo miejsca, blisko plaża. Gorąco polecam!'
+  }];
+  return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroDrone})` }}
-        >
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+        backgroundImage: `url(${heroDrone})`
+      }}>
           <div className="absolute inset-0 bg-primary/30"></div>
         </div>
         
@@ -118,11 +85,7 @@ const Homepage = () => {
             Odkryj spokój i komfort w naszych ekskluzywnych domkach położonych między Kołobrzegiem a Mrzeżynem. 
             Zaledwie 400 metrów od pięknej, piaszczystej plaży Bałtyku.
           </p>
-          <p className="text-md md:text-lg font-light mb-12 opacity-75 max-w-3xl mx-auto">
-            Lazur Resort to 4 identyczne, w pełni wyposażone domki dla maksymalnie 8 osób każdy. 
-            Idealna lokalizacja w malowniczym Rogowie zapewnia ciszy i spokój, 
-            a jednocześnie łatwy dostęp do najpiękniejszych atrakcji zachodniopomorskiego wybrzeża.
-          </p>
+          
           
           <Button asChild className="btn-luxury text-lg px-12 py-6">
             <Link to="/rezerwacja">Zarezerwuj</Link>
@@ -143,15 +106,13 @@ const Homepage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="glass-card hover:shadow-luxury transition-all duration-300">
+            {features.map((feature, index) => <Card key={index} className="glass-card hover:shadow-luxury transition-all duration-300">
                 <CardContent className="p-8 text-center">
                   <feature.icon size={48} weight="light" className="mx-auto mb-6 text-ocean" />
                   <h3 className="text-xl font-medium mb-4">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -161,11 +122,7 @@ const Homepage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img
-                src={cottageExterior}
-                alt="Domek Lazur Resort"
-                className="rounded-2xl shadow-luxury w-full"
-              />
+              <img src={cottageExterior} alt="Domek Lazur Resort" className="rounded-2xl shadow-luxury w-full" />
             </div>
             <div className="space-y-6">
               <h2 className="text-4xl font-light tracking-tight">
@@ -284,16 +241,9 @@ const Homepage = () => {
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-luxury">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2338.8234567!2d15.5773896!3d54.2823456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47aa5e5e5e5e5e5e%3A0x5e5e5e5e5e5e5e5e!2sMakowa+6%2C+72-330+Rogowo!5e0!3m2!1spl!2spl!4v1645123456789"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-xl"
-              ></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2338.8234567!2d15.5773896!3d54.2823456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47aa5e5e5e5e5e5e%3A0x5e5e5e5e5e5e5e5e!2sMakowa+6%2C+72-330+Rogowo!5e0!3m2!1spl!2spl!4v1645123456789" width="100%" height="300" style={{
+              border: 0
+            }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="rounded-xl"></iframe>
             </div>
           </div>
         </div>
@@ -312,24 +262,20 @@ const Homepage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {reviews.map((review, index) => (
-              <Card key={index} className="glass-card p-6">
+            {reviews.map((review, index) => <Card key={index} className="glass-card p-6">
                 <div className="flex items-center mb-4">
-                  {Array.from({ length: review.rating }).map((_, i) => (
-                    <Star key={i} size={20} weight="fill" className="text-yellow-400" />
-                  ))}
+                  {Array.from({
+                length: review.rating
+              }).map((_, i) => <Star key={i} size={20} weight="fill" className="text-yellow-400" />)}
                 </div>
                 <p className="text-muted-foreground mb-4 italic">
                   "{review.text}"
                 </p>
                 <p className="font-medium">— {review.name}</p>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Homepage;
