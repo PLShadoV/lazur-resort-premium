@@ -66,11 +66,9 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img 
-              src={lazurLogo} 
-              alt="Lazur Resort Logo" 
-              className="h-16 w-auto"
-            />
+            <span className="text-white font-bold text-3xl tracking-wide">
+              LAZUR RESORT
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
