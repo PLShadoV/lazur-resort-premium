@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { List, X, CaretDown } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
-import lazurLogo from '@/assets/lazur-logo.png';
+import lazurLogo from '@/assets/lazur-logo-transparent.png';
 
 interface NavItem {
   label: string;
@@ -69,7 +69,7 @@ export const Navigation = () => {
             <img 
               src={lazurLogo} 
               alt="Lazur Resort Logo" 
-              className="h-12 w-auto"
+              className="h-16 w-auto"
             />
           </Link>
 
