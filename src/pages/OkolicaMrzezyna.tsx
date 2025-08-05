@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { MapPin, Clock, Car, Anchor, Tree, Camera } from '@phosphor-icons/react';
-import mrzezynaImage from '@/assets/mrzezyna-village.jpg';
+import mrzezynaImage from '@/assets/port-w-mrzezynie.jpg';
 
 const OkolicaMrzezyna = () => {
   return (
