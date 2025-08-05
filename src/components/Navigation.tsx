@@ -145,7 +145,7 @@ export const Navigation = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden fixed top-16 right-0 bottom-0 w-80 bg-white shadow-luxury transform transition-transform duration-300 ${
+          className={`lg:hidden fixed top-16 right-0 bottom-0 w-80 bg-primary shadow-luxury transform transition-transform duration-300 ${
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
@@ -155,13 +155,13 @@ export const Navigation = () => {
                 {item.children ? (
                   <div>
                     <button
-                      className="flex items-center justify-between w-full text-left py-2 text-foreground font-medium"
+                      className="flex items-center justify-between w-full text-left py-2 text-white font-medium"
                       onClick={() => handleDropdownToggle(item.label)}
                     >
                       {item.label}
                       <CaretDown
                         size={16}
-                        className={`transition-transform ${
+                        className={`transition-transform text-white ${
                           activeDropdown === item.label ? 'rotate-180' : ''
                         }`}
                       />
@@ -172,7 +172,7 @@ export const Navigation = () => {
                           <Link
                             key={child.label}
                             to={child.href}
-                            className="block py-2 text-muted-foreground hover:text-foreground transition-colors"
+                            className="block py-2 text-white/80 hover:text-white transition-colors"
                           >
                             {child.label}
                           </Link>
@@ -183,8 +183,8 @@ export const Navigation = () => {
                 ) : (
                   <Link
                     to={item.href}
-                    className={`block py-2 text-foreground hover:text-primary transition-colors ${
-                      location.pathname === item.href ? 'text-primary font-medium' : ''
+                    className={`block py-2 text-white hover:text-white/80 transition-colors ${
+                      location.pathname === item.href ? 'text-white font-medium' : ''
                     }`}
                   >
                     {item.label}

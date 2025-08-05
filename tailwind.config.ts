@@ -64,7 +64,7 @@ export default {
 				},
 				// Lazur Resort Custom Colors
 				ocean: {
-					DEFAULT: 'hsl(var(--ocean-blue))',
+					DEFAULT: 'hsl(39, 35%, 43%)',
 					light: 'hsl(var(--ocean-light))'
 				},
 				sand: 'hsl(var(--sand))',

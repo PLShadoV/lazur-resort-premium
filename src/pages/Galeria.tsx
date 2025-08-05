@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Card } from '@/components/ui/card';
+import { House, Armchair, ChefHat, Shower, Table, TreeEvergreen, Fire, Car, WifiHigh, Bed, PawPrint, Waves } from '@phosphor-icons/react';
 import cottageExterior from '@/assets/cottage-exterior.jpg';
 
 const Galeria = () => {
@@ -94,30 +95,66 @@ const Galeria = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-4">
-              <h3 className="text-xl font-medium">Wnętrza</h3>
+              <h3 className="text-xl font-medium">Przestrzeń mieszkalna</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>2 sypialnie dla maksymalnie 8 osób</li>
-                <li>Salon z rozkładaną sofą</li>
-                <li>Kuchnia z pełnym wyposażeniem</li>
-                <li>Łazienka z prysznicem</li>
+                <li className="flex items-center gap-2">
+                  <House size={16} weight="light" className="text-ocean" />
+                  2 sypialnie dla maksymalnie 8 osób
+                </li>
+                <li className="flex items-center gap-2">
+                  <Armchair size={16} weight="light" className="text-ocean" />
+                  Salon z rozkładaną sofą
+                </li>
+                <li className="flex items-center gap-2">
+                  <ChefHat size={16} weight="light" className="text-ocean" />
+                  Kuchnia z pełnym wyposażeniem
+                </li>
+                <li className="flex items-center gap-2">
+                  <Shower size={16} weight="light" className="text-ocean" />
+                  Łazienka z prysznicem
+                </li>
               </ul>
             </div>
             <div className="space-y-4">
-              <h3 className="text-xl font-medium">Zewnętrze</h3>
+              <h3 className="text-xl font-medium">Strefa relaksu</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>Duży taras z meblami</li>
-                <li>Prywatny ogród</li>
-                <li>Miejsce na grilla</li>
-                <li>Parking przy domku</li>
+                <li className="flex items-center gap-2">
+                  <Table size={16} weight="light" className="text-ocean" />
+                  Duży taras z meblami
+                </li>
+                <li className="flex items-center gap-2">
+                  <TreeEvergreen size={16} weight="light" className="text-ocean" />
+                  Prywatny ogród
+                </li>
+                <li className="flex items-center gap-2">
+                  <Fire size={16} weight="light" className="text-ocean" />
+                  Miejsce na grilla
+                </li>
+                <li className="flex items-center gap-2">
+                  <Car size={16} weight="light" className="text-ocean" />
+                  Parking przy domku
+                </li>
               </ul>
             </div>
             <div className="space-y-4">
               <h3 className="text-xl font-medium">Udogodnienia</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>WiFi i telewizja</li>
-                <li>Pościel i ręczniki</li>
-                <li>Miejsce dla zwierząt</li>
-                <li>400m do plaży</li>
+                <li className="flex items-center gap-2">
+                  <WifiHigh size={16} weight="light" className="text-ocean" />
+                  WiFi i telewizja
+                </li>
+                <li className="flex items-center gap-2">
+                  <Bed size={16} weight="light" className="text-ocean" />
+                  Pościel i ręczniki
+                </li>
+                <li className="flex items-center gap-2">
+                  <PawPrint size={16} weight="light" className="text-ocean" />
+                  Miejsce dla zwierząt
+                </li>
+                <li className="flex items-center gap-2">
+                  <Waves size={16} weight="light" className="text-ocean" />
+                  400m do plaży
+                </li>
               </ul>
             </div>
           </div>

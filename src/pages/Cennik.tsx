@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Check } from '@phosphor-icons/react';
+import { Check, House } from '@phosphor-icons/react';
 
 const Cennik = () => {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
@@ -161,7 +161,7 @@ const Cennik = () => {
                   season.highlight
                     ? 'ring-2 ring-ocean glass-card scale-105'
                     : 'glass-card hover:shadow-luxury'
-                } transition-all duration-300`}
+                } transition-all duration-300 group`}
               >
                 {season.highlight && (
                   <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-ocean text-white">
@@ -170,6 +170,9 @@ const Cennik = () => {
                 )}
                 
                 <CardHeader className="text-center pb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-ocean to-ocean/60 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <House size={24} weight="light" className="text-white" />
+                  </div>
                   <CardTitle className="text-xl font-light tracking-tight">
                     {season.name}
                   </CardTitle>
@@ -201,7 +204,7 @@ const Cennik = () => {
                     </div>
                   </div>
 
-                  <Button asChild className="btn-luxury w-full">
+                  <Button asChild className="btn-luxury w-full group-hover:scale-105 transition-transform duration-300">
                     <Link to="/rezerwacja">Rezerwuj</Link>
                   </Button>
                 </CardContent>

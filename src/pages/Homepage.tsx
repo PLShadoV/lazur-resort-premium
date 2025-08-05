@@ -241,7 +241,7 @@ const Homepage = () => {
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-luxury">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2338.8234567!2d15.5773896!3d54.2823456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47aa5e5e5e5e5e5e%3A0x5e5e5e5e5e5e5e5e!2sMakowa+6%2C+72-330+Rogowo!5e0!3m2!1spl!2spl!4v1645123456789" width="100%" height="300" style={{
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4677.647891234567!2d15.5773896!3d54.2823456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f11.1!3m3!1m2!1s0x47aa5e5e5e5e5e5e%3A0x5e5e5e5e5e5e5e5e!2sMakowa+6%2C+72-330+Rogowo!5e0!3m2!1spl!2spl!4v1645123456789" width="100%" height="300" style={{
               border: 0
             }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="rounded-xl"></iframe>
             </div>
@@ -254,7 +254,7 @@ const Homepage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-light tracking-tight mb-6">
-              Opinie Google 5 gwiazdek
+              Najwyżej oceniane Domki letniskowe 2025
             </h2>
             <p className="text-xl text-muted-foreground">
               Co mówią o nas nasi goście
