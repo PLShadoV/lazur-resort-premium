@@ -65,15 +65,12 @@ export const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <img
-              src={lazurLogo}
-              alt="Lazur Resort"
-              className="h-8 w-auto"
-            />
-            <span className="text-white font-medium text-lg tracking-tight">
-              Lazur Resort
-            </span>
+          <Link to="/" className="flex items-center">
+            <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20">
+              <span className="text-white font-bold text-xl tracking-wide">
+                Lazur Resort
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

@@ -33,7 +33,7 @@ export const FloatingButtons = () => {
   ];
 
   return (
-    <div className="floating-buttons">
+    <div className="floating-buttons fixed right-4 md:right-1/2 md:translate-x-1/2 bottom-4 md:top-1/2 md:-translate-y-1/2 z-40">
       {/* Action Buttons */}
       <div
         className={`flex flex-col gap-3 transition-all duration-300 ${

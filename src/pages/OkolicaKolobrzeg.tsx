@@ -1,102 +1,193 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Link } from 'react-router-dom';
-import { MapPin, Clock, Car } from '@phosphor-icons/react';
+import React from 'react';
+import { Card } from '@/components/ui/card';
+import { MapPin, Phone, Clock, Camera, Waves, Umbrella, TreeEvergreen } from '@phosphor-icons/react';
+import kolobrzegBeach from '@/assets/kolobrzeg-beach.jpg';
+import latarniaKolobrzeg from '@/assets/latarnia-kolobrzeg.jpg';
+import moloKolobrzeg from '@/assets/molo-kolobrzeg.jpg';
 
-const OkolicaKolobrzeg = () => {
+export const OkolicaKolobrzeg = () => {
   return (
-    <div className="min-h-screen pt-16 bg-background">
-      <div className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-6xl font-light tracking-tight text-foreground mb-6">
-              Domki na wynajem <span className="text-primary">Kołobrzeg</span>
-            </h1>
-            <p className="text-xl text-foreground/70 leading-relaxed">
-              Największy kurort nadmorski regionu z bogatą historią, licznymi atrakcjami i doskonałą infrastrukturą.
-            </p>
+    <div className="min-h-screen pt-16">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ 
+            backgroundImage: `url(${kolobrzegBeach})`,
+            filter: 'brightness(0.7)'
+          }}
+        />
+        <div className="relative z-10 text-center text-white">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Domki na wynajem Kołobrzeg
+          </h1>
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
+            Odkryj uroki nadmorskiego kurortu - plaże, uzdrowisko i niezapomniane wakacje
+          </p>
+        </div>
+      </section>
+
+      {/* About Kołobrzeg Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-foreground mb-6">
+                Kołobrzeg - Perła Polskiego Wybrzeża
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                Kołobrzeg to jeden z najpopularniejszych kurortów nadmorskich w Polsce, 
+                oferujący doskonałe warunki do wypoczynku i lecznictwa uzdrowiskowego. 
+                Miasto słynie z pięknych, szerokich plaż, nowoczesnych ośrodków SPA 
+                oraz bogatej historii.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Nasze domki znajdują się w idealnej lokalizacji - zaledwie 15 km od centrum 
+                Kołobrzegu, co pozwala cieszyć się spokojem natury i jednocześnie mieć 
+                łatwy dostęp do wszystkich atrakcji miasta.
+              </p>
+            </div>
+            <div className="relative">
+              <img 
+                src={latarniaKolobrzeg} 
+                alt="Latarnia morska w Kołobrzegu" 
+                className="rounded-xl shadow-lg w-full object-cover h-[400px]"
+              />
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <Card className="glass-card border-0">
-              <CardContent className="p-6 text-center">
-                <Car size={32} className="text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-foreground mb-2">Odległość</h3>
-                <p className="text-foreground/70">15 km od Lazur Resort</p>
-              </CardContent>
-            </Card>
-            <Card className="glass-card border-0">
-              <CardContent className="p-6 text-center">
-                <Clock size={32} className="text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-foreground mb-2">Czas dojazdu</h3>
-                <p className="text-foreground/70">20 minut samochodem</p>
-              </CardContent>
-            </Card>
-            <Card className="glass-card border-0">
-              <CardContent className="p-6 text-center">
-                <MapPin size={32} className="text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-foreground mb-2">Typ miejscowości</h3>
-                <p className="text-foreground/70">Miasto-kurort</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="prose prose-lg max-w-none text-foreground/80 mb-12">
-            <h2 className="text-2xl font-light text-foreground mb-6">Atrakcje Kołobrzegu</h2>
-            
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl font-medium text-foreground mb-3">Starówka i Port</h3>
-                <p>
-                  Zabytkowa starówka z gotycką katedrą i miejskimi fortyfikacjami. 
-                  Nowoczesny port z restauracjami, sklepami i wypożyczalniami sprzętu wodnego.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-medium text-foreground mb-3">Promenada nadmorska</h3>
-                <p>
-                  Kilkukilometrowa promenada z punktami gastronomicznymi, atrakcjami dla dzieci 
-                  i punktami widokowymi. Idealna na spacery o każdej porze dnia.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-medium text-foreground mb-3">Sanatorium i SPA</h3>
-                <p>
-                  Liczne ośrodki wellness wykorzystujące lecznicze właściwości morskiego klimatu. 
-                  Możliwość skorzystania z zabiegów spa i terapii solankowych.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-medium text-foreground mb-3">Muzea i zabytki</h3>
-                <p>
-                  Muzeum Oręża Polskiego, Bazylika Katedralna, ruiny średniowiecznych fortyfikacji. 
-                  Bogate dziedzictwo historyczne miasta.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-medium text-foreground mb-3">Wydarzenia kulturalne</h3>
-                <p>
-                  Festiwal piosenki żeglarskiej "Shanties", koncerty letnie, 
-                  targi regionalne i wydarzenia sportowe przez cały sezon.
-                </p>
+      {/* Beach Section */}
+      <section className="py-20 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1 relative">
+              <img 
+                src={moloKolobrzeg} 
+                alt="Molo w Kołobrzegu" 
+                className="rounded-xl shadow-lg w-full object-cover h-[400px]"
+              />
+            </div>
+            <div className="order-1 lg:order-2">
+              <h2 className="text-4xl font-bold text-foreground mb-6">
+                Plaże i Nadmorska Infrastruktura
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                Kołobrzeskie plaże to prawdziwa perła polskiego wybrzeża. Szerokie, 
+                piaszczyste plaże ciągną się na kilometry, oferując idealne warunki 
+                do plażowania, spacerów i aktywności wodnych.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="text-center">
+                  <Waves size={40} style={{ color: '#967d48' }} className="mx-auto mb-2" />
+                  <p className="font-medium">Czyste wody</p>
+                </div>
+                <div className="text-center">
+                  <Umbrella size={40} style={{ color: '#967d48' }} className="mx-auto mb-2" />
+                  <p className="font-medium">Wypożyczalnie</p>
+                </div>
+                <div className="text-center">
+                  <TreeEvergreen size={40} style={{ color: '#967d48' }} className="mx-auto mb-2" />
+                  <p className="font-medium">Park nadmorski</p>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="text-center">
-            <Button asChild className="btn-luxury mr-4">
-              <Link to="/rezerwacja">Zarezerwuj pobyt</Link>
-            </Button>
-            <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
-              <Link to="/okolica">Wróć do okolicy</Link>
-            </Button>
+      {/* Attractions Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-foreground mb-6">
+              Atrakcje Kołobrzegu
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Miasto pełne historii, kultury i nowoczesnych atrakcji
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="p-6 hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold mb-4">Starówka i Port</h3>
+              <p className="text-muted-foreground mb-4">
+                Zabytkowa starówka z gotycką katedrą i miejskimi fortyfikacjami. 
+                Nowoczesny port z restauracjami i atrakcjami.
+              </p>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold mb-4">Promenada</h3>
+              <p className="text-muted-foreground mb-4">
+                Kilkukilometrowa promenada z punktami gastronomicznymi 
+                i atrakcjami dla dzieci.
+              </p>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold mb-4">SPA i Wellness</h3>
+              <p className="text-muted-foreground mb-4">
+                Liczne ośrodki wykorzystujące lecznicze właściwości 
+                morskiego klimatu.
+              </p>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold mb-4">Muzea</h3>
+              <p className="text-muted-foreground mb-4">
+                Muzeum Oręża Polskiego, Bazylika Katedralna 
+                i średniowieczne fortyfikacje.
+              </p>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold mb-4">Wydarzenia</h3>
+              <p className="text-muted-foreground mb-4">
+                Festiwal "Shanties", koncerty letnie 
+                i wydarzenia sportowe.
+              </p>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold mb-4">Aktywności</h3>
+              <p className="text-muted-foreground mb-4">
+                Sporty wodne, wycieczki rowerowe 
+                i spacery po parku nadmorskim.
+              </p>
+            </Card>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Distance Info */}
+      <section className="py-20 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-foreground mb-8">
+              Jak dotrzeć z Lazur Resort
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+              <div className="text-center">
+                <MapPin size={48} style={{ color: '#967d48' }} className="mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-2">Odległość</h3>
+                <p className="text-muted-foreground">15 km</p>
+              </div>
+              <div className="text-center">
+                <Clock size={48} style={{ color: '#967d48' }} className="mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-2">Czas dojazdu</h3>
+                <p className="text-muted-foreground">20 minut</p>
+              </div>
+              <div className="text-center">
+                <Camera size={48} style={{ color: '#967d48' }} className="mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-2">Typ miejscowości</h3>
+                <p className="text-muted-foreground">Miasto-kurort</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

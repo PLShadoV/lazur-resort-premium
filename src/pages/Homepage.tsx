@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 import { House, Waves, Users, Car, WifiHigh, PawPrint, MapPin, Star, Bicycle, TreeEvergreen } from '@phosphor-icons/react';
 import heroDrone from '@/assets/hero-drone.webp';
 import cottageExterior from '@/assets/domekzewnatrz.webp';
@@ -56,24 +58,52 @@ const Homepage = () => {
   }];
   const reviews = [
     {
-      name: "Magdalena",
+      author: "Anna Kowalska",
       rating: 5,
-      text: "Piękne miejsce, świetne do wypoczynku z dziećmi. Domki bardzo czyste i dobrze wyposażone. Blisko do plaży, co jest ogromnym atutem."
+      comment: "Wspaniałe miejsce na relaks! Domki są czyste, dobrze wyposażone. Lokalizacja blisko morza to ogromny plus.",
+      platform: "Google"
     },
     {
-      name: "Piotr K.",
+      author: "Marcin Nowak", 
       rating: 5,
-      text: "Wspaniała lokalizacja, cisza i spokój. Właściciele bardzo mili i pomocni. Gorąco polecamy!"
+      comment: "Bardzo polecam! Cisza, spokój i piękna przyroda. Idealne miejsce na rodzinne wakacje.",
+      platform: "Booking.com"
     },
     {
-      name: "Anna W.",
-      rating: 5,
-      text: "Doskonałe miejsce na wakacje z rodziną. Domki komfortowe, a okolica piękna. Na pewno wrócimy!"
+      author: "Katarzyna Wiśniewska",
+      rating: 4,
+      comment: "Miły personel, czyste domki. Świetne miejsce dla rodzin z dziećmi. Na pewno wrócimy!",
+      platform: "Google"
     },
     {
-      name: "Michał J.",
+      author: "Piotr Zalewski",
       rating: 5,
-      text: "Świetna lokalizacja, blisko morza i lasu. Domki czyste i wygodne. Idealne miejsce na relaks."
+      comment: "Fantastyczne wakacje! Domek był idealnie czysty, bardzo dobrze wyposażony. Polecam wszystkim!",
+      platform: "Booking.com"
+    },
+    {
+      author: "Magdalena Dąbrowska",
+      rating: 5,
+      comment: "Cudowne miejsce na odpoczynek. Blisko morze, las tuż obok. Domki nowocześnie urządzone.",
+      platform: "Google"
+    },
+    {
+      author: "Tomasz Krawczyk",
+      rating: 4,
+      comment: "Bardzo przyjemny pobyt. Dobra lokalizacja, spokojnie. Właściciele bardzo mili i pomocni.",
+      platform: "Booking.com"
+    },
+    {
+      author: "Agnieszka Pawlak",
+      rating: 5,
+      comment: "Najlepsze wakacje od lat! Domek jak z bajki, wszystko czyste i nowe. Dzieci zachwycone!",
+      platform: "Google"
+    },
+    {
+      author: "Robert Jankowski",
+      rating: 5,
+      comment: "Rewelacyjne miejsce! Doskonała lokalizacja, blisko plaża i atrakcje. Na pewno wrócimy!",
+      platform: "Booking.com"
     }
   ];
   return <div className="min-h-screen">
@@ -283,29 +313,56 @@ const Homepage = () => {
       </section>
 
       {/* Reviews Section */}
-      <section ref={addToRefs} className="py-20 scroll-reveal">
+      <section ref={addToRefs} className="py-20 bg-muted scroll-reveal">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-light tracking-tight mb-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Najwyżej oceniane Domki letniskowe 2025
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Co mówią o nas nasi goście
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Zobacz co mówią nasi goście o pobycie w Lazur Resort
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {reviews.map((review, index) => <Card key={index} className="glass-card p-6">
-                <div className="flex items-center mb-4">
-                  {Array.from({
-                length: review.rating
-              }).map((_, i) => <Star key={i} size={20} weight="fill" className="text-yellow-400" />)}
-                </div>
-                <p className="text-muted-foreground mb-4 italic">
-                  "{review.text}"
-                </p>
-                <p className="font-medium">— {review.name}</p>
-              </Card>)}
+          <div className="relative">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              plugins={[
+                Autoplay({
+                  delay: 4000,
+                }),
+              ]}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {reviews.map((review, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                    <Card className="p-6 hover:shadow-lg transition-shadow h-full">
+                      <div className="flex items-center mb-4">
+                        <div className="flex text-yellow-500 mr-3">
+                          {[...Array(review.rating)].map((_, i) => (
+                            <Star key={i} size={20} weight="fill" />
+                          ))}
+                        </div>
+                        <span className="text-sm text-muted-foreground">{review.platform}</span>
+                      </div>
+                      <p className="text-muted-foreground mb-4 italic">"{review.comment}"</p>
+                      <div className="flex items-center">
+                        <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                          <div className="w-6 h-6 bg-primary rounded-full"></div>
+                        </div>
+                        <span className="font-medium">{review.author}</span>
+                      </div>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
           </div>
         </div>
       </section>
