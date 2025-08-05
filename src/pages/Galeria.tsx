@@ -98,19 +98,19 @@ const Galeria = () => {
               <h3 className="text-xl font-medium">Przestrzeń mieszkalna</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center gap-2">
-                  <House size={16} weight="light" className="text-ocean" />
+                  <House size={16} weight="light" style={{ color: '#967d48' }} />
                   2 sypialnie dla maksymalnie 8 osób
                 </li>
                 <li className="flex items-center gap-2">
-                  <Armchair size={16} weight="light" className="text-ocean" />
+                  <Armchair size={16} weight="light" style={{ color: '#967d48' }} />
                   Salon z rozkładaną sofą
                 </li>
                 <li className="flex items-center gap-2">
-                  <ChefHat size={16} weight="light" className="text-ocean" />
+                  <ChefHat size={16} weight="light" style={{ color: '#967d48' }} />
                   Kuchnia z pełnym wyposażeniem
                 </li>
                 <li className="flex items-center gap-2">
-                  <Shower size={16} weight="light" className="text-ocean" />
+                  <Shower size={16} weight="light" style={{ color: '#967d48' }} />
                   Łazienka z prysznicem
                 </li>
               </ul>
@@ -119,19 +119,19 @@ const Galeria = () => {
               <h3 className="text-xl font-medium">Strefa relaksu</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center gap-2">
-                  <Table size={16} weight="light" className="text-ocean" />
+                  <Table size={16} weight="light" style={{ color: '#967d48' }} />
                   Duży taras z meblami
                 </li>
                 <li className="flex items-center gap-2">
-                  <TreeEvergreen size={16} weight="light" className="text-ocean" />
+                  <TreeEvergreen size={16} weight="light" style={{ color: '#967d48' }} />
                   Prywatny ogród
                 </li>
                 <li className="flex items-center gap-2">
-                  <Fire size={16} weight="light" className="text-ocean" />
+                  <Fire size={16} weight="light" style={{ color: '#967d48' }} />
                   Miejsce na grilla
                 </li>
                 <li className="flex items-center gap-2">
-                  <Car size={16} weight="light" className="text-ocean" />
+                  <Car size={16} weight="light" style={{ color: '#967d48' }} />
                   Parking przy domku
                 </li>
               </ul>
@@ -140,19 +140,19 @@ const Galeria = () => {
               <h3 className="text-xl font-medium">Udogodnienia</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center gap-2">
-                  <WifiHigh size={16} weight="light" className="text-ocean" />
+                  <WifiHigh size={16} weight="light" style={{ color: '#967d48' }} />
                   WiFi i telewizja
                 </li>
                 <li className="flex items-center gap-2">
-                  <Bed size={16} weight="light" className="text-ocean" />
+                  <Bed size={16} weight="light" style={{ color: '#967d48' }} />
                   Pościel i ręczniki
                 </li>
                 <li className="flex items-center gap-2">
-                  <PawPrint size={16} weight="light" className="text-ocean" />
+                  <PawPrint size={16} weight="light" style={{ color: '#967d48' }} />
                   Miejsce dla zwierząt
                 </li>
                 <li className="flex items-center gap-2">
-                  <Waves size={16} weight="light" className="text-ocean" />
+                  <Waves size={16} weight="light" style={{ color: '#967d48' }} />
                   400m do plaży
                 </li>
               </ul>
