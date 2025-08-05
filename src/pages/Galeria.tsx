@@ -22,6 +22,8 @@ import widokNaLas from '@/assets/widok-na-las.webp';
 import lazienka from '@/assets/widok-z-ogrodu.webp';
 import wnetrzeSalon from '@/assets/wnetrze-salon.webp';
 import zachodNadJeziorem from '@/assets/zachod-nad-jeziorem.webp';
+import tarasWieczorem from '@/assets/taras-wieczorem.webp';
+import domekNaDzialce from '@/assets/domek-na-dzialce.webp';
 
 const Galeria = () => {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
