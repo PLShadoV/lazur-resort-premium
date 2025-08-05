@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { House, Waves, Users, Car, WifiHigh, PawPrint, MapPin, Star, Bicycle, TreeEvergreen } from '@phosphor-icons/react';
-import heroDrone from '@/assets/hero-drone.jpg';
-import cottageExterior from '@/assets/cottage-exterior.jpg';
+import heroDrone from '@/assets/hero-drone.webp';
+import cottageExterior from '@/assets/domekzewnatrz.webp';
 import cuteDogBeach from '@/assets/cute-dog-beach.jpg';
 import bicycleForestPath from '@/assets/bicycle-forest-path.jpg';
 const Homepage = () => {
