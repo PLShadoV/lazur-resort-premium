@@ -37,11 +37,11 @@ const handler = async (req: Request): Promise<Response> => {
     // Email to the business - using verified domain
     const businessEmailResponse = await resend.emails.send({
       from: "Lazur Resort <onboarding@resend.dev>",
-      to: ["plshadov@gmail.com"], // Using verified email for now
+      to: ["plshadov@gmail.com"], // Tymczasowy adres - zmień na lazurresort@op.pl po weryfikacji domeny
       subject: subject,
       html: `
         <h2>${isReservation ? 'Nowe zapytanie o rezerwację' : 'Nowe zapytanie kontaktowe'}</h2>
-        <p><strong>Właściwy adres docelowy:</strong> lazurresort@op.pl</p>
+        <p><strong>DOCELOWY ADRES:</strong> lazurresort@op.pl (mail przychodzi na adres tymczasowy)</p>
         <p><strong>Imię i nazwisko:</strong> ${name} ${surname}</p>
         <p><strong>Email:</strong> ${email}</p>
         ${phone ? `<p><strong>Telefon:</strong> ${phone}</p>` : ''}
