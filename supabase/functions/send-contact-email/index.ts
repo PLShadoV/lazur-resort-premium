@@ -36,12 +36,11 @@ const handler = async (req: Request): Promise<Response> => {
     
     // Email to the business - using verified domain
     const businessEmailResponse = await resend.emails.send({
-      from: "Lazur Resort <onboarding@resend.dev>",
-      to: ["plshadov@gmail.com"], // Tymczasowy adres - zmień na lazurresort@op.pl po weryfikacji domeny
+      from: "Lazur Resort <noreply@lazurrogowo.pl>",
+      to: ["info@lazurrogowo.pl"],
       subject: subject,
       html: `
         <h2>${isReservation ? 'Nowe zapytanie o rezerwację' : 'Nowe zapytanie kontaktowe'}</h2>
-        <p><strong>DOCELOWY ADRES:</strong> lazurresort@op.pl (mail przychodzi na adres tymczasowy)</p>
         <p><strong>Imię i nazwisko:</strong> ${name} ${surname}</p>
         <p><strong>Email:</strong> ${email}</p>
         ${phone ? `<p><strong>Telefon:</strong> ${phone}</p>` : ''}
@@ -52,13 +51,12 @@ const handler = async (req: Request): Promise<Response> => {
         <p>${message.replace(/\n/g, '<br>')}</p>
         <hr>
         <p><em>To zapytanie zostało wysłane z formularza na stronie Lazur Resort.</em></p>
-        <p><strong>Uwaga:</strong> Email wysyłany tymczasowo na adres testowy. Zweryfikuj domenę w Resend, aby wysyłać na lazurresort@op.pl</p>
       `,
     });
 
     // Confirmation email to the customer
     const customerEmailResponse = await resend.emails.send({
-      from: "Lazur Resort <onboarding@resend.dev>",
+      from: "Lazur Resort <noreply@lazurrogowo.pl>",
       to: [email],
       subject: "Potwierdzenie otrzymania zapytania - Lazur Resort",
       html: `
