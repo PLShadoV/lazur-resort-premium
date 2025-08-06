@@ -15,8 +15,12 @@ import {
   Car,
   PawPrint
 } from '@phosphor-icons/react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 const Rezerwacja = () => {
+  const { t } = useLanguage();
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
   const [formData, setFormData] = useState({
     firstName: '',
@@ -65,10 +69,43 @@ const Rezerwacja = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Reservation submitted:', formData);
-    // Handle form submission logic here
+    
+    try {
+      const { error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: formData.firstName,
+          surname: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          checkIn: formData.checkIn,
+          checkOut: formData.checkOut,
+          guests: formData.guests,
+          message: `Liczba dzieci: ${formData.children}\nZ psem: ${formData.withPet}\n\n${formData.additionalInfo}`,
+          type: 'reservation'
+        }
+      });
+
+      if (error) throw error;
+
+      toast.success('Zapytanie o rezerwację zostało wysłane! Skontaktujemy się w ciągu 24 godzin.');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        checkIn: '',
+        checkOut: '',
+        guests: '4',
+        children: '0',
+        withPet: 'nie',
+        additionalInfo: ''
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast.error('Wystąpił błąd podczas wysyłania. Spróbuj ponownie lub skontaktuj się telefonicznie.');
+    }
   };
 
   const cottageFeatures = [
@@ -101,11 +138,10 @@ const Rezerwacja = () => {
       <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-light tracking-tight mb-6 fade-in-up">
-            Rezerwacja Domków Letniskowych Lazur Resort
+            {t('reservation.title')}
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-up">
-            Zarezerwuj swój domek nad morzem w Rogowie już dziś! Domki z 2 sypialniami dla 
-            maksymalnie 8 osób w województwie zachodniopomorskim z pełnym komfortem.
+            {t('reservation.subtitle')}
           </p>
         </div>
       </section>
@@ -120,7 +156,7 @@ const Rezerwacja = () => {
                 <CardHeader>
                   <CardTitle className="text-2xl font-light tracking-tight flex items-center space-x-3">
                     <Calendar size={24} weight="light" className="text-ocean" />
-                    <span>Formularz rezerwacji domku</span>
+                    <span>{t('reservation.form.title')}</span>
                   </CardTitle>
                 </CardHeader>
                 
@@ -128,7 +164,7 @@ const Rezerwacja = () => {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="firstName">Imię *</Label>
+                        <Label htmlFor="firstName">{t('reservation.form.firstname')} {t('required')}</Label>
                         <Input
                           id="firstName"
                           name="firstName"
@@ -152,7 +188,7 @@ const Rezerwacja = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email *</Label>
+                      <Label htmlFor="email">{t('reservation.form.email')} {t('required')}</Label>
                       <Input
                         id="email"
                         name="email"
@@ -273,7 +309,7 @@ const Rezerwacja = () => {
                     </div>
 
                     <Button type="submit" className="btn-luxury w-full text-lg py-6">
-                      Wyślij zapytanie o rezerwację
+                      {t('reservation.form.submit')}
                     </Button>
                   </form>
                 </CardContent>

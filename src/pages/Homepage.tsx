@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import { House, Waves, Users, Car, WifiHigh, PawPrint, MapPin, Star, Bicycle, TreeEvergreen } from '@phosphor-icons/react';
+import { useLanguage } from '@/contexts/LanguageContext';
 import heroDrone from '@/assets/hero-drone.webp';
 import heroDroneMobile from '@/assets/hero-drone.webp';
 import cottageExterior from '@/assets/domekzewnatrz.webp';
@@ -14,6 +15,7 @@ import cuteDogBeachMobile from '@/assets/cute-dog-beach-mobile.webp';
 import bicycleForestPath from '@/assets/bicycle-forest-path.jpg';
 import bicycleForestPathMobile from '@/assets/bicycle-forest-path-mobile.webp';
 const Homepage = () => {
+  const { t } = useLanguage();
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -37,28 +39,28 @@ const Homepage = () => {
   };
   const features = [{
     icon: House,
-    title: 'Komfortowe domki',
-    description: 'Luksusowe domki dla maksymalnie 8 osób z pełnym wyposażeniem'
+    title: t('home.feature.comfortable.title'),
+    description: t('home.feature.comfortable.desc')
   }, {
     icon: Waves,
-    title: 'Blisko morza',
-    description: 'Zaledwie 400 metrów do pięknej plaży w Rogowie'
+    title: t('home.feature.sea.title'),
+    description: t('home.feature.sea.desc')
   }, {
     icon: Users,
-    title: 'Dla rodzin',
-    description: 'Idealne miejsce na wypoczynek z dziećmi i przyjaciółmi'
+    title: t('home.feature.family.title'),
+    description: t('home.feature.family.desc')
   }, {
     icon: Car,
-    title: 'Bezpłatny parking',
-    description: 'Prywatny parking przy każdym domku'
+    title: t('home.feature.parking.title'),
+    description: t('home.feature.parking.desc')
   }, {
     icon: WifiHigh,
-    title: 'WiFi i TV',
-    description: 'Darmowy internet oraz telewizja satelitarna'
+    title: t('home.feature.wifi.title'),
+    description: t('home.feature.wifi.desc')
   }, {
     icon: PawPrint,
-    title: 'Akceptujemy zwierzęta',
-    description: 'Twój czworonóg też jest mile widziany'
+    title: t('home.feature.pets.title'),
+    description: t('home.feature.pets.desc')
   }];
   const reviews = [
     {
@@ -127,19 +129,18 @@ const Homepage = () => {
         
         <div className="relative z-10 text-center text-white px-4 fade-in-up">
           <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-6">
-            Lazur Resort
+            {t('home.hero.title')}
           </h1>
           <p className="text-xl md:text-2xl font-light mb-6 opacity-90 max-w-3xl mx-auto">
-            Luksusowe domki letniskowe nad morzem w Rogowie
+            {t('home.hero.subtitle')}
           </p>
           <p className="text-lg md:text-xl font-light mb-8 opacity-80 max-w-2xl mx-auto">
-            Odkryj spokój i komfort w naszych ekskluzywnych domkach położonych między Kołobrzegiem a Mrzeżynem. 
-            Zaledwie 400 metrów od pięknej, piaszczystej plaży Bałtyku.
+            {t('home.hero.description')}
           </p>
           
           
           <Button asChild className="btn-luxury text-lg px-12 py-6">
-            <Link to="/rezerwacja">Zarezerwuj</Link>
+            <Link to="/rezerwacja">{t('button.book')}</Link>
           </Button>
         </div>
       </section>
@@ -149,10 +150,10 @@ const Homepage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-6">
-              Dlaczego domki Lazur Resort w Rogowie?
+              {t('home.features.title')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Oferujemy komfortowy wypoczynek w luksusowych domkach nad morzem
+              {t('home.features.subtitle')}
             </p>
           </div>
 
@@ -187,38 +188,34 @@ const Homepage = () => {
             </div>
             <div className="space-y-6">
               <h2 className="text-4xl font-light tracking-tight">
-                Nasze luksusowe domki letniskowe nad morzem
+                {t('home.cottages.title')}
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Lazur Resort oferuje 4 identyczne domki w Rogowie, każdy zaprojektowany z myślą 
-                o maksymalnym komforcie dla maksymalnie 8 osób. Nowoczesne wnętrza łączą elegancję 
-                z funkcjonalnością, a przestronne tarasy i prywatne ogrody zapewniają pełną prywatność.
+                {t('home.cottages.description1')}
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Każdy domek wyposażony jest w najwyższej jakości sprzęty i meble. Duże okna wpuszczają 
-                dużo naturalnego światła, tworząc przyjazną i ciepłą atmosferę. Idealne miejsce na 
-                rodzinne wakacje, wyjazd z przyjaciółmi czy romantyczny weekend nad morzem.
+                {t('home.cottages.description2')}
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-ocean rounded-full"></div>
-                  <span>2 sypialnie + salon z rozkładaną sofą</span>
+                  <span>{t('home.cottages.feature1')}</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-ocean rounded-full"></div>
-                  <span>W pełni wyposażona kuchnia</span>
+                  <span>{t('home.cottages.feature2')}</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-ocean rounded-full"></div>
-                  <span>1 łazienka z prysznicem</span>
+                  <span>{t('home.cottages.feature3')}</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-ocean rounded-full"></div>
-                  <span>Duży taras z meblami ogrodowymi</span>
+                  <span>{t('home.cottages.feature4')}</span>
                 </li>
               </ul>
               <Button asChild className="btn-luxury">
-                <Link to="/galeria">Zobacz galerię</Link>
+                <Link to="/galeria">{t('button.gallery')}</Link>
               </Button>
             </div>
           </div>
@@ -249,16 +246,15 @@ const Homepage = () => {
                         <PawPrint size={16} weight="light" style={{ color: '#967d48' }} className="sm:hidden" />
                         <PawPrint size={24} weight="light" style={{ color: '#967d48' }} className="hidden sm:block" />
                       </div>
-                      <h3 className="text-base sm:text-2xl font-medium">Pobyt z czworonogiem</h3>
+                      <h3 className="text-base sm:text-2xl font-medium">{t('home.pets.title')}</h3>
                     </div>
                     <p className="text-white/90 leading-relaxed mb-1 sm:mb-3 text-xs sm:text-base">
-                      Akceptujemy zwierzęta domowe. Duże tereny zielone i bliskość 
-                      plaży to idealne warunki dla Twojego pupila.
+                      {t('home.pets.desc')}
                     </p>
                     <ul className="space-y-0.5 text-xs sm:text-sm text-white/80">
-                      <li>• Zwierzęta dozwolone za dopłatą 15 zł/dobę</li>
-                      <li>• Duży ogród przy każdym domku</li>
-                      <li>• Blisko plaża przyjazna psom</li>
+                      <li>• {t('home.pets.feature1')}</li>
+                      <li>• {t('home.pets.feature2')}</li>
+                      <li>• {t('home.pets.feature3')}</li>
                     </ul>
                   </div>
                 </div>
@@ -285,16 +281,15 @@ const Homepage = () => {
                         <Bicycle size={16} weight="light" style={{ color: '#967d48' }} className="sm:hidden" />
                         <Bicycle size={24} weight="light" style={{ color: '#967d48' }} className="hidden sm:block" />
                       </div>
-                      <h3 className="text-base sm:text-2xl font-medium">Rowerem nad morzem</h3>
+                      <h3 className="text-base sm:text-2xl font-medium">{t('home.bikes.title')}</h3>
                     </div>
                     <p className="text-white/90 leading-relaxed mb-1 sm:mb-3 text-xs sm:text-base">
-                      Odkryj urokliwe ścieżki rowerowe łączące Rogowo z Mrzeżynem, 
-                      Dźwirzynem i Kołobrzegiem.
+                      {t('home.bikes.desc')}
                     </p>
                     <ul className="space-y-0.5 text-xs sm:text-sm text-white/80">
-                      <li>• Trasy dla całej rodziny</li>
-                      <li>• Przepiękne widoki na morze</li>
-                      <li>• Bezpieczne ścieżki rowerowe</li>
+                      <li>• {t('home.bikes.feature1')}</li>
+                      <li>• {t('home.bikes.feature2')}</li>
+                      <li>• {t('home.bikes.feature3')}</li>
                     </ul>
                   </div>
                 </div>
@@ -309,10 +304,10 @@ const Homepage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-light tracking-tight mb-6">
-              Lokalizacja - Rogowo nad morzem
+              {t('home.location.title')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Idealnie położone domki między najpopularniejszymi nadmorskimi kurortami
+              {t('home.location.subtitle')}
             </p>
           </div>
 
@@ -321,18 +316,18 @@ const Homepage = () => {
               <div className="flex items-center space-x-4">
                 <MapPin size={24} weight="light" className="text-ocean" />
                 <div>
-                  <h3 className="font-medium">Adres</h3>
-                  <p className="text-muted-foreground">Makowa 6, 72-330 Rogowo, województwo zachodniopomorskie</p>
+                  <h3 className="font-medium">{t('home.location.address')}</h3>
+                  <p className="text-muted-foreground">{t('home.location.address.value')}</p>
                 </div>
               </div>
               
               <div className="space-y-4">
-                <h3 className="text-xl font-medium">Jak do nas dojechać?</h3>
+                <h3 className="text-xl font-medium">{t('home.location.directions')}</h3>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li>• 15 km od Kołobrzegu</li>
-                  <li>• 400 metrów do plaży</li>
-                  <li>• Dojazd z Kołobrzegu drogą wojewódzką nr 163</li>
-                  <li>• Następnie skręt w Rogowo zgodnie ze znakowaniem</li>
+                  <li>• {t('home.location.direction1')}</li>
+                  <li>• {t('home.location.direction2')}</li>
+                  <li>• {t('home.location.direction3')}</li>
+                  <li>• {t('home.location.direction4')}</li>
                 </ul>
               </div>
             </div>
@@ -351,10 +346,10 @@ const Homepage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Najwyżej oceniane Domki letniskowe 2025
+              {t('home.reviews.title')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Zobacz co mówią nasi goście o pobycie w Lazur Resort
+              {t('home.reviews.subtitle')}
             </p>
           </div>
 
