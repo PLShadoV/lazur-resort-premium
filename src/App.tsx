@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
 import { FloatingButtons } from "./components/FloatingButtons";
 import { Footer } from "./components/Footer";
+import { LanguageSwitcher } from "./components/LanguageSwitcher";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import { useScrollToTop } from "./hooks/useScrollToTop";
 import Homepage from "./pages/Homepage";
 import Galeria from "./pages/Galeria";
@@ -44,6 +46,7 @@ const AppContent = () => {
       </Routes>
       <Footer />
       <FloatingButtons />
+      <LanguageSwitcher />
     </div>
   );
 };
@@ -51,13 +54,15 @@ const AppContent = () => {
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <AppContent />
-        </BrowserRouter>
-      </TooltipProvider>
+      <LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <AppContent />
+          </BrowserRouter>
+        </TooltipProvider>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 };
