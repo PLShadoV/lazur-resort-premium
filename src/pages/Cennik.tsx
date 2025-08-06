@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Check, House } from '@phosphor-icons/react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Cennik = () => {
+  const { t } = useLanguage();
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
@@ -35,9 +37,9 @@ const Cennik = () => {
 
   const seasons = [
     {
-      name: 'Sezon wiosenny',
+      name: t('pricing.season.spring'),
       period: '01.04 – 31.05',
-      description: 'Idealne na spokojny wypoczynek wiosną',
+      description: t('pricing.season.spring.desc'),
       highlight: false,
       prices: {
         '4': 400,
@@ -46,9 +48,9 @@ const Cennik = () => {
       }
     },
     {
-      name: 'Majówka',
+      name: t('pricing.season.mayday'),
       period: '30.04 – 03.05',
-      description: 'Długi weekend majowy',
+      description: t('pricing.season.mayday.desc'),
       highlight: false,
       prices: {
         '4': 450,
@@ -57,9 +59,9 @@ const Cennik = () => {
       }
     },
     {
-      name: 'Sezon przedwakacyjny',
+      name: t('pricing.season.prevacation'),
       period: '30.05 – 22.06',
-      description: 'Doskonały czas przed sezonem letnim',
+      description: t('pricing.season.prevacation.desc'),
       highlight: false,
       prices: {
         '4': 450,
@@ -68,9 +70,9 @@ const Cennik = () => {
       }
     },
     {
-      name: 'Początek lata',
+      name: t('pricing.season.summstart'),
       period: '22.06 – 06.07',
-      description: 'Rozpoczęcie sezonu letniego',
+      description: t('pricing.season.summstart.desc'),
       highlight: false,
       prices: {
         '4': 550,
@@ -79,9 +81,9 @@ const Cennik = () => {
       }
     },
     {
-      name: 'Sezon wysoki',
+      name: t('pricing.season.high'),
       period: '06.07 – 17.08',
-      description: 'Najlepszy czas na wakacje z rodziną',
+      description: t('pricing.season.high.desc'),
       highlight: true,
       prices: {
         '4': 650,
@@ -90,9 +92,9 @@ const Cennik = () => {
       }
     },
     {
-      name: 'Koniec lata',
+      name: t('pricing.season.summend'),
       period: '17.08 – 31.08',
-      description: 'Spokojniejszy koniec wakacji',
+      description: t('pricing.season.summend.desc'),
       highlight: false,
       prices: {
         '4': 450,
@@ -101,9 +103,9 @@ const Cennik = () => {
       }
     },
     {
-      name: 'Sezon jesienny',
+      name: t('pricing.season.autumn'),
       period: '01.09 – 31.10',
-      description: 'Złota polska jesień nad morzem',
+      description: t('pricing.season.autumn.desc'),
       highlight: false,
       prices: {
         '4': 400,
@@ -114,26 +116,26 @@ const Cennik = () => {
   ];
 
   const includes = [
-    'Nocleg dla maksymalnie 4, 6 lub 8 osób',
-    '2 sypialnie + salon z rozkładaną sofą',
-    'W pełni wyposażona kuchnia',
-    '1 łazienka z prysznicem',
-    'Duży taras z meblami ogrodowymi',
-    'WiFi i telewizja satelitarna',
-    'Miejsce na grilla',
-    'Bezpłatny parking',
-    'Pościel i ręczniki',
-    '5 minut pieszo do morza'
+    t('pricing.includes.accommodation'),
+    t('pricing.includes.bedrooms'),
+    t('pricing.includes.kitchen'),
+    t('pricing.includes.bathroom'),
+    t('pricing.includes.terrace'),
+    t('pricing.includes.wifi'),
+    t('pricing.includes.grill'),
+    t('pricing.includes.parking'),
+    t('pricing.includes.linen'),
+    t('pricing.includes.beach')
   ];
 
   const reservationTerms = [
-    'Minimalna rezerwacja: 2 noce',
-    'Zameldowanie: od 15:00',
-    'Wymeldowanie: do 10:00',
-    'Zaliczka: 20% wartości pobytu',
-    'Zwierzęta: dozwolone za dopłatą 15 zł/dobę',
-    'Odległość do morza: 400 metrów',
-    'Parking: bezpłatny przy każdym domku'
+    t('pricing.terms.minimum'),
+    t('pricing.terms.checkin'),
+    t('pricing.terms.checkout'),
+    t('pricing.terms.deposit'),
+    t('pricing.terms.pets'),
+    t('pricing.terms.distance'),
+    t('pricing.terms.parking')
   ];
 
   return (
@@ -142,10 +144,10 @@ const Cennik = () => {
       <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-light tracking-tight mb-6 fade-in-up">
-            Cennik domków letniskowych
+            {t('pricing.title')}
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-up">
-            Sprawdź nasze konkurencyjne ceny na pobyt w luksusowych domkach nad morzem w Rogowie
+            {t('pricing.subtitle')}
           </p>
         </div>
       </section>
@@ -185,27 +187,27 @@ const Cennik = () => {
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm">Domek 4 osobowy:</span>
+                      <span className="text-sm">{t('pricing.cottage.4')}</span>
                       <span className="font-medium text-ocean">
-                        {season.prices['4']} zł/noc
+                        {season.prices['4']} {t('pricing.per.night')}
                       </span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm">Domek 5-6 osobowy:</span>
+                      <span className="text-sm">{t('pricing.cottage.56')}</span>
                       <span className="font-medium text-ocean">
-                        {season.prices['5-6']} zł/noc
+                        {season.prices['5-6']} {t('pricing.per.night')}
                       </span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-sm">Domek 7-8 osobowy:</span>
+                      <span className="text-sm">{t('pricing.cottage.78')}</span>
                       <span className="font-medium text-ocean">
-                        {season.prices['7-8']} zł/noc
+                        {season.prices['7-8']} {t('pricing.per.night')}
                       </span>
                     </div>
                   </div>
 
                   <Button asChild className="btn-luxury w-full group-hover:scale-105 transition-transform duration-300">
-                    <Link to="/rezerwacja">Rezerwuj</Link>
+                    <Link to="/rezerwacja">{t('button.book')}</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -220,7 +222,7 @@ const Cennik = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <Card className="glass-card p-8">
               <h2 className="text-2xl font-light tracking-tight mb-6 text-center">
-                Co zawiera cena domku letniskowego?
+                {t('pricing.includes.title')}
               </h2>
               <div className="space-y-3">
                 {includes.map((item, index) => (
@@ -234,7 +236,7 @@ const Cennik = () => {
 
             <Card className="glass-card p-8">
               <h2 className="text-2xl font-light tracking-tight mb-6 text-center">
-                Warunki rezerwacji
+                {t('pricing.terms.title')}
               </h2>
               <div className="space-y-4">
                 {reservationTerms.map((term, index) => (
@@ -246,10 +248,9 @@ const Cennik = () => {
               </div>
               
               <div className="mt-8 p-4 bg-ocean/10 rounded-lg">
-                <h3 className="font-medium mb-2">Informacje dodatkowe</h3>
+                <h3 className="font-medium mb-2">{t('pricing.additional.title')}</h3>
                 <p className="text-sm text-muted-foreground">
-                  Domek dla 8 osób: 2 sypialnie + salon z rozkładanymi 
-                  sofami i łóżkiem narożnym
+                  {t('pricing.additional.desc')}
                 </p>
               </div>
             </Card>
@@ -261,13 +262,13 @@ const Cennik = () => {
       <section ref={addToRefs} className="py-16 scroll-reveal">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-light tracking-tight mb-6">
-            Gotowy na niezapomniany pobyt?
+            {t('pricing.cta.title')}
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Zarezerwuj swój domek nad morzem już dziś i ciesz się komfortowym wypoczynkiem w Rogowie
+            {t('pricing.cta.subtitle')}
           </p>
           <Button asChild className="btn-luxury text-lg px-12 py-6">
-            <Link to="/rezerwacja">Sprawdź dostępność</Link>
+            <Link to="/rezerwacja">{t('pricing.cta.button')}</Link>
           </Button>
         </div>
       </section>

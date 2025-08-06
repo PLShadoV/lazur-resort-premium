@@ -2,37 +2,40 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MapPin, Bicycle, Heart, Camera } from '@phosphor-icons/react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Okolica = () => {
+  const { t } = useLanguage();
+  
   const areas = [
     {
-      title: 'Domki na wynajem Mrzeżyno',
+      title: t('area.mrzezyna.title'),
       href: '/okolica/mrzezyna',
-      description: 'Spokojne miasteczko nad morzem z piękną plażą i urokliwym portem rybackim.',
+      description: t('area.mrzezyna.desc'),
       icon: <MapPin size={24} className="text-primary" />,
     },
     {
-      title: 'Domki na wynajem Dźwirzyno',
+      title: t('area.dzwirzyno.title'),
       href: '/okolica/dzwirzyno',
-      description: 'Malownicza miejscowość między morzem a jeziorem Resko Przymorskie.',
+      description: t('area.dzwirzyno.desc'),
       icon: <Camera size={24} className="text-primary" />,
     },
     {
-      title: 'Domki na wynajem Kołobrzeg',
+      title: t('area.kolobrzeg.title'),
       href: '/okolica/kolobrzeg',
-      description: 'Znany kurort nadmorski z licznymi atrakcjami i zabytkami.',
+      description: t('area.kolobrzeg.desc'),
       icon: <Heart size={24} className="text-primary" />,
     },
     {
-      title: 'Noclegi z psem',
+      title: t('area.pets.title'),
       href: '/okolica/z-psem',
-      description: 'Idealne miejsca dla właścicieli psów z przyjaznymi regulacjami.',
+      description: t('area.pets.desc'),
       icon: <Heart size={24} className="text-primary" />,
     },
     {
-      title: 'Ścieżki rowerowe',
+      title: t('area.bikes.title'),
       href: '/okolica/sciezki-rowerowe',
-      description: 'Malownicze trasy rowerowe wzdłuż wybrzeża i przez lasy.',
+      description: t('area.bikes.desc'),
       icon: <Bicycle size={24} className="text-primary" />,
     },
   ];
@@ -42,11 +45,10 @@ const Okolica = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl lg:text-6xl font-light tracking-tight text-foreground mb-6">
-            Odkryj <span className="text-primary">Okolicę</span>
+            {t('area.title').split(' ')[0]} <span className="text-primary">{t('area.title').split(' ')[1]}</span>
           </h1>
           <p className="text-xl text-foreground/70 max-w-3xl mx-auto leading-relaxed">
-            Rogowo to idealna baza wypadowa do odkrywania pięknych miejscowości nadmorskich. 
-            Poznaj uroki pobliskich miasteczek i atrakcji regionu.
+            {t('area.subtitle')}
           </p>
         </div>
 
@@ -65,7 +67,7 @@ const Okolica = () => {
                 </p>
                 <Button asChild className="btn-luxury">
                   <Link to={area.href}>
-                    Dowiedz się więcej
+                    {t('button.more')}
                   </Link>
                 </Button>
               </CardContent>
@@ -75,25 +77,25 @@ const Okolica = () => {
 
         <div className="text-center">
           <h2 className="text-3xl font-light text-foreground mb-6">
-            Dlaczego warto wybrać <span className="text-primary">Rogowo</span>?
+            {t('area.why.title').split(' ')[0]} {t('area.why.title').split(' ')[1]} {t('area.why.title').split(' ')[2]} <span className="text-primary">{t('area.why.title').split(' ')[3]}</span>?
           </h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <h3 className="text-xl font-medium text-foreground mb-3">Centralna Lokalizacja</h3>
+              <h3 className="text-xl font-medium text-foreground mb-3">{t('area.why.location')}</h3>
               <p className="text-foreground/70">
-                Idealne położenie między Kołobrzegiem, Mrzeżynem i Dźwirzynem
+                {t('area.why.location.desc')}
               </p>
             </div>
             <div className="text-center">
-              <h3 className="text-xl font-medium text-foreground mb-3">Bliskość Plaży</h3>
+              <h3 className="text-xl font-medium text-foreground mb-3">{t('area.why.beach')}</h3>
               <p className="text-foreground/70">
-                Zaledwie kilka minut jazdy do pięknych plaż Bałtyku
+                {t('area.why.beach.desc')}
               </p>
             </div>
             <div className="text-center">
-              <h3 className="text-xl font-medium text-foreground mb-3">Spokój i Natura</h3>
+              <h3 className="text-xl font-medium text-foreground mb-3">{t('area.why.nature')}</h3>
               <p className="text-foreground/70">
-                Otoczone lasami i zielenią, z dala od miejskiego zgiełku
+                {t('area.why.nature.desc')}
               </p>
             </div>
           </div>

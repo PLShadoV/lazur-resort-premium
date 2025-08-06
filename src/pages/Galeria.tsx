@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { House, Armchair, ChefHat, Shower, Table, TreeEvergreen, Fire, Car, WifiHigh, Bed, PawPrint, Waves, X, CaretLeft, CaretRight } from '@phosphor-icons/react';
+import { useLanguage } from '@/contexts/LanguageContext';
 import cottageExterior from '@/assets/cottage-exterior.jpg';
 import cottageExteriorMobile from '@/assets/cottage-exterior-mobile.webp';
 import altana from '@/assets/altana.webp';
@@ -26,6 +27,7 @@ import tarasWieczorem from '@/assets/taras-wieczorem.webp';
 import domekNaDzialce from '@/assets/domek-na-dzialce.webp';
 
 const Galeria = () => {
+  const { t } = useLanguage();
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [currentGallery, setCurrentGallery] = useState<'exterior' | 'interior'>('exterior');
@@ -133,11 +135,10 @@ const Galeria = () => {
       <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-light tracking-tight mb-6 fade-in-up">
-            Galeria Domków Lazur Resort
+            {t('gallery.title')}
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in-up">
-            Zobacz nasz luksusowe domki letniskowe nad morzem w Rogowie. 
-            Komfortowe wnętrza i piękne otoczenie czekają na Państwa.
+            {t('gallery.subtitle')}
           </p>
         </div>
       </section>
@@ -146,7 +147,7 @@ const Galeria = () => {
       <section ref={addToRefs} className="py-16 scroll-reveal">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-light tracking-tight mb-8 text-center">
-            Widoki zewnętrzne
+            {t('gallery.exterior')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {exteriorImages.map((image, index) => (
@@ -178,7 +179,7 @@ const Galeria = () => {
           </div>
 
           <h2 className="text-3xl font-light tracking-tight mb-8 text-center">
-            Wnętrza domków
+            {t('gallery.interior')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {interiorImages.map((image, index) => (
@@ -215,69 +216,69 @@ const Galeria = () => {
       <section ref={addToRefs} className="py-16 bg-muted/30 scroll-reveal">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-light tracking-tight mb-12">
-            Każdy domek oferuje pełen komfort
+            {t('gallery.comfort.title')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-4">
-              <h3 className="text-xl font-medium">Przestrzeń mieszkalna</h3>
+              <h3 className="text-xl font-medium">{t('gallery.space.title')}</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <House size={16} weight="light" style={{ color: '#967d48' }} />
-                  2 sypialnie dla maksymalnie 8 osób
+                  {t('gallery.space.bedrooms')}
                 </li>
                 <li className="flex items-center gap-2">
                   <Armchair size={16} weight="light" style={{ color: '#967d48' }} />
-                  Salon z rozkładaną sofą
+                  {t('gallery.space.living')}
                 </li>
                 <li className="flex items-center gap-2">
                   <ChefHat size={16} weight="light" style={{ color: '#967d48' }} />
-                  Kuchnia z pełnym wyposażeniem
+                  {t('gallery.space.kitchen')}
                 </li>
                 <li className="flex items-center gap-2">
                   <Shower size={16} weight="light" style={{ color: '#967d48' }} />
-                  Łazienka z prysznicem
+                  {t('gallery.space.bathroom')}
                 </li>
               </ul>
             </div>
             <div className="space-y-4">
-              <h3 className="text-xl font-medium">Strefa relaksu</h3>
+              <h3 className="text-xl font-medium">{t('gallery.relax.title')}</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <Table size={16} weight="light" style={{ color: '#967d48' }} />
-                  Duży taras z meblami
+                  {t('gallery.relax.terrace')}
                 </li>
                 <li className="flex items-center gap-2">
                   <TreeEvergreen size={16} weight="light" style={{ color: '#967d48' }} />
-                  Prywatny ogród
+                  {t('gallery.relax.garden')}
                 </li>
                 <li className="flex items-center gap-2">
                   <Fire size={16} weight="light" style={{ color: '#967d48' }} />
-                  Miejsce na grilla
+                  {t('gallery.relax.grill')}
                 </li>
                 <li className="flex items-center gap-2">
                   <Car size={16} weight="light" style={{ color: '#967d48' }} />
-                  Parking przy domku
+                  {t('gallery.relax.parking')}
                 </li>
               </ul>
             </div>
             <div className="space-y-4">
-              <h3 className="text-xl font-medium">Udogodnienia</h3>
+              <h3 className="text-xl font-medium">{t('gallery.amenities.title')}</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <WifiHigh size={16} weight="light" style={{ color: '#967d48' }} />
-                  WiFi i telewizja
+                  {t('gallery.amenities.wifi')}
                 </li>
                 <li className="flex items-center gap-2">
                   <Bed size={16} weight="light" style={{ color: '#967d48' }} />
-                  Pościel i ręczniki
+                  {t('gallery.amenities.linen')}
                 </li>
                 <li className="flex items-center gap-2">
                   <PawPrint size={16} weight="light" style={{ color: '#967d48' }} />
-                  Miejsce dla zwierząt
+                  {t('gallery.amenities.pets')}
                 </li>
                 <li className="flex items-center gap-2">
                   <Waves size={16} weight="light" style={{ color: '#967d48' }} />
-                  400m do plaży
+                  {t('gallery.amenities.beach')}
                 </li>
               </ul>
             </div>
