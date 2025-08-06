@@ -35,10 +35,11 @@ const handler = async (req: Request): Promise<Response> => {
     const isReservation = type === 'reservation';
     const subject = isReservation ? "Zapytanie o rezerwację - Lazur Resort" : "Nowe zapytanie - Lazur Resort";
     
-    // Email to the business - sending to lazurresort@op.pl
+    // Email to the business - sending to lazurresort@op.pl with Reply-To set to customer email
     const businessEmailResponse = await resend.emails.send({
       from: "Lazur Resort <info@lazurrogowo.pl>",
       to: ["lazurresort@op.pl"],
+      reply_to: email,
       subject: subject,
       html: `
         <h2>${isReservation ? 'Nowe zapytanie o rezerwację' : 'Nowe zapytanie kontaktowe'}</h2>
