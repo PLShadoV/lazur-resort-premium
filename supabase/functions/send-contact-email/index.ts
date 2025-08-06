@@ -1,3 +1,4 @@
+
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
@@ -34,10 +35,10 @@ const handler = async (req: Request): Promise<Response> => {
     const isReservation = type === 'reservation';
     const subject = isReservation ? "Zapytanie o rezerwację - Lazur Resort" : "Nowe zapytanie - Lazur Resort";
     
-    // Email to the business - using verified domain
+    // Email to the business - sending to lazurresort@op.pl
     const businessEmailResponse = await resend.emails.send({
       from: "Lazur Resort <info@lazurrogowo.pl>",
-      to: ["info@lazurrogowo.pl"],
+      to: ["lazurresort@op.pl"],
       subject: subject,
       html: `
         <h2>${isReservation ? 'Nowe zapytanie o rezerwację' : 'Nowe zapytanie kontaktowe'}</h2>
