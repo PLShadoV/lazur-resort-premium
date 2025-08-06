@@ -36,7 +36,7 @@ const handler = async (req: Request): Promise<Response> => {
     
     // Email to the business - using verified domain
     const businessEmailResponse = await resend.emails.send({
-      from: "Lazur Resort <noreply@lazurrogowo.pl>",
+      from: "Lazur Resort <info@lazurrogowo.pl>",
       to: ["info@lazurrogowo.pl"],
       subject: subject,
       html: `
@@ -52,11 +52,27 @@ const handler = async (req: Request): Promise<Response> => {
         <hr>
         <p><em>To zapytanie zostało wysłane z formularza na stronie Lazur Resort.</em></p>
       `,
+      text: `
+${isReservation ? 'Nowe zapytanie o rezerwację' : 'Nowe zapytanie kontaktowe'}
+
+Imię i nazwisko: ${name} ${surname}
+Email: ${email}
+${phone ? `Telefon: ${phone}` : ''}
+${checkIn ? `Data przyjazdu: ${checkIn}` : ''}
+${checkOut ? `Data wyjazdu: ${checkOut}` : ''}
+${guests ? `Liczba osób: ${guests}` : ''}
+
+Wiadomość:
+${message}
+
+---
+To zapytanie zostało wysłane z formularza na stronie Lazur Resort.
+      `,
     });
 
     // Confirmation email to the customer
     const customerEmailResponse = await resend.emails.send({
-      from: "Lazur Resort <noreply@lazurrogowo.pl>",
+      from: "Lazur Resort <info@lazurrogowo.pl>",
       to: [email],
       subject: "Potwierdzenie otrzymania zapytania - Lazur Resort",
       html: `
@@ -83,6 +99,31 @@ const handler = async (req: Request): Promise<Response> => {
         
         <p>Serdecznie pozdrawiamy,<br>
         Zespół Lazur Resort</p>
+      `,
+      text: `
+Dziękujemy za zapytanie!
+
+Dzień dobry ${name},
+
+Dziękujemy za ${isReservation ? 'zapytanie o rezerwację' : 'kontakt'} w sprawie domków letniskowych Lazur Resort w Rogowie.
+Otrzymaliśmy Państwa wiadomość i skontaktujemy się w ciągu 24 godzin.
+
+Podsumowanie zapytania:
+Imię i nazwisko: ${name} ${surname}
+Email: ${email}
+${phone ? `Telefon: ${phone}` : ''}
+${checkIn ? `Data przyjazdu: ${checkIn}` : ''}
+${checkOut ? `Data wyjazdu: ${checkOut}` : ''}
+${guests ? `Liczba osób: ${guests}` : ''}
+${message ? `Państwa wiadomość: ${message}` : ''}
+
+Dane kontaktowe:
+Telefon: +48 502 939 725
+Email: lazurresort@op.pl
+Adres: Makowa 6, 72-330 Rogowo
+
+Serdecznie pozdrawiamy,
+Zespół Lazur Resort
       `,
     });
 

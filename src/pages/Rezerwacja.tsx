@@ -92,10 +92,12 @@ const Rezerwacja = () => {
       toast.success('Zapytanie o rezerwację zostało wysłane! Skontaktujemy się w ciągu 24 godzin.', {
         duration: 6000,
         style: {
-          fontSize: '16px',
-          padding: '20px',
-          maxWidth: '500px'
-        }
+          fontSize: '18px',
+          padding: '24px',
+          maxWidth: '600px',
+          minWidth: '400px'
+        },
+        position: 'top-center'
       });
       setFormData({
         firstName: '',
