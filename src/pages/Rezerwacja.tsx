@@ -89,7 +89,14 @@ const Rezerwacja = () => {
 
       if (error) throw error;
 
-      toast.success('Zapytanie o rezerwację zostało wysłane! Skontaktujemy się w ciągu 24 godzin.');
+      toast.success('Zapytanie o rezerwację zostało wysłane! Skontaktujemy się w ciągu 24 godzin.', {
+        duration: 6000,
+        style: {
+          fontSize: '16px',
+          padding: '20px',
+          maxWidth: '500px'
+        }
+      });
       setFormData({
         firstName: '',
         lastName: '',
@@ -104,7 +111,14 @@ const Rezerwacja = () => {
       });
     } catch (error) {
       console.error('Error sending email:', error);
-      toast.error('Wystąpił błąd podczas wysyłania. Spróbuj ponownie lub skontaktuj się telefonicznie.');
+      toast.error('Wystąpił błąd podczas wysyłania. Spróbuj ponownie lub skontaktuj się telefonicznie.', {
+        duration: 6000,
+        style: {
+          fontSize: '16px',
+          padding: '20px',
+          maxWidth: '500px'
+        }
+      });
     }
   };
 
