@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { List, X, CaretDown } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 import lazurLogo from '@/assets/lazur-logo-transparent.png';
 
 interface NavItem {
@@ -10,14 +11,14 @@ interface NavItem {
   children?: NavItem[];
 }
 
-const navItems: NavItem[] = [
-  { label: 'Strona główna', href: '/' },
-  { label: 'Galeria', href: '/galeria' },
-  { label: 'Cennik', href: '/cennik' },
-  { label: 'Kontakt', href: '/kontakt' },
-  { label: 'Rezerwacja', href: '/rezerwacja' },
+const getNavItems = (t: (key: string) => string): NavItem[] => [
+  { label: t('nav.home'), href: '/' },
+  { label: t('nav.gallery'), href: '/galeria' },
+  { label: t('nav.pricing'), href: '/cennik' },
+  { label: t('nav.contact'), href: '/kontakt' },
+  { label: t('nav.booking'), href: '/rezerwacja' },
   {
-    label: 'Okolica',
+    label: t('nav.area'),
     href: '/okolica',
     children: [
       { label: 'Domki na wynajem Mrzeżyno', href: '/okolica/mrzezyna' },
@@ -34,6 +35,9 @@ export const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const { t } = useLanguage();
+  
+  const navItems = getNavItems(t);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -124,7 +128,7 @@ export const Navigation = () => {
             ))}
             
             <Button asChild className="btn-luxury ml-4">
-              <Link to="/rezerwacja">Zarezerwuj</Link>
+              <Link to="/rezerwacja">{t('button.book')}</Link>
             </Button>
           </div>
 
@@ -195,7 +199,7 @@ export const Navigation = () => {
             ))}
             
             <Button asChild className="btn-luxury w-full mt-6">
-              <Link to="/rezerwacja">Zarezerwuj</Link>
+              <Link to="/rezerwacja">{t('button.book')}</Link>
             </Button>
           </div>
         </div>
