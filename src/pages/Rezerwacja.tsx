@@ -353,7 +353,7 @@ const Rezerwacja = () => {
                   </div>
                   
                   <div className="space-y-2">
-                    <h3 className="font-medium text-sm">Ceny dla domku (max 8 osób):</h3>
+                    <h3 className="font-medium text-sm">Ceny dla domku (8 osób):</h3>
                     {priceInfo.map((item, index) => (
                       <div key={index} className="flex justify-between text-sm">
                         <span>{item.guests}</span>
