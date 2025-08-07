@@ -144,7 +144,7 @@ const Rezerwacja = () => {
   ];
 
   const additionalInfo = [
-    'Odległość do morza: 400 metrów',
+    'Odległość do morza: 350 metrów',
     'Parking: bezpłatny przy każdym domku'
   ];
 

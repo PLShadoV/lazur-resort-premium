@@ -58,7 +58,7 @@ const Galeria = () => {
   };
 
   const exteriorImages = [
-    { src: domekZewnatrz, srcMobile: domekZewnatrz, alt: 'Domek Lazur Resort od zewnątrz - luksusowy domek letniskowy nad morzem' },
+    { src: domekZewnatrz, srcMobile: domekZewnatrz, alt: 'Domek Lazur Resort od zewnątrz - domek letniskowy nad morzem' },
     { src: domekPrzod, srcMobile: domekPrzod, alt: 'Domek na działce - widok ogólny całej nieruchomości' },
     { src: domekBok, srcMobile: domekBok, alt: 'Główne wejście do domku - eleganckie i funkcjonalne wejście' },
     { src: domekZTarasem, srcMobile: domekZTarasem, alt: 'Domek z tarasem - przestrzeń do relaksu na świeżym powietrzu' },

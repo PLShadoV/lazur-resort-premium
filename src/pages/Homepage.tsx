@@ -119,7 +119,7 @@ const Homepage = () => {
           <source media="(max-width: 768px)" srcSet={heroDroneMobile} />
           <img 
             src={heroDrone} 
-            alt="Lazur Resort - Luksusowe domki letniskowe nad Bałtykiem w Rogowie"
+            alt="Lazur Resort w Rogowie - widok z drona"
             className="w-full h-full object-cover"
             loading="eager"
             fetchPriority="high"
@@ -134,9 +134,6 @@ const Homepage = () => {
           <p className="text-xl md:text-2xl font-light mb-6 opacity-90 max-w-3xl mx-auto">
             {t('home.hero.subtitle')}
           </p>
-          <p className="text-lg md:text-xl font-light mb-8 opacity-80 max-w-2xl mx-auto">
-            {t('home.hero.description')}
-          </p>
           
           
           <Button asChild className="btn-luxury text-lg px-12 py-6">
@@ -145,17 +142,18 @@ const Homepage = () => {
         </div>
       </section>
 
+      {/* Intro Section */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-center max-w-4xl mx-auto">
+            {t('home.hero.description')}
+          </p>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section ref={addToRefs} className="py-20 scroll-reveal">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-6">
-              {t('home.features.title')}
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              {t('home.features.subtitle')}
-            </p>
-          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => <Card key={index} className="glass-card hover:shadow-luxury transition-all duration-300">
@@ -178,7 +176,7 @@ const Homepage = () => {
                 <source media="(max-width: 768px)" srcSet={cottageExteriorMobile} />
                 <img 
                   src={cottageExterior} 
-                  alt="Domek Lazur Resort - Luksusowy domek letniskowy nad morzem w Rogowie" 
+                  alt="Domek Lazur Resort nad morzem w Rogowie" 
                   className="rounded-2xl shadow-luxury w-full" 
                   loading="lazy"
                   width="576"

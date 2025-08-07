@@ -14,7 +14,7 @@ export const Footer = () => {
             <div className="flex items-center space-x-3">
               <img 
                 src={lazurLogo} 
-                alt="Lazur Resort - Luksusowe domki letniskowe nad Bałtykiem w Rogowie" 
+                alt="Lazur Resort w Rogowie - logo"
                 className="h-8 w-auto" 
                 loading="lazy"
                 width="96"
@@ -23,7 +23,7 @@ export const Footer = () => {
               <span className="font-medium text-lg">Lazur Resort</span>
             </div>
             <p className="text-white/80 leading-relaxed">
-              Luksusowe domki letniskowe nad morzem w Rogowie. Idealne miejsce na wypoczynek
+              Domki letniskowe nad morzem w Rogowie. Idealne miejsce na wypoczynek
               z rodziną w województwie zachodniopomorskim.
             </p>
             <div className="flex space-x-4">
