@@ -441,7 +441,7 @@ const translations = {
     
     // Pricing
     'pricing.title': 'Preisliste Ferienhäuser',
-    'pricing.subtitle': 'Schauen Sie sich unsere wettbewerbsfähigen Preise für einen Aufenthalt in Häusern am Meer in Rogowo an',,
+    'pricing.subtitle': 'Schauen Sie sich unsere wettbewerbsfähigen Preise für einen Aufenthalt in Häusern am Meer in Rogowo an',
     'pricing.season.spring': 'Frühlingssaison',
     'pricing.season.spring.desc': 'Ideal für ruhige Entspannung im Frühling',
     'pricing.season.mayday': 'Maifeiertag',
