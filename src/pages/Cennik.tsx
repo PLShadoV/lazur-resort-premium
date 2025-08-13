@@ -82,7 +82,7 @@ const Cennik = () => {
     },
     {
       name: t('pricing.season.high'),
-      period: '06.07 – 17.08',
+      period: '06.07 – 24.08',
       description: t('pricing.season.high.desc'),
       highlight: true,
       prices: {
@@ -93,7 +93,7 @@ const Cennik = () => {
     },
     {
       name: t('pricing.season.summend'),
-      period: '17.08 – 31.08',
+      period: '24.08 – 31.08',
       description: t('pricing.season.summend.desc'),
       highlight: false,
       prices: {
