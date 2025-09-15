@@ -150,148 +150,143 @@ const Rezerwacja = () => {
         </div>
       </section>
 
-      {/* Reservation Engine */}
+      {/* Reservation Engine - Full Width */}
       <section ref={addToRefs} className="py-16 scroll-reveal">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Reservation Form */}
-            <div className="lg:col-span-2">
-              <Card className="glass-card p-6">
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-2xl font-light tracking-tight flex items-center space-x-3">
-                    <Calendar size={24} weight="light" className="text-ocean" />
-                    <span>{t('reservation.form.title')}</span>
-                  </CardTitle>
-                </CardHeader>
-                
-                <div className="relative bg-white rounded-lg overflow-hidden">
-                  <iframe 
-                    id="ra-reservation-form-v2-dc2fa3d21439f20f05fbc289a7d47790" 
-                    style={{
-                      width: '100%', 
-                      height: '100px', 
-                      border: 'none', 
-                      padding: '0',
-                      minHeight: '400px'
-                    }} 
-                    src="https://roomadmin.pl/widget/reservation-v2/start?fh=e054ee66a5c6bd98949b1f975c392dccebc20d88&style=%7B%22color_accent%22%3A%22%23101c4c%22%2C%22color_bg%22%3A%22%23FFFFFF%22%2C%22color_panel_header%22%3A%22%23FFFFFF%22%2C%22color_panel_body%22%3A%22%23FFFFFF%22%2C%22rounded_corners%22%3A%223%22%7D&filter=%7B%22room_type_id_in%22%3A%5B%223%22%5D%7D&lang=pl"
-                  ></iframe>
-                </div>
-              </Card>
+          <Card className="glass-card">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-2xl font-light tracking-tight text-center flex items-center justify-center space-x-3">
+                <Calendar size={24} weight="light" className="text-ocean" />
+                <span>{t('reservation.form.title')}</span>
+              </CardTitle>
+            </CardHeader>
+            
+            <div className="px-6 pb-6">
+              <div className="relative bg-white rounded-lg overflow-hidden">
+                <iframe 
+                  id="ra-reservation-form-v2-dc2fa3d21439f20f05fbc289a7d47790" 
+                  style={{
+                    width: '100%', 
+                    height: '100px', 
+                    border: 'none', 
+                    padding: '0',
+                    minHeight: '400px'
+                  }} 
+                  src="https://roomadmin.pl/widget/reservation-v2/start?fh=e054ee66a5c6bd98949b1f975c392dccebc20d88&style=%7B%22color_accent%22%3A%22%23101c4c%22%2C%22color_bg%22%3A%22%23FFFFFF%22%2C%22color_panel_header%22%3A%22%23FFFFFF%22%2C%22color_panel_body%22%3A%22%23FFFFFF%22%2C%22rounded_corners%22%3A%223%22%7D&filter=%7B%22room_type_id_in%22%3A%5B%223%22%5D%7D&lang=pl"
+                ></iframe>
+              </div>
             </div>
-
-            {/* Sidebar Info */}
-            <div className="space-y-6">
-              {/* Cottage Info */}
-              <Card className="glass-card">
-                <CardHeader>
-                  <CardTitle className="text-xl font-light tracking-tight flex items-center space-x-2">
-                    <Users size={20} weight="light" className="text-ocean" />
-                    <span>Domki Lazur Resort</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm">Dostępne domki:</span>
-                    <Badge variant="secondary">4 domki</Badge>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm">Typ domku:</span>
-                    <span className="text-sm font-medium">2 sypialnie + salon</span>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <h3 className="font-medium text-sm">Ceny dla domku (8 osób):</h3>
-                    {priceInfo.map((item, index) => (
-                      <div key={index} className="flex justify-between text-sm">
-                        <span>{item.guests}</span>
-                        <span className="font-medium text-ocean">{item.price}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="space-y-2">
-                    {additionalInfo.map((info, index) => (
-                      <div key={index} className="flex items-center space-x-2">
-                        <Check size={16} weight="bold" className="text-green-500" />
-                        <span className="text-xs">{info}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Contact Info */}
-              <Card className="glass-card">
-                <CardHeader>
-                  <CardTitle className="text-lg font-light tracking-tight">
-                    Kontakt bezpośredni
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                      <span className="text-green-600 font-medium text-sm">📞</span>
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium">+48 502 939 725</p>
-                      <p className="text-xs text-muted-foreground">Czynne codziennie 8:00 - 20:00</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                      <span className="text-blue-600 font-medium text-sm">📧</span>
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium">lazurresort@op.pl</p>
-                      <p className="text-xs text-muted-foreground">Odpowiadamy w ciągu 24 godzin</p>
-                    </div>
-                  </div>
-
-                  <p className="text-xs text-muted-foreground">
-                    Preferujesz kontakt telefoniczny? Zadzwoń do nas bezpośrednio, 
-                    zawsze jesteśmy do Państwa dyspozycji.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+          </Card>
         </div>
       </section>
 
-      {/* Why Reserve Section */}
+      {/* Cottage and Contact Info */}
       <section ref={addToRefs} className="py-16 bg-muted/30 scroll-reveal">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-light tracking-tight mb-6">
-              Dlaczego rezerwować domki w Lazur Resort Rogowo?
-            </h2>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Cottage Info */}
+            <Card className="glass-card">
+              <CardHeader>
+                <CardTitle className="text-xl font-light tracking-tight flex items-center space-x-2">
+                  <Users size={20} weight="light" className="text-ocean" />
+                  <span>Domki Lazur Resort</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm">Dostępne domki:</span>
+                  <Badge variant="secondary">4 domki</Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm">Typ domku:</span>
+                  <span className="text-sm font-medium">2 sypialnie + salon</span>
+                </div>
+                
+                <div className="space-y-2">
+                  <h3 className="font-medium text-sm">Ceny dla domku (8 osób):</h3>
+                  {priceInfo.map((item, index) => (
+                    <div key={index} className="flex justify-between text-sm">
+                      <span>{item.guests}</span>
+                      <span className="font-medium text-ocean">{item.price}</span>
+                    </div>
+                  ))}
+                </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="glass-card p-6">
-              <div className="text-center">
-                <Check size={48} weight="light" className="mx-auto mb-4 text-green-500" />
-                <h3 className="text-lg font-medium mb-4">Gwarancja najlepszej ceny</h3>
-                <p className="text-sm text-muted-foreground">
-                  Konkurencyjne ceny noclegów nad morzem
-                </p>
-              </div>
+                <div className="space-y-2">
+                  {additionalInfo.map((info, index) => (
+                    <div key={index} className="flex items-center space-x-2">
+                      <Check size={16} weight="bold" className="text-green-500" />
+                      <span className="text-xs">{info}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
             </Card>
 
-            <Card className="glass-card p-6">
-              <div className="text-center">
-                <Users size={48} weight="light" className="mx-auto mb-4 text-ocean" />
-                <h3 className="text-lg font-medium mb-4">Obsługa 24/7</h3>
-                <p className="text-sm text-muted-foreground">
-                  Zawsze jesteśmy do Państwa dyspozycji
+            {/* Contact Info */}
+            <Card className="glass-card">
+              <CardHeader>
+                <CardTitle className="text-lg font-light tracking-tight">
+                  Kontakt bezpośredni
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                    <span className="text-green-600 font-medium text-sm">📞</span>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">+48 502 939 725</p>
+                    <p className="text-xs text-muted-foreground">Czynne codziennie 8:00 - 20:00</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span className="text-blue-600 font-medium text-sm">📧</span>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">lazurresort@op.pl</p>
+                    <p className="text-xs text-muted-foreground">Odpowiadamy w ciągu 24 godzin</p>
+                  </div>
+                </div>
+
+                <p className="text-xs text-muted-foreground">
+                  Preferujesz kontakt telefoniczny? Zadzwoń do nas bezpośrednio, 
+                  zawsze jesteśmy do Państwa dyspozycji.
                 </p>
-              </div>
+              </CardContent>
+            </Card>
+
+            {/* Why Reserve Section Inline */}
+            <Card className="glass-card md:col-span-2 lg:col-span-1">
+              <CardHeader>
+                <CardTitle className="text-lg font-light tracking-tight text-center">
+                  Dlaczego rezerwować w Lazur Resort?
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="text-center">
+                  <Check size={32} weight="light" className="mx-auto mb-2 text-green-500" />
+                  <h3 className="font-medium mb-2">Gwarancja najlepszej ceny</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Konkurencyjne ceny noclegów nad morzem
+                  </p>
+                </div>
+                
+                <div className="text-center">
+                  <Users size={32} weight="light" className="mx-auto mb-2 text-ocean" />
+                  <h3 className="font-medium mb-2">Obsługa 24/7</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Zawsze jesteśmy do Państwa dyspozycji
+                  </p>
+                </div>
+              </CardContent>
             </Card>
           </div>
         </div>
       </section>
+
     </div>
   );
 };
