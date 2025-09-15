@@ -170,40 +170,52 @@ export const Navigation = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden fixed top-16 right-0 bottom-0 w-80 shadow-luxury transform transition-transform duration-300 z-50 ${
-            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          className={`lg:hidden fixed inset-0 transform transition-all duration-300 z-50 ${
+            isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
           }`}
-          style={{ 
-            backgroundColor: '#081c4c', 
-            opacity: 1,
-            backdropFilter: 'none'
-          }}
+          style={{ backgroundColor: '#081c4c' }}
         >
-          <div className="p-6 space-y-4 overflow-y-auto max-h-full">
+          {/* Header with Logo and Close Button */}
+          <div className="flex items-center justify-between p-6 border-b border-white/10">
+            <img 
+              src={lazurLogo} 
+              alt="Lazur Resort" 
+              className="h-16 w-auto"
+            />
+            <button
+              className="text-white p-2 rounded-md hover:bg-white/10 transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close mobile menu"
+            >
+              <X size={24} />
+            </button>
+          </div>
+          
+          <div className="p-6 space-y-6 overflow-y-auto" style={{ height: 'calc(100vh - 96px)' }}>
             {/* Mobile Menu Items - Combined */}
             {[...navItems.left, ...navItems.right].map((item: NavItem) => (
-              <div key={item.label}>
+              <div key={item.label} className="border-b border-white/10 last:border-b-0">
                 {item.children ? (
                   <div>
                     <button
-                      className="flex items-center justify-between w-full text-left py-2 text-white font-medium"
+                      className="flex items-center justify-between w-full text-left py-4 text-white font-medium text-lg hover:bg-white/5 transition-colors rounded-lg px-2"
                       onClick={() => handleDropdownToggle(item.label)}
                     >
                       {item.label}
                       <CaretDown
-                        size={16}
+                        size={20}
                         className={`transition-transform text-white ${
                           activeDropdown === item.label ? 'rotate-180' : ''
                         }`}
                       />
                     </button>
                     {activeDropdown === item.label && (
-                      <div className="ml-4 mt-2 space-y-2">
+                      <div className="ml-4 pb-4 space-y-2">
                         {item.children?.map((child) => (
                           <Link
                             key={child.label}
                             to={child.href}
-                            className="block py-2 text-white/80 hover:text-white transition-colors"
+                            className="block py-3 px-2 text-white/80 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
                           >
                             {child.label}
                           </Link>
@@ -214,8 +226,8 @@ export const Navigation = () => {
                 ) : (
                   <Link
                     to={item.href}
-                    className={`block py-2 text-white hover:text-white/80 transition-colors ${
-                      location.pathname === item.href ? 'text-white font-medium' : ''
+                    className={`block py-4 px-2 text-lg transition-colors rounded-lg hover:bg-white/5 ${
+                      location.pathname === item.href ? 'text-white font-medium bg-white/10' : 'text-white/90 hover:text-white'
                     }`}
                   >
                     {item.label}
@@ -224,19 +236,15 @@ export const Navigation = () => {
               </div>
             ))}
             
-            <Button asChild className="btn-luxury w-full mt-6">
-              <Link to="/rezerwacja">{t('button.book')}</Link>
-            </Button>
+            {/* Call to Action Button */}
+            <div className="pt-4">
+              <Button asChild className="btn-luxury w-full h-12 text-lg">
+                <Link to="/rezerwacja">{t('button.book')}</Link>
+              </Button>
+            </div>
           </div>
         </div>
 
-        {/* Mobile Menu Backdrop */}
-        {isMobileMenuOpen && (
-          <div
-            className="lg:hidden fixed inset-0 bg-black/50 z-[-1]"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-        )}
       </div>
     </nav>
   );
