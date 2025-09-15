@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { List, X, CaretDown } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import lazurLogo from '@/assets/lazur-logo-new.png';
+import lazurLogo from '@/assets/lazur-logo-final.png';
 
 interface NavItem {
   label: string;
@@ -67,7 +67,7 @@ export const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 overflow-visible ${
         isScrolled
           ? 'shadow-luxury'
           : ''
@@ -75,7 +75,7 @@ export const Navigation = () => {
       style={{ backgroundColor: '#081c4c' }}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-28">
+        <div className="flex items-center justify-between h-32 overflow-visible">
           {/* Left Navigation */}
           <div className="hidden lg:flex items-center space-x-8 flex-1">
             {navItems.left.map((item) => (
@@ -92,11 +92,14 @@ export const Navigation = () => {
           </div>
 
           {/* Center Logo */}
-          <Link to="/" className="flex items-center flex-shrink-0 mx-8">
+          <Link to="/" className="flex items-center flex-shrink-0 mx-8 relative z-50">
             <img 
               src={lazurLogo} 
               alt="Lazur Resort" 
-              className="h-24 w-auto max-w-none"
+              className="h-40 w-auto max-w-none transform scale-110"
+              style={{
+                filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))'
+              }}
             />
           </Link>
 
