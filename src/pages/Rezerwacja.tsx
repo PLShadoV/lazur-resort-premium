@@ -1,39 +1,16 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
+import React, { useRef, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { 
   Calendar,
   Users,
-  MapPin,
-  Check,
-  WifiHigh,
-  Car,
-  PawPrint
+  Check
 } from '@phosphor-icons/react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { supabase } from '@/integrations/supabase/client';
-import { toast } from 'sonner';
 
 const Rezerwacja = () => {
   const { t } = useLanguage();
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    checkIn: '',
-    checkOut: '',
-    guests: '4',
-    children: '0',
-    withPet: 'nie',
-    additionalInfo: ''
-  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -54,73 +31,84 @@ const Rezerwacja = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    // Reservation widget script
+    try {
+      (function () {
+        var iframe = window.document.getElementById('ra-reservation-form-v2-dc2fa3d21439f20f05fbc289a7d47790') as HTMLIFrameElement;
+        function raMessageReceiver(event: any) {
+          if (iframe) {
+            if (!event.data.sender || "reservation-form-dc2fa3d21439f20f05fbc289a7d47790" !== event.data.sender) {
+              return;
+            }
+            if (event.data.height) {
+              iframe.style.height = (event.data.height + 10) + "px";
+            }
+            if (event.data.event && event.data.event.name === "widget.scrollup.requested") {
+              try {
+                iframe.scrollIntoView({behavior: "smooth", block: "start"});
+              } catch (e) { }
+            }
+            if (event.data.event && event.data.event.name === "reservation.submit.success") {
+              console.log("reservation.submit.success", event.data.event.data.reservation);
+              var moneyTotal = event.data.event.data.reservation.moneyTotal;
+              var id = event.data.event.data.reservation.id;
+              
+              // GTM integration with proper types
+              const win = window as any;
+              win.gtag||(console.log("no gtag -- trying fallback "), win.dataLayer = win.dataLayer || [], win.gtag = function(){win.dataLayer.push(arguments)}, Array.from(document.scripts).forEach(function(a: HTMLScriptElement){
+                if(a.src.startsWith("https://www.googletagmanager.com/gtag/js")||a.src.startsWith("http://www.googletagmanager.com/gtag/js")){
+                  var g=new URL(a.src).searchParams.get("id");
+                  console.log("gtag found: "+g);
+                  win.gtag("js",new Date);
+                  win.gtag("config",g);
+                }
+              }));
+              
+              win.gtag("event", "purchase", { transaction_id: id, value: moneyTotal / 100, currency: "PLN" });
+              console.log("purchase event sent")
+            }
+            if (event.data.event && event.data.event.name === "reservation.variant-search.start") {
+              /*console.log("variant search started"); */
+            }
+            if (event.data.event && event.data.event.name) {
+              console.log(event.data.event.name, event.data.event);
+            }
+          }
+        }
+        window.addEventListener("message", raMessageReceiver, false);
+        function setup() {
+          try {
+            if (iframe && iframe.contentWindow) {
+              iframe.contentWindow.postMessage({
+                location: window.location.toString(),
+                setup: {
+                  autoHeight: true,
+                  senderName: "reservation-form-dc2fa3d21439f20f05fbc289a7d47790"
+                }
+              }, "*");
+            }
+          } catch (e) { }
+        }
+        const intervalId = setInterval(setup, 1000);
+        if (iframe) {
+          iframe.addEventListener("load", setup);
+        }
+        
+        // Cleanup function
+        return () => {
+          clearInterval(intervalId);
+          window.removeEventListener("message", raMessageReceiver);
+        };
+      })();
+    } catch (e) {
+      console.error(e);
+    }
+  }, []);
+
   const addToRefs = (el: HTMLElement | null) => {
     if (el && !sectionsRef.current.includes(el)) {
       sectionsRef.current.push(el);
-    }
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleRadioChange = (name: string, value: string) => {
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    try {
-      const { error } = await supabase.functions.invoke('send-contact-email', {
-        body: {
-          name: formData.firstName,
-          surname: formData.lastName,
-          email: formData.email,
-          phone: formData.phone,
-          checkIn: formData.checkIn,
-          checkOut: formData.checkOut,
-          guests: formData.guests,
-          message: `Liczba dzieci: ${formData.children}\nZ psem: ${formData.withPet}\n\n${formData.additionalInfo}`,
-          type: 'reservation'
-        }
-      });
-
-      if (error) throw error;
-
-      toast.success('Zapytanie o rezerwację zostało wysłane! Skontaktujemy się w ciągu 24 godzin.', {
-        duration: 6000,
-        style: {
-          fontSize: '18px',
-          padding: '24px',
-          maxWidth: '600px',
-          minWidth: '400px'
-        },
-        position: 'top-center'
-      });
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        checkIn: '',
-        checkOut: '',
-        guests: '4',
-        children: '0',
-        withPet: 'nie',
-        additionalInfo: ''
-      });
-    } catch (error) {
-      console.error('Error sending email:', error);
-      toast.error('Wystąpił błąd podczas wysyłania. Spróbuj ponownie lub skontaktuj się telefonicznie.', {
-        duration: 6000,
-        style: {
-          fontSize: '16px',
-          padding: '20px',
-          maxWidth: '500px'
-        }
-      });
     }
   };
 
@@ -162,173 +150,33 @@ const Rezerwacja = () => {
         </div>
       </section>
 
-      {/* Reservation Form and Info */}
+      {/* Reservation Engine */}
       <section ref={addToRefs} className="py-16 scroll-reveal">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Reservation Form */}
             <div className="lg:col-span-2">
-              <Card className="glass-card">
-                <CardHeader>
+              <Card className="glass-card p-6">
+                <CardHeader className="pb-4">
                   <CardTitle className="text-2xl font-light tracking-tight flex items-center space-x-3">
                     <Calendar size={24} weight="light" className="text-ocean" />
                     <span>{t('reservation.form.title')}</span>
                   </CardTitle>
                 </CardHeader>
                 
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="firstName">{t('reservation.form.firstname')} {t('required')}</Label>
-                        <Input
-                          id="firstName"
-                          name="firstName"
-                          placeholder="Twoje imię"
-                          value={formData.firstName}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="lastName">Nazwisko *</Label>
-                        <Input
-                          id="lastName"
-                          name="lastName"
-                          placeholder="Twoje nazwisko"
-                          value={formData.lastName}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="email">{t('reservation.form.email')} {t('required')}</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="twoj@email.pl"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Telefon *</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        placeholder="+48 502 939 725"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="checkIn">Data przyjazdu *</Label>
-                        <Input
-                          id="checkIn"
-                          name="checkIn"
-                          type="date"
-                          value={formData.checkIn}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="checkOut">Data wyjazdu *</Label>
-                        <Input
-                          id="checkOut"
-                          name="checkOut"
-                          type="date"
-                          value={formData.checkOut}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="guests">Liczba osób *</Label>
-                        <Input
-                          id="guests"
-                          name="guests"
-                          type="number"
-                          min="1"
-                          max="8"
-                          placeholder="4"
-                          value={formData.guests}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="children">Liczba dzieci</Label>
-                        <Input
-                          id="children"
-                          name="children"
-                          type="number"
-                          min="0"
-                          placeholder="0"
-                          value={formData.children}
-                          onChange={handleInputChange}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-4">
-                      <Label>Czy przyjeżdżacie z psem?</Label>
-                      <RadioGroup
-                        value={formData.withPet}
-                        onValueChange={(value) => handleRadioChange('withPet', value)}
-                        className="flex space-x-6"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="nie" id="no-pet" />
-                          <Label htmlFor="no-pet">Nie</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="tak" id="yes-pet" />
-                          <Label htmlFor="yes-pet">Tak (+15 zł/dobę)</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="additionalInfo">Dodatkowe informacje</Label>
-                      <Textarea
-                        id="additionalInfo"
-                        name="additionalInfo"
-                        placeholder="Szczególne życzenia, pytania o domek letniskowy nad morzem..."
-                        rows={4}
-                        value={formData.additionalInfo}
-                        onChange={handleInputChange}
-                      />
-                    </div>
-
-                    <div className="bg-ocean/10 p-4 rounded-lg">
-                      <h3 className="font-medium mb-2 flex items-center space-x-2">
-                        <Users size={18} weight="light" className="text-ocean" />
-                        <span>Informacja o rezerwacji:</span>
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        Po wysłaniu formularza skontaktujemy się z Państwem w ciągu 24 godzin w celu 
-                        potwierdzenia dostępności i warunków rezerwacji domku letniskowego.
-                      </p>
-                    </div>
-
-                    <Button type="submit" className="btn-luxury w-full text-lg py-6">
-                      {t('reservation.form.submit')}
-                    </Button>
-                  </form>
-                </CardContent>
+                <div className="relative bg-white rounded-lg overflow-hidden">
+                  <iframe 
+                    id="ra-reservation-form-v2-dc2fa3d21439f20f05fbc289a7d47790" 
+                    style={{
+                      width: '100%', 
+                      height: '100px', 
+                      border: 'none', 
+                      padding: '0',
+                      minHeight: '400px'
+                    }} 
+                    src="https://roomadmin.pl/widget/reservation-v2/start?fh=e054ee66a5c6bd98949b1f975c392dccebc20d88&style=%7B%22color_accent%22%3A%22%23101c4c%22%2C%22color_bg%22%3A%22%23FFFFFF%22%2C%22color_panel_header%22%3A%22%23FFFFFF%22%2C%22color_panel_body%22%3A%22%23FFFFFF%22%2C%22rounded_corners%22%3A%223%22%7D&filter=%7B%22room_type_id_in%22%3A%5B%223%22%5D%7D&lang=pl"
+                  ></iframe>
+                </div>
               </Card>
             </div>
 
