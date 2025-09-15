@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { List, X, CaretDown } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import lazurLogo from '@/assets/lazur-logo-transparent.png';
+import lazurLogo from '@/assets/lazur-logo-full.png';
 
 interface NavItem {
   label: string;
@@ -11,23 +11,32 @@ interface NavItem {
   children?: NavItem[];
 }
 
-const getNavItems = (t: (key: string) => string): NavItem[] => [
-  { label: t('nav.home'), href: '/' },
-  { label: t('nav.gallery'), href: '/galeria' },
-  { label: t('nav.pricing'), href: '/cennik' },
-  { label: t('nav.contact'), href: '/kontakt' },
-  {
-    label: t('nav.area'),
-    href: '/okolica',
-    children: [
-      { label: 'Domki na wynajem Mrzeżyno', href: '/okolica/mrzezyna' },
-      { label: 'Domki na wynajem Dźwirzyno', href: '/okolica/dzwirzyno' },
-      { label: 'Domki na wynajem Kołobrzeg', href: '/okolica/kolobrzeg' },
-      { label: 'Noclegi z psem', href: '/okolica/z-psem' },
-      { label: 'Ścieżki rowerowe', href: '/okolica/sciezki-rowerowe' },
-    ],
-  },
-];
+interface NavItems {
+  left: NavItem[];
+  right: NavItem[];
+}
+
+const getNavItems = (t: (key: string) => string) => ({
+  left: [
+    { label: t('nav.home'), href: '/' },
+    { label: t('nav.gallery'), href: '/galeria' }
+  ],
+  right: [
+    { label: t('nav.pricing'), href: '/cennik' },
+    { label: t('nav.contact'), href: '/kontakt' },
+    {
+      label: t('nav.area'),
+      href: '/okolica',
+      children: [
+        { label: 'Domki na wynajem Mrzeżyno', href: '/okolica/mrzezyna' },
+        { label: 'Domki na wynajem Dźwirzyno', href: '/okolica/dzwirzyno' },
+        { label: 'Domki na wynajem Kołobrzeg', href: '/okolica/kolobrzeg' },
+        { label: 'Noclegi z psem', href: '/okolica/z-psem' },
+        { label: 'Ścieżki rowerowe', href: '/okolica/sciezki-rowerowe' },
+      ],
+    }
+  ]
+});
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,16 +76,33 @@ export const Navigation = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Left Navigation */}
+          <div className="hidden lg:flex items-center space-x-8">
+            {navItems.left.map((item) => (
+              <Link
+                key={item.label}
+                to={item.href}
+                className={`text-white/90 hover:text-white transition-colors py-2 ${
+                  location.pathname === item.href ? 'text-white font-medium' : ''
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Center Logo */}
           <Link to="/" className="flex items-center">
-            <span className="text-white font-bold text-3xl tracking-wide">
-              LAZUR RESORT
-            </span>
+            <img 
+              src={lazurLogo} 
+              alt="Lazur Resort" 
+              className="h-12 w-auto"
+            />
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Right Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
+            {navItems.right.map((item) => (
               <div key={item.label} className="relative group">
                 {item.children ? (
                   <div
@@ -96,7 +122,7 @@ export const Navigation = () => {
                     
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-luxury overflow-hidden transition-all duration-300 ${
+                      className={`absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-luxury overflow-hidden transition-all duration-300 ${
                         activeDropdown === item.label
                           ? 'opacity-100 visible translate-y-0'
                           : 'opacity-0 invisible translate-y-2'
@@ -114,21 +140,24 @@ export const Navigation = () => {
                     </div>
                   </div>
                 ) : (
-                  <Link
-                    to={item.href}
-                    className={`text-white/90 hover:text-white transition-colors py-2 ${
-                      location.pathname === item.href ? 'text-white font-medium' : ''
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
+                  <div className="flex items-center space-x-4">
+                    <Link
+                      to={item.href}
+                      className={`text-white/90 hover:text-white transition-colors py-2 ${
+                        location.pathname === item.href ? 'text-white font-medium' : ''
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                    {item.label === t('nav.contact') && (
+                      <Button asChild className="btn-luxury">
+                        <Link to="/rezerwacja">{t('button.book')}</Link>
+                      </Button>
+                    )}
+                  </div>
                 )}
               </div>
             ))}
-            
-            <Button asChild className="btn-luxury ml-4">
-              <Link to="/rezerwacja">{t('button.book')}</Link>
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -154,7 +183,8 @@ export const Navigation = () => {
           }}
         >
           <div className="p-6 space-y-4 overflow-y-auto max-h-full">
-            {navItems.map((item) => (
+            {/* Mobile Menu Items - Combined */}
+            {[...navItems.left, ...navItems.right].map((item: NavItem) => (
               <div key={item.label}>
                 {item.children ? (
                   <div>
@@ -172,7 +202,7 @@ export const Navigation = () => {
                     </button>
                     {activeDropdown === item.label && (
                       <div className="ml-4 mt-2 space-y-2">
-                        {item.children.map((child) => (
+                        {item.children?.map((child) => (
                           <Link
                             key={child.label}
                             to={child.href}
