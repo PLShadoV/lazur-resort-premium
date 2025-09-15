@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { List, X, CaretDown } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import lazurLogo from '@/assets/lazur-logo-new.png';
+import lazurLogo from '@/assets/lazur-logo-new-final.png';
 
 interface NavItem {
   label: string;
