@@ -223,7 +223,7 @@ const translations = {
     'pricing.terms.minimum': 'Minimalna rezerwacja: 2 noce',
     'pricing.terms.checkin': 'Zameldowanie: od 15:00',
     'pricing.terms.checkout': 'Wymeldowanie: do 10:00',
-    'pricing.terms.deposit': 'Zaliczka: 20% wartości pobytu',
+    'pricing.terms.deposit': 'Zadatek: 20% wartości pobytu',
     'pricing.terms.pets': 'Zwierzęta: dozwolone za dopłatą 15 zł/dobę',
     'pricing.terms.distance': 'Odległość do morza: 350 metrów',
     'pricing.terms.parking': 'Parking: bezpłatny przy każdym domku',
@@ -255,7 +255,7 @@ const translations = {
     'area.why.nature.desc': 'Otoczone lasami i zielenią, z dala od miejskiego zgiełku',
 
     // Common
-    'button.book': 'Zarezerwuj',
+    'button.book': 'Rezerwacja',
     'button.contact': 'Skontaktuj się',
     'button.more': 'Dowiedz się więcej',
     'button.back': 'Powrót',
@@ -507,7 +507,7 @@ const translations = {
     'area.why.nature.desc': 'Umgeben von Wäldern und Grün, fernab vom Stadtlärm',
 
     // Common
-    'button.book': 'Buchen',
+    'button.book': 'Reservierung',
     'button.contact': 'Kontaktieren',
     'button.more': 'Mehr erfahren',
     'button.back': 'Zurück',
@@ -759,7 +759,7 @@ const translations = {
     'area.why.nature.desc': 'Surrounded by forests and greenery, away from city noise',
 
     // Common
-    'button.book': 'Book',
+    'button.book': 'Booking',
     'button.contact': 'Contact',
     'button.more': 'Learn more',
     'button.back': 'Back',

@@ -16,7 +16,6 @@ const getNavItems = (t: (key: string) => string): NavItem[] => [
   { label: t('nav.gallery'), href: '/galeria' },
   { label: t('nav.pricing'), href: '/cennik' },
   { label: t('nav.contact'), href: '/kontakt' },
-  { label: t('nav.booking'), href: '/rezerwacja' },
   {
     label: t('nav.area'),
     href: '/okolica',
