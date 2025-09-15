@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { List, X, CaretDown } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import lazurLogo from '@/assets/lazur-logo-full.png';
+import lazurLogo from '@/assets/lazur-logo-new.png';
 
 interface NavItem {
   label: string;
@@ -19,10 +19,10 @@ interface NavItems {
 const getNavItems = (t: (key: string) => string) => ({
   left: [
     { label: t('nav.home'), href: '/' },
-    { label: t('nav.gallery'), href: '/galeria' }
+    { label: t('nav.gallery'), href: '/galeria' },
+    { label: t('nav.pricing'), href: '/cennik' }
   ],
   right: [
-    { label: t('nav.pricing'), href: '/cennik' },
     { label: t('nav.contact'), href: '/kontakt' },
     {
       label: t('nav.area'),
@@ -75,9 +75,9 @@ export const Navigation = () => {
       style={{ backgroundColor: '#081c4c' }}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Left Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8 flex-1">
             {navItems.left.map((item) => (
               <Link
                 key={item.label}
@@ -92,16 +92,16 @@ export const Navigation = () => {
           </div>
 
           {/* Center Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center flex-shrink-0 mx-8">
             <img 
               src={lazurLogo} 
               alt="Lazur Resort" 
-              className="h-12 w-auto"
+              className="h-16 w-auto"
             />
           </Link>
 
           {/* Right Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8 flex-1 justify-end">
             {navItems.right.map((item) => (
               <div key={item.label} className="relative group">
                 {item.children ? (
@@ -122,7 +122,7 @@ export const Navigation = () => {
                     
                     {/* Dropdown Menu */}
                     <div
-                      className={`absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-luxury overflow-hidden transition-all duration-300 ${
+                      className={`absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-luxury overflow-hidden transition-all duration-300 z-50 ${
                         activeDropdown === item.label
                           ? 'opacity-100 visible translate-y-0'
                           : 'opacity-0 invisible translate-y-2'
@@ -140,24 +140,21 @@ export const Navigation = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="flex items-center space-x-4">
-                    <Link
-                      to={item.href}
-                      className={`text-white/90 hover:text-white transition-colors py-2 ${
-                        location.pathname === item.href ? 'text-white font-medium' : ''
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                    {item.label === t('nav.contact') && (
-                      <Button asChild className="btn-luxury">
-                        <Link to="/rezerwacja">{t('button.book')}</Link>
-                      </Button>
-                    )}
-                  </div>
+                  <Link
+                    to={item.href}
+                    className={`text-white/90 hover:text-white transition-colors py-2 ${
+                      location.pathname === item.href ? 'text-white font-medium' : ''
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
                 )}
               </div>
             ))}
+            
+            <Button asChild className="btn-luxury ml-6">
+              <Link to="/rezerwacja">{t('button.book')}</Link>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
