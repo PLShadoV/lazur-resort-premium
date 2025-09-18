@@ -288,6 +288,71 @@ const Rezerwacja = () => {
         </div>
       </section>
 
+      {/* Payment and Additional Info */}
+      <section ref={addToRefs} className="py-16 scroll-reveal">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Bank Transfer Details */}
+            <Card className="glass-card">
+              <CardHeader>
+                <CardTitle className="text-xl font-light tracking-tight text-center">
+                  {t('pricing.bank.title')}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="space-y-1 text-sm">
+                  <p className="font-medium">{t('pricing.bank.name')}</p>
+                  <p>{t('pricing.bank.address')}</p>
+                  <p className="mt-2">{t('pricing.bank.bank')}</p>
+                  <p className="font-mono">{t('pricing.bank.account')}</p>
+                  <p className="text-xs mt-2 font-medium">W przypadku przelewu zagranicznego:</p>
+                  <p className="font-mono text-xs">{t('pricing.bank.iban')}</p>
+                  <p className="font-mono text-xs">{t('pricing.bank.bic')}</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Additional Fees and Terms */}
+            <Card className="glass-card">
+              <CardHeader>
+                <CardTitle className="text-xl font-light tracking-tight text-center">
+                  Dodatkowe opłaty i warunki
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                  <h3 className="font-medium mb-2 text-blue-800">Opłata klimatyczna</h3>
+                  <p className="text-sm text-blue-700">3 zł/dobę od osoby</p>
+                </div>
+                
+                <div className="space-y-3 text-sm">
+                  <div className="flex items-center space-x-2">
+                    <Check size={16} weight="bold" className="text-green-500 flex-shrink-0" />
+                    <span>Minimalna rezerwacja: 2 noce</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Check size={16} weight="bold" className="text-green-500 flex-shrink-0" />
+                    <span>Zameldowanie: od 15:00</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Check size={16} weight="bold" className="text-green-500 flex-shrink-0" />
+                    <span>Wymeldowanie: do 10:00</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Check size={16} weight="bold" className="text-green-500 flex-shrink-0" />
+                    <span>Zwierzęta: dozwolone za dopłatą 15 zł/dobę</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Check size={16} weight="bold" className="text-green-500 flex-shrink-0" />
+                    <span>Zadatek: 20% wartości pobytu</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 };
