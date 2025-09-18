@@ -169,6 +169,68 @@ const Okolica = () => {
           </div>
         </div>
 
+        {/* Active Recreation Section */}
+        <div className="mb-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <div>
+              <h2 className="text-3xl font-light text-foreground mb-6">
+                Aktywny <span className="text-primary">wypoczynek</span>
+              </h2>
+              
+              <div className="space-y-6 text-foreground/70 leading-relaxed">
+                <p>
+                  Rogowo to raj dla miłośników aktywnego wypoczynku. W bezpośrednim 
+                  sąsiedztwie naszych domków rozpoczynają się szlaki rowerowe 
+                  prowadzące przez malownicze lasy i pola. Możesz wypożyczyć rowery 
+                  w pobliskich punktach wypożyczalni lub przyjeżdżać z własnymi.
+                </p>
+                
+                <p>
+                  W okolicy znajdziesz również korty tenisowe, boiska do siatkówki 
+                  plażowej oraz wyznaczone trasy nordic walking. Dla amatorów sportów 
+                  wodnych dostępne są kajaki i sprzęt do windsurfingu. Bliskość Bałtyku 
+                  pozwala na organizowanie wycieczek łodzią po okolicy i wędkowanie.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4 mt-8">
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span className="text-foreground/70">Szlaki rowerowe wprost z domku</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span className="text-foreground/70">Sporty wodne na Bałtyku</span>
+                  </div>
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span className="text-foreground/70">Wypożyczalnie rowerów w okolicy</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span className="text-foreground/70">Korty tenisowe i boiska sportowe</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Image */}
+            <div className="relative">
+              <img 
+                src="/src/assets/widok-na-las.webp" 
+                alt="Aktywny wypoczynek w okolicy - rodzina spaceruje po leśnej ścieżce"
+                className="w-full h-[400px] object-cover rounded-2xl shadow-luxury"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+            </div>
+          </div>
+        </div>
+
         <div className="text-center">
           <h2 className="text-3xl font-light text-foreground mb-6">
             {t('area.why.title').split(' ')[0]} {t('area.why.title').split(' ')[1]} {t('area.why.title').split(' ')[2]} <span className="text-primary">{t('area.why.title').split(' ')[3]}</span>?
