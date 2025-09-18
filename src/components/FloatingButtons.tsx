@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Envelope, MapPin, Calendar, CaretUp, CaretDown } from '@phosphor-icons/react';
+import { Phone, Envelope, MapPin, Calendar, CaretUp, CaretDown, FacebookLogo, WhatsappLogo } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
@@ -31,6 +31,18 @@ export const FloatingButtons = () => {
       className: 'floating-calendar',
       action: () => navigate('/rezerwacja'),
       label: 'Rezerwacja',
+    },
+    {
+      icon: FacebookLogo,
+      className: 'floating-facebook',
+      action: () => window.open('https://www.facebook.com/Lazurresort/', '_blank'),
+      label: 'Facebook',
+    },
+    {
+      icon: WhatsappLogo,
+      className: 'floating-whatsapp',
+      action: () => window.open('https://wa.me/48502939725', '_blank'),
+      label: 'WhatsApp',
     },
   ];
 
