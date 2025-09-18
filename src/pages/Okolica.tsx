@@ -26,18 +26,6 @@ const Okolica = () => {
       description: t('area.kolobrzeg.desc'),
       icon: <Heart size={24} className="text-primary" />,
     },
-    {
-      title: t('area.pets.title'),
-      href: '/okolica/z-psem',
-      description: t('area.pets.desc'),
-      icon: <Heart size={24} className="text-primary" />,
-    },
-    {
-      title: t('area.bikes.title'),
-      href: '/okolica/sciezki-rowerowe',
-      description: t('area.bikes.desc'),
-      icon: <Bicycle size={24} className="text-primary" />,
-    },
   ];
 
   return (
