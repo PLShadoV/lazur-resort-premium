@@ -225,7 +225,7 @@ const translations = {
     'pricing.terms.checkout': 'Wymeldowanie: do 10:00',
     'pricing.terms.deposit': 'Zadatek: 20% wartości pobytu',
     'pricing.terms.pets': 'Zwierzęta: dozwolone za dopłatą 15 zł/dobę',
-    'pricing.terms.climate': 'Opłata klimatyczna: 4 zł/dobę od osoby',
+    'pricing.terms.climate': 'Opłata klimatyczna: 3 zł/dobę od osoby',
     'pricing.terms.distance': 'Odległość do morza: 350 metrów',
     'pricing.terms.parking': 'Parking: bezpłatny na terenie obiektu',
     'pricing.bank.title': 'Dane do przelewu',
