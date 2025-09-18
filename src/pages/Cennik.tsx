@@ -93,7 +93,7 @@ const Cennik = () => {
     },
     {
       name: t('pricing.season.summend'),
-      period: '17.08 – 31.08',
+      period: '24.08 – 07.09',
       description: t('pricing.season.summend.desc'),
       highlight: false,
       prices: {
@@ -134,6 +134,7 @@ const Cennik = () => {
     t('pricing.terms.checkout'),
     t('pricing.terms.deposit'),
     t('pricing.terms.pets'),
+    t('pricing.terms.climate'),
     t('pricing.terms.distance'),
     t('pricing.terms.parking')
   ];
@@ -252,6 +253,19 @@ const Cennik = () => {
                 <p className="text-sm text-muted-foreground">
                   {t('pricing.additional.desc')}
                 </p>
+              </div>
+              
+              <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                <h3 className="font-medium mb-3 text-green-800">{t('pricing.bank.title')}</h3>
+                <div className="space-y-1 text-sm text-green-700">
+                  <p className="font-medium">{t('pricing.bank.name')}</p>
+                  <p>{t('pricing.bank.address')}</p>
+                  <p className="mt-2">{t('pricing.bank.bank')}</p>
+                  <p className="font-mono">{t('pricing.bank.account')}</p>
+                  <p className="text-xs mt-2 font-medium">W przypadku przelewu zagranicznego:</p>
+                  <p className="font-mono text-xs">{t('pricing.bank.iban')}</p>
+                  <p className="font-mono text-xs">{t('pricing.bank.bic')}</p>
+                </div>
               </div>
             </Card>
           </div>
