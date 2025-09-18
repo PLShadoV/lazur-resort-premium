@@ -81,19 +81,19 @@ const Okolica = () => {
                     Trasy rowerowe
                   </h3>
                 </div>
-                <p className="text-foreground/70 mb-6 text-sm leading-relaxed">
+                <p className="text-foreground/70 mb-6 leading-relaxed">
                   Rozbudowana sieć ścieżek rowerowych łączących nadmorskie miejscowości
                 </p>
                 <div className="space-y-3">
-                  <div className="flex justify-between items-center text-sm">
+                  <div className="flex justify-between items-center">
                     <span className="text-foreground/70">Trasa Kołobrzeg - Rogowo</span>
                     <span className="font-medium text-primary">12 km</span>
                   </div>
-                  <div className="flex justify-between items-center text-sm">
+                  <div className="flex justify-between items-center">
                     <span className="text-foreground/70">Trasa nadbrzeżna</span>
                     <span className="font-medium text-primary">8 km</span>
                   </div>
-                  <div className="flex justify-between items-center text-sm">
+                  <div className="flex justify-between items-center">
                     <span className="text-foreground/70">Ścieżka leśna</span>
                     <span className="font-medium text-primary">5 km</span>
                   </div>
@@ -112,10 +112,10 @@ const Okolica = () => {
                     Wędkowanie
                   </h3>
                 </div>
-                <p className="text-foreground/70 mb-6 text-sm leading-relaxed">
+                <p className="text-foreground/70 mb-6 leading-relaxed">
                   Liczne możliwości dla miłośników wędkarstwa
                 </p>
-                <div className="space-y-3 text-sm">
+                <div className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
                     <span className="text-foreground/70">Morze Bałtyckie</span>
@@ -147,10 +147,10 @@ const Okolica = () => {
                     Spacery
                   </h3>
                 </div>
-                <p className="text-foreground/70 mb-6 text-sm leading-relaxed">
+                <p className="text-foreground/70 mb-6 leading-relaxed">
                   Piękne trasy spacerowe po okolicy
                 </p>
-                <div className="space-y-3 text-sm">
+                <div className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
                     <span className="text-foreground/70">Spacery brzegiem morza</span>
