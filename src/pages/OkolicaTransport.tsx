@@ -115,10 +115,10 @@ const OkolicaTransport = () => {
         }
       ],
       tips: [
-        "Rezerwuj transfer z wyprzedzeniem",
-        "Wypożyczalnie samochodów na lotniskach",
-        "Sprawdź połączenia przed podróżą", 
-        "Transfer busem lub taksówką",
+        "✈️ Gdańsk ma najwięcej połączeń",
+        "🚗 Wynajem auta na lotnisku najwygodniej", 
+        "🚌 Autobus z lotniska do centrum, potem dalej",
+        "💰 Berlin czasem tańszy niż polskie lotniska",
         "Rezerwacja online zalecana",
         "Routes путاद़چ homticardeau czasztub conjosail stet"
       ]

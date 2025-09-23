@@ -31,6 +31,7 @@ const getNavItems = (t: (key: string) => string) => ({
         { label: 'Atrakcje turystyczne', href: '/okolica/atrakcje' },
         { label: 'Plaże i przyroda', href: '/okolica/plaze-przyroda' },
         { label: 'Transport i dojazd', href: '/okolica/transport' },
+        { label: '', href: '' }, // Separator
         { label: 'Domki na wynajem Mrzeżyno', href: '/okolica/mrzezyna' },
         { label: 'Domki na wynajem Dźwirzyno', href: '/okolica/dzwirzyno' },
         { label: 'Domki na wynajem Kołobrzeg', href: '/okolica/kolobrzeg' },
@@ -132,13 +133,17 @@ export const Navigation = () => {
                       }`}
                     >
                       {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          to={child.href}
-                          className="block px-4 py-3 text-foreground hover:bg-muted transition-colors"
-                        >
-                          {child.label}
-                        </Link>
+                        child.label ? (
+                          <Link
+                            key={child.label}
+                            to={child.href}
+                            className="block px-4 py-3 text-foreground hover:bg-muted transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        ) : (
+                          <div key="separator" className="border-t border-muted my-1" />
+                        )
                       ))}
                     </div>
                   </div>
@@ -215,13 +220,17 @@ export const Navigation = () => {
                     {activeDropdown === item.label && (
                       <div className="ml-4 pb-4 space-y-2">
                         {item.children?.map((child) => (
-                          <Link
-                            key={child.label}
-                            to={child.href}
-                            className="block py-3 px-2 text-white/80 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
-                          >
-                            {child.label}
-                          </Link>
+                          child.label ? (
+                            <Link
+                              key={child.label}
+                              to={child.href}
+                              className="block py-3 px-2 text-white/80 hover:text-white hover:bg-white/5 transition-colors rounded-lg"
+                            >
+                              {child.label}
+                            </Link>
+                          ) : (
+                            <div key="separator" className="border-t border-white/10 my-2" />
+                          )
                         ))}
                       </div>
                     )}

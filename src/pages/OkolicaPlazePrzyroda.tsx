@@ -77,16 +77,16 @@ const OkolicaPlazePrzyroda = () => {
   const reserves = [
     {
       name: "Nadmorski Park Krajobrazowy",
-      distance: "15 km", 
-      type: "Obszar chroniony",
-      description: "Rozległy park chroniący wybrzeże i różnorodne ekosystemy polskiego nadmorza.",
+      distance: "18 km", 
+      type: "Krajobrazowy",
+      description: "Rozległy park chroniący unikalne ekosystemy polskiego wybrzeża.",
       features: [
-        "Różnorodne ekosystemy",
-        "Ponad 200 gatunków ptaków",
-        "Kity rybitw",
-        "Siec szlaków turystycznych",
-        "Miejsca koworkowe",
-        "Lasy nadmorskie"
+        "🏞️ Różnorodne ekosystemy",
+        "🦅 Ponad 200 gatunków ptaków",
+        "🌊 Klify i wydmy",
+        "🥾 Sieć szlaków turystycznych",
+        "🏕️ Miejsca biwakowe",
+        "🌲 Lasy nadmorskie"
       ]
     }
   ];
@@ -94,18 +94,18 @@ const OkolicaPlazePrzyroda = () => {
   const activities = [
     {
       icon: <Binoculars className="h-8 w-8" />,
-      title: "Wypożyczenie rowerów", 
+      title: "🚴‍♀️ Wypożyczenie rowerów", 
       description: "Zajrzyj nad tą przypadająrem rogate. Oferny upływetown dostępne oklicznym sposobem sieosińnasteba w daidingy."
     },
     {
       icon: <Camera className="h-8 w-8" />,
-      title: "Najlepsze porty",
-      description: "Wybierz idealne miejsce do połowu w malowniczych lokalizacjach, świetny sposób na relaks!"
+      title: "🌅 Najlepsze pory",
+      description: "Wschody słońca na plaży to niezapomniane przeżycie - warto wstać wcześniej!"
     },
     {
       icon: <Fish className="h-8 w-8" />,
-      title: "Aplikacje",
-      description: "Plenerowe aplikacje mobilne pomogą Ci odkryć najciekawsze miejsca - światowej klasy przewodniki!"
+      title: "📱 Aplikacje",
+      description: "Pobierz aplikacje do rozpoznawania ptaków i roślin - zwiedzanie będzie ciekawsze!"
     }
   ];
 
@@ -261,8 +261,7 @@ const OkolicaPlazePrzyroda = () => {
                   </div>
 
                   <div className="bg-muted/30 rounded-lg p-6 text-center">
-                    <Mountain className="h-12 w-12 text-green-500 mx-auto mb-4" />
-                    <div className="text-sm text-muted-foreground mb-2">Obszar chroniony</div>
+                    <div className="text-sm text-muted-foreground mb-2">Ochrona wybrzeża</div>
                     <div className="text-lg font-bold text-green-600">Gatunki chronione</div>
                   </div>
                 </div>
@@ -276,7 +275,7 @@ const OkolicaPlazePrzyroda = () => {
           <CardContent className="p-8">
             <div className="text-center mb-8">
               <Sun className="h-12 w-12 text-white/80 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-4">Wskazówki dla aktywnych</h3>
+              <h3 className="text-2xl font-bold mb-4">🌊 Wskazówki dla aktywnych</h3>
             </div>
             
             <div className="grid md:grid-cols-3 gap-6">
