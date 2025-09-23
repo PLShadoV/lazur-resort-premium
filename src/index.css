@@ -218,13 +218,13 @@
   }
 
   .floating-facebook {
-    @apply text-white;
-    background-color: #1877F2;
+    @apply text-white !important;
+    background-color: #1877F2 !important;
   }
 
   .floating-whatsapp {
-    @apply text-white;
-    background-color: #25D366;
+    @apply text-white !important;
+    background-color: #25D366 !important;
   }
 }
 
