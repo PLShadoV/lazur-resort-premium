@@ -120,7 +120,6 @@ const OkolicaTransport = () => {
         "🚌 Autobus z lotniska do centrum, potem dalej",
         "💰 Berlin czasem tańszy niż polskie lotniska",
         "Rezerwacja online zalecana",
-        "Routes путاद़چ homticardeau czasztub conjosail stet"
       ]
     }
   ];
@@ -401,16 +400,16 @@ const OkolicaTransport = () => {
               <div>
                 <h4 className="font-bold mb-2">Adres</h4>
                 <p className="text-blue-50">
-                  ul. Leśna 15<br />
-                  78-132 Rogowo<br />
+                  ul. Makowa 6<br />
+                  72-330 Rogowo<br />
                   woj. zachodniopomorskie
                 </p>
               </div>
               <div>
                 <h4 className="font-bold mb-2">Współrzędne GPS</h4>
                 <p className="text-blue-50">
-                  54°04'12"N<br />
-                  15°51'48"E
+                  54°14'92"N<br />
+                  15°33'76"E
                 </p>
               </div>
             </div>
