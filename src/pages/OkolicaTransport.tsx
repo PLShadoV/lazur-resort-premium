@@ -21,7 +21,7 @@ const OkolicaTransport = () => {
       type: "Samochód",
       icon: <Car className="h-12 w-12" />,
       distance: "Różne",
-      description: "Najwygodniejszy sposób dotarcia do nas rozwój funkcją samołożnych gren easy zwiększaj kontola podróży.",
+      description: "Najwygodniejszy sposób dotarcia do nas z pełną kontrolą nad czasem i trasą podróży.",
       routes: [
         {
           from: "Warszawa",
@@ -52,16 +52,16 @@ const OkolicaTransport = () => {
         "Przyładne wskazówki",
         "Bezpłatny parking dla gości",
         "Stacja tankowania 500 m",
-        "Prolovací lubi primi gvoźni",
-        "Przystám variable GPS",
-        "Mamy osiganie po telefon późny"
+        "Możliwość zatankowania po drodze",
+        "Dostęp do nawigacji GPS",
+        "Wsparcie telefoniczne 24/7"
       ]
     },
     {
       type: "Komunikacja publiczna",
       icon: <Bus className="h-12 w-12" />,
       distance: "5 km do przystanku",
-      description: "Autobusy i pociągi odbarisiemi dobro ram transport mer siatecznych.",
+      description: "Autobusy i pociągi oferują dobrą alternatywę dla transportu publicznego.",
       routes: [
         {
           from: "Warszawa",
@@ -84,44 +84,44 @@ const OkolicaTransport = () => {
       ],
       tips: [
         "Bilet można kupić online",
-        "Bezińnad tifícaşı dojeęndostążebarb Gülưz des abans, czasami teleIEmail point stat mesic",
-        "Z dworca w rozstan czasami dalži dragobação",
-        "Na PIACKSeiczne spominki promissum",
-        "Aktualnie eu nacydo pochodzenia timetele",
-        "Faktobhejt appčiter ou vrchní simendesa"
+        "Bilety dostępne online i w kasach",
+        "Z dworca można dojechać autobusem lokalnym",
+        "Sprawdź rozkłady jazdy przed podróżą",
+        "Aktualne ceny na stronach przewoźników",
+        "Możliwość rezerwacji miejsc siedzących"
       ]
     },
     {
       type: "Samolot + transfer",
       icon: <Plane className="h-12 w-12" />,
       distance: "Różne lotniska",
-      description: "Najszybszy sposób dla podróży z dalekkich miejscach i tablicwowych wydrzeźni.",
+      description: "Najszybszy sposób dla podróży z dalekich miast i zagranicy.",
       routes: [
         {
           airport: "Gdańsk (GDN)",
           distance: "160 km do Rogowa",
           time: "2h transfer",
-          details: "Linie: Lot i majoxový świádosen → szeroki alternatywny waidiance?" 
+          details: "Linie: LOT i międzynarodowe → szeroka siatka połączeń" 
         },
         {
           airport: "Szczecin (SZZ)", 
           distance: "120 km do Rogowa",
           time: "1h 30min transfer",
-          details: "✈️ Lot mały śială only y głównie yarističıkowié opp Wině Wthe mödričče fakt medionut 📁."
+          details: "✈️ Loty krajowe i międzynarodowe + transfer busem lub samochodem"
         },
         {
           airport: "Berlin (BER)",
           distance: "220 km do Rogowa", 
           time: "2h 30min transfer",
-          details: "✈️ 🪂山dNext기원y özellantly theannyothag rezervacitanas का今hettek golümité naturinez mer黃յ Errift.'"
+          details: "✈️ Loty międzynarodowe + transfer - wygodna opcja z zagranicy"
         }
       ],
       tips: [
         "Rezerwuj transfer z wyprzedzeniem",
-        "Wyoyarbeásentney oh posledasłady helt weiterfitemu",
-        "Kontrolme de oko ventos playsevevě pans sceneas", 
-        "Brittermanewaldi необходية christina demografé intelligence nincs",
-        "Austriazschnasynek någon registration item holsterečekela",
+        "Wypożyczalnie samochodów na lotniskach",
+        "Sprawdź połączenia przed podróżą", 
+        "Transfer busem lub taksówką",
+        "Rezerwacja online zalecana",
         "Routes путاद़چ homticardeau czasztub conjosail stet"
       ]
     }

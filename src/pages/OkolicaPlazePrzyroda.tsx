@@ -21,24 +21,24 @@ const OkolicaPlazePrzyroda = () => {
       name: "Plaża w Rogowie",
       distance: "300 m",
       type: "Piaszczysta, szeroka",
-      description: "Nasza najbliższa plaża to prawdziwa perełka Słowińska, piaszczystą wybredxkoną z legendarnymi kolorami na morzu.",
+      description: "Nasza najbliższa plaża to prawdziwa perełka Słowińskiego Wybrzeża, piaszczysta i szeroka z legendarnymi zachodami słońca nad morzem.",
       features: [
         "Piękny, złocisty piasek",
         "Łagodnie zjście do wody", 
         "Idealna dla rodzin z dziećmi",
-        "Świeża przyjazna psou"
+        "Strefa przyjazna psom"
       ]
     },
     {
       name: "Plaża w Mrzeżynie", 
       distance: "8 km",
       type: "Dzika, naturalna",
-      description: "Dzika plaża dla miłośników nietknietej przyrody. Warto wybrać z kamerą oraz spacerem z ułubionym przyjacielem.",
+      description: "Dzika plaża dla miłośników nietknietej przyrody. Warto wybrać się z aparatem na spacer z czworonożnym przyjacielem.",
       features: [
         "Czasem można spotkać foki",
-        "Ośrodek dla fotografów",
+        "Raj dla fotografów przyrody",
         "Wydmy porośnięte trawą",
-        "Poćwiaujące zwierzęta"
+        "Możliwość spotkania dzikich zwierząt"
       ]
     }
   ];
@@ -51,11 +51,11 @@ const OkolicaPlazePrzyroda = () => {
       image: "/src/assets/sciezki-rowerowe-mrzezyno.jpg",
       features: [
         "Bezpieczna, oznakowana trasa",
-        "Pięknonej przez las iglasty las",
-        "Odpocznienie po całej rodziny",
+        "Prowadzi przez piękny las iglasty",
+        "Odpowiednia dla całej rodziny",
         "Bogata fauna i flora",
         "Miejsca odpoczynku na trasie",
-        "Armatury nie do pełny"
+        "Dostęp do punktów wypoczynku"
       ]
     },
     {
@@ -64,12 +64,12 @@ const OkolicaPlazePrzyroda = () => {
       difficulty: "Średnia",
       image: "/src/assets/coastal-bike-path.jpg", 
       features: [
-        "Spektakularnie widoki na morze",
-        "Przyrodnicze przez parki krajobrazowe", 
-        "Mijesce zaglądania",
-        "Restauracje na dosecie",
-        "Niezporowawone widoki na zachody",
-        "Miaską przespace zachami widoki"
+        "Spektakularne widoki na morze",
+        "Przechodzi przez parki krajobrazowe", 
+        "Miejsca na obserwacje",
+        "Restauracje na trasie",
+        "Niezapomniane widoki na zachody słońca",
+        "Miejsca odpoczynku z widokiem na morze"
       ]
     }
   ];
@@ -79,7 +79,7 @@ const OkolicaPlazePrzyroda = () => {
       name: "Nadmorski Park Krajobrazowy",
       distance: "15 km", 
       type: "Obszar chroniony",
-      description: "Rozległy park chroniący wybrzeże dynamiczne rozprzestrenia gatunki polska wyegzowaną.",
+      description: "Rozległy park chroniący wybrzeże i różnorodne ekosystemy polskiego nadmorza.",
       features: [
         "Różnorodne ekosystemy",
         "Ponad 200 gatunków ptaków",
@@ -100,12 +100,12 @@ const OkolicaPlazePrzyroda = () => {
     {
       icon: <Camera className="h-8 w-8" />,
       title: "Najlepsze porty",
-      description: "Wrór idät začest do parry do magistralnych położenia, świetny spośód szczesznich!"
+      description: "Wybierz idealne miejsce do połowu w malowniczych lokalizacjach, świetny sposób na relaks!"
     },
     {
       icon: <Fish className="h-8 w-8" />,
       title: "Aplikacje",
-      description: "Plenerové aplikacje eksistemsitzenappatel przekłoty i mützich - świätowe najcię chokeowy!"
+      description: "Plenerowe aplikacje mobilne pomogą Ci odkryć najciekawsze miejsca - światowej klasy przewodniki!"
     }
   ];
 

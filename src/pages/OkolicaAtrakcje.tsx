@@ -24,14 +24,14 @@ const OkolicaAtrakcje = () => {
       description: "Historyczny port i kurort nadmorski z latarnią morską i uzdrowiskiem.",
       features: [
         "Zabytkowa katedra i ratusz",
-        "Port rybacki marina",
-        "Nowoczesne uzdrowiska",
-        "Plaża, spacery pieszo",
+        "Port rybacki i marina",
+        "Nowoczesne uzdrowiska SPA",
+        "Piękna piaszczysta plaża",
         "Latarnia morska - symbol miasta",
-        "Zwiedzanie piesochronem",
-        "Opieka z repatriatorami i akibaterami"
+        "Deptak nad morzem",
+        "Muzeum Oręża Polskiego"
       ],
-      tip: "Nasza wskazówka: Koniecznie zwiedzić z dziecmi spacer fikołak-przyutulonych!"
+      tip: "Nasza wskazówka: Koniecznie odwiedź latarnię morską o zachodzie słońca!"
     },
     {
       name: "Mrzeżyno",
@@ -40,15 +40,15 @@ const OkolicaAtrakcje = () => {
       rating: 5,
       description: "Urokliwe nadmorskie miasteczko z piękną plażą i unikalnymi krajobrazami.",
       features: [
-        "Jedina z największych plaż w Polsce",
+        "Jedna z najpiękniejszych plaż w Polsce",
         "Doskonałe warunki do sportów wodnych",
         "Świeża ryba prosto z kutra",
-        "Spacery kąb wyschłych piaży",
-        "Spokojna łajs-desow na morzu",
-        "Wybrzeże spacesy dla całej rody",
-        "Spacery po wyschłej piaży"
+        "Malownicze spacery brzegiem morza",
+        "Spokojna atmosfera nad morzem",
+        "Wybrzeże przyjazne całej rodzinie",
+        "Port rybacki pełen kolorowych łodzi"
       ],
-      tip: "Nasza wskazówka: Idealne miejsce do wieczornych spacerów i bezpośrednim spacerów!"
+      tip: "Nasza wskazówka: Idealne miejsce na wieczorne spacery i obserwowanie zachodu słońca!"
     },
     {
       name: "Trzebiatów",
@@ -61,10 +61,10 @@ const OkolicaAtrakcje = () => {
         "Muzeum Ziemi Trzebiatowskiej",
         "Regionalne produkty i rękodzieło",
         "Fragmenty murów obronnych miasta",
-        "Letnie wspaniałe w plenerze",
-        "Biblioteka w zabytkowym budynku"
+        "Letnie wydarzenia kulturalne",
+        "Zabytkowy ratusz z XIV wieku"
       ],
-      tip: "Nasza wskazówka: Odwiedź zabytkowy ryddalharz - część siedziby na XV-wiecznać historycznej!"
+      tip: "Nasza wskazówka: Odwiedź zabytkowy rynek - serce miasta z XIV-wieczną historią!"
     },
     {
       name: "Dźwirzyno",
@@ -75,13 +75,13 @@ const OkolicaAtrakcje = () => {
       features: [
         "Jezioro Resko Przymorskie", 
         "Kajaki i sporty wodne",
-        "Charakterystyczne pilatony",
-        "Świetne miejsca / spacerowe",
-        "Możliwości ornithlogiczne",
+        "Charakterystyczne drewniane pomosty",
+        "Świetne miejsca na spacery",
+        "Możliwości obserwacji ptaków",
         "Nadmorski Park Krajobrazowy",
-        "Ściśle plaże / spacerowe"
+        "Ciche plaże z piękną przyrodą"
       ],
-      tip: "Nasza wskazówka: Idealne miejsce na spokojne przygody i ciszę!"
+      tip: "Nasza wskazówka: Idealne miejsce na spokojny wypoczynek z dala od tłumów!"
     },
     {
       name: "Pobierowo", 
@@ -92,12 +92,12 @@ const OkolicaAtrakcje = () => {
       features: [
         "Ocean Park - park rozrywki",
         "Zamek piaskowy Lapalice",
-        "Aktywnie dla dzieci",
-        "Nowoczesne saquarium",
-        "Ośrce rekreacijs hare", 
+        "Atrakcje dla dzieci",
+        "Nowoczesne aquarium",
+        "Ośrodki rekreacyjne", 
         "Pola golfowe w okolicy"
       ],
-      tip: "Nasza wskazówka: Atrakcje morskie in funkcjonuj atrậkcji i dunoważć!"
+      tip: "Nasza wskazówka: Idealne miejsce na rodzinny dzień pełen atrakcji!"
     }
   ];
 
