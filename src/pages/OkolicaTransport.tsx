@@ -130,32 +130,36 @@ const OkolicaTransport = () => {
   const localTransport = {
     bus: {
       title: "Autobus lokalny",
-      routes: ["Rogowo-Białogard", "Rogowo-Słupsk", "Rogowo-Trzebiatów"],
+      routes: ["Rogowo - Kołobrzeg", "Rogowo - Mrzeżyno", "Rogowo - Trzebiatów"],
       schedule: "Co 2-3 godziny",
-      price: "Od 3-8 zł"
+      price: "3-8 zł",
+      tip: "Sprawdź rozkład w recepcji lub online"
     },
     taxi: {
       title: "Taxi", 
       companies: [
-        { name: "Taxi Rogowo", phone: "+48 512 345 678" },
-        { name: "Białogard Taxi", phone: "+48 601 234 567" }
+        { name: "Taxi Kołobrzeg", phone: "+48 94 352 22 22" },
+        { name: "Radio Taxi", phone: "+48 94 354 54 54" }
       ],
-      note: "Dostępne 24/7, rezerwacja telefoniczna"
+      coverage: "Całą okolicę",
+      price: "2-3 zł/km",
+      note: "Zamów wcześniej, szczególnie wieczorem"
+    },
+    bikeRental: {
+      title: "Wypożyczenie rowerów",
+      locations: ["Rogowo centrum", "Kołobrzeg", "Mrzeżyno"],
+      price: "20-40 zł/dzień",
+      routes: "Ponad 50 km ścieżek rowerowych",
+      tip: "Świetny sposób na zwiedzanie okolicy"
+    },
+    carRental: {
+      title: "Wypożyczenie samochodów", 
+      companies: ["Avis", "Hertz", "Wypożyczalnie lokalne"],
+      locations: ["Kołobrzeg centrum", "Lotnisko Gdańsk"],
+      price: "100-200 zł/dzień",
+      tip: "Rezerwuj z wyprzedzeniem w sezonie"
     }
   };
-
-  const rentalInfo = [
-    {
-      type: "Wypożyczalnie rowerów",
-      items: ["Rogowo Bike", "Mrzeżyno", "Dźwirzyno"],
-      details: "Rowery miejskie i turystyczne, e-bike, rowery dziecięce"
-    },
-    {
-      type: "Wypożyczalnie samochodów", 
-      items: ["Kołobrzeg centrum", "Lotnisko Gdańsk"],
-      details: "Główne firmy: Avis, Hertz, Budget. Rezerwacja online preferowana"
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50/30 to-background">
@@ -173,10 +177,10 @@ const OkolicaTransport = () => {
             Transport i dojazd
           </h1>
           <p className="text-lg md:text-xl mb-8 text-blue-50">
-            Wszystko co musisz wiedzieć o dotarciu do Rogowa
+            Wszystko co musisz wiedzieć o dotarciu do naszych domków
           </p>
           <p className="text-sm text-blue-100">
-            Jesteśmy tylko 15 km od Kołobrzegu!
+            Około 4-5h z Warszawy - łatwy dojazd!
           </p>
         </div>
       </div>
@@ -189,8 +193,8 @@ const OkolicaTransport = () => {
           </div>
           <h2 className="text-3xl font-bold mb-4">Jak do nas dojechać</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Rogowo jest doskonale skomunikowane z największymi miastami w Polsce. Oferujemy 
-            sposób podróży.
+            Rogowo jest doskonale skomunikowane z największymi miastami w Polsce. Wybierz 
+            najlepszy dla siebie sposób podróży.
           </p>
         </div>
 
@@ -261,18 +265,17 @@ const OkolicaTransport = () => {
           ))}
         </div>
 
-        {/* Local Transport */}
         <Card className="mb-8">
           <CardContent className="p-8">
             <div className="text-center mb-8">
               <Bus className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-4">Komunikacja lokalna</h3>
+              <h3 className="text-2xl font-bold mb-4">🚌 Komunikacja lokalna</h3>
               <p className="text-muted-foreground">
                 Poruszanie się po okolicy - autobusy, taxi, rowery i wypożyczalnie samochodów
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="grid md:grid-cols-2 gap-8">
               {/* Local Bus */}
               <div className="bg-muted/30 rounded-lg p-6">
                 <h4 className="font-bold mb-3 flex items-center gap-2">
@@ -282,15 +285,22 @@ const OkolicaTransport = () => {
                 <div className="space-y-2 text-sm">
                   <div>
                     <span className="font-medium">Trasy: </span>
-                    {localTransport.bus.routes.join(", ")}
+                  </div>
+                  <div className="ml-4">
+                    {localTransport.bus.routes.map((route, index) => (
+                      <div key={index}>• {route}</div>
+                    ))}
                   </div>
                   <div>
-                    <span className="font-medium">Rozkład: </span>
+                    <span className="font-medium">Częstotliwość: </span>
                     {localTransport.bus.schedule}
                   </div>
                   <div>
-                    <span className="font-medium">Ceny: </span>
+                    <span className="font-medium">Cena: </span>
                     {localTransport.bus.price}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-2">
+                    💡 Wskazówka: {localTransport.bus.tip}
                   </div>
                 </div>
               </div>
@@ -302,31 +312,82 @@ const OkolicaTransport = () => {
                   {localTransport.taxi.title}
                 </h4>
                 <div className="space-y-2 text-sm">
+                  <div><span className="font-medium">Firmy:</span></div>
                   {localTransport.taxi.companies.map((company, index) => (
-                    <div key={index} className="flex items-center gap-2">
+                    <div key={index} className="flex items-center gap-2 ml-4">
                       <Phone className="h-4 w-4 text-muted-foreground" />
                       <span className="font-medium">{company.name}:</span>
                       <span>{company.phone}</span>
                     </div>
                   ))}
-                  <p className="text-muted-foreground mt-2">{localTransport.taxi.note}</p>
+                  <div>
+                    <span className="font-medium">Zasięg: </span>
+                    {localTransport.taxi.coverage}
+                  </div>
+                  <div>
+                    <span className="font-medium">Cena: </span>
+                    {localTransport.taxi.price}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-2">
+                    💡 Wskazówka: {localTransport.taxi.note}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Rentals */}
-            <div>
-              <h4 className="font-bold mb-4">Wypożyczalnie</h4>
-              <div className="grid md:grid-cols-2 gap-6">
-                {rentalInfo.map((rental, index) => (
-                  <div key={index} className="bg-muted/30 rounded-lg p-4">
-                    <h5 className="font-medium mb-2">{rental.type}</h5>
-                    <div className="text-sm text-muted-foreground mb-2">
-                      {rental.items.join(" • ")}
-                    </div>
-                    <p className="text-sm">{rental.details}</p>
+              {/* Bike Rental */}
+              <div className="bg-muted/30 rounded-lg p-6">
+                <h4 className="font-bold mb-3 flex items-center gap-2">
+                  <Fuel className="h-5 w-5 text-orange-500" />
+                  {localTransport.bikeRental.title}
+                </h4>
+                <div className="space-y-2 text-sm">
+                  <div><span className="font-medium">Lokalizacje:</span></div>
+                  <div className="ml-4">
+                    {localTransport.bikeRental.locations.map((location, index) => (
+                      <div key={index}>• {location}</div>
+                    ))}
                   </div>
-                ))}
+                  <div>
+                    <span className="font-medium">Cena: </span>
+                    {localTransport.bikeRental.price}
+                  </div>
+                  <div>
+                    <span className="font-medium">Trasy: </span>
+                    {localTransport.bikeRental.routes}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-2">
+                    💡 Wskazówka: {localTransport.bikeRental.tip}
+                  </div>
+                </div>
+              </div>
+
+              {/* Car Rental */}
+              <div className="bg-muted/30 rounded-lg p-6">
+                <h4 className="font-bold mb-3 flex items-center gap-2">
+                  <ParkingCircle className="h-5 w-5 text-purple-500" />
+                  {localTransport.carRental.title}
+                </h4>
+                <div className="space-y-2 text-sm">
+                  <div><span className="font-medium">Firmy:</span></div>
+                  <div className="ml-4">
+                    {localTransport.carRental.companies.map((company, index) => (
+                      <div key={index}>• {company}</div>
+                    ))}
+                  </div>
+                  <div><span className="font-medium">Lokalizacje:</span></div>
+                  <div className="ml-4">
+                    {localTransport.carRental.locations.map((location, index) => (
+                      <div key={index}>• {location}</div>
+                    ))}
+                  </div>
+                  <div>
+                    <span className="font-medium">Cena: </span>
+                    {localTransport.carRental.price}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-2">
+                    💡 Wskazówka: {localTransport.carRental.tip}
+                  </div>
+                </div>
               </div>
             </div>
           </CardContent>
