@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { MapPin, Bicycle, Heart, Camera } from '@phosphor-icons/react';
+import { MapPin, Bicycle, Heart, Camera, Buildings, Tree, Car } from '@phosphor-icons/react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Okolica = () => {
@@ -61,6 +61,77 @@ const Okolica = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Main Topics Section */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-light text-foreground mb-4">
+              Odkryj <span className="text-primary">okolicę</span>
+            </h2>
+            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+              Kompleksowe informacje o wszystkim, co możesz zobaczyć i doświadczyć w naszym regionie
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <Card className="glass-card border-0 hover:scale-105 transition-all duration-300 group">
+              <CardContent className="p-8 text-center">
+                <div className="mb-6 flex justify-center">
+                  <Buildings size={48} className="text-primary group-hover:text-primary/80 transition-colors" />
+                </div>
+                <h3 className="text-xl font-medium text-foreground mb-4">
+                  Atrakcje turystyczne
+                </h3>
+                <p className="text-foreground/70 mb-6 leading-relaxed">
+                  Odkryj najciekawsze miejsca w okolicy - historyczne miasta, kurorty nadmorskie i zabytki kulturowe
+                </p>
+                <Button asChild className="btn-luxury">
+                  <Link to="/okolica/atrakcje">
+                    Zwiedzaj atrakcje
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card border-0 hover:scale-105 transition-all duration-300 group">
+              <CardContent className="p-8 text-center">
+                <div className="mb-6 flex justify-center">
+                  <Tree size={48} className="text-primary group-hover:text-primary/80 transition-colors" />
+                </div>
+                <h3 className="text-xl font-medium text-foreground mb-4">
+                  Plaże i przyroda
+                </h3>
+                <p className="text-foreground/70 mb-6 leading-relaxed">
+                  Piękne plaże, szlaki rowerowe, ścieżki spacerowe i rezerwaty przyrody w bezpośrednim sąsiedztwie
+                </p>
+                <Button asChild className="btn-luxury">
+                  <Link to="/okolica/plaze-przyroda">
+                    Poznaj przyrodę
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card border-0 hover:scale-105 transition-all duration-300 group">
+              <CardContent className="p-8 text-center">
+                <div className="mb-6 flex justify-center">
+                  <Car size={48} className="text-primary group-hover:text-primary/80 transition-colors" />
+                </div>
+                <h3 className="text-xl font-medium text-foreground mb-4">
+                  Transport i dojazd
+                </h3>
+                <p className="text-foreground/70 mb-6 leading-relaxed">
+                  Wszystkie informacje o dojeździe do nas - samochodem, komunikacją publiczną oraz lokalnym transportem
+                </p>
+                <Button asChild className="btn-luxury">
+                  <Link to="/okolica/transport">
+                    Sprawdź dojazd
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         {/* Activities Section */}

@@ -21,6 +21,9 @@ import OkolicaDzwirzyno from "./pages/OkolicaDzwirzyno";
 import OkolicaKolobrzeg from "./pages/OkolicaKolobrzeg";
 import OkolicaZPsem from "./pages/OkolicaZPsem";
 import OkolicaSciezkiRowerowe from "./pages/OkolicaSciezkiRowerowe";
+import OkolicaAtrakcje from "./pages/OkolicaAtrakcje";
+import OkolicaPlazePrzyroda from "./pages/OkolicaPlazePrzyroda";
+import OkolicaTransport from "./pages/OkolicaTransport";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +45,9 @@ const AppContent = () => {
         <Route path="/okolica/kolobrzeg" element={<OkolicaKolobrzeg />} />
         <Route path="/okolica/z-psem" element={<OkolicaZPsem />} />
         <Route path="/okolica/sciezki-rowerowe" element={<OkolicaSciezkiRowerowe />} />
+        <Route path="/okolica/atrakcje" element={<OkolicaAtrakcje />} />
+        <Route path="/okolica/plaze-przyroda" element={<OkolicaPlazePrzyroda />} />
+        <Route path="/okolica/transport" element={<OkolicaTransport />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
