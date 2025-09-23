@@ -95,7 +95,7 @@ const OkolicaPlazePrzyroda = () => {
     {
       icon: <Binoculars className="h-8 w-8" />,
       title: "🚴‍♀️ Wypożyczenie rowerów", 
-      description: "Zajrzyj nad tą przypadająrem rogate. Oferny upływetown dostępne oklicznym sposobem sieosińnasteba w daidingy."
+      description: "Zapytaj nas o wypożyczenie rowerów - mamy sprawdzone miejsca w okolicy!"
     },
     {
       icon: <Camera className="h-8 w-8" />,
