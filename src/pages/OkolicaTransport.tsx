@@ -49,12 +49,11 @@ const OkolicaTransport = () => {
         }
       ],
       tips: [
-        "Przyładne wskazówki",
-        "Bezpłatny parking dla gości",
-        "Stacja tankowania 500 m",
-        "Możliwość zatankowania po drodze",
-        "Dostęp do nawigacji GPS",
-        "Wsparcie telefoniczne 24/7"
+        "🅿️ Bezpłatny parking przy domkach",
+        "⛽ Stacje benzynowe co 50-100 km",
+        "🍔 Restauracje przy głównych trasach",
+        "📱 Polecamy nawigację GPS",
+        "🚗 Płatne odcinki autostrad A1, A2, A4"
       ]
     },
     {
@@ -83,12 +82,11 @@ const OkolicaTransport = () => {
         }
       ],
       tips: [
-        "Bilet można kupić online",
-        "Bilety dostępne online i w kasach",
-        "Z dworca można dojechać autobusem lokalnym",
-        "Sprawdź rozkłady jazdy przed podróżą",
-        "Aktualne ceny na stronach przewoźników",
-        "Możliwość rezerwacji miejsc siedzących"
+        "🎫 Bilety można kupić online",
+        "📞 Sprawdź rozkłady przed wyjazdem",
+        "🚌 Z Kołobrzegu do Rogowo lokalny autobus",
+        "🚕 Taxi z Kołobrzegu ok. 40 zł",
+        "📱 Aplikacja jakdojade.pl pomoże planować"
       ]
     },
     {
