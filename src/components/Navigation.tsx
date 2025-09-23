@@ -28,6 +28,9 @@ const getNavItems = (t: (key: string) => string) => ({
       label: t('nav.area'),
       href: '/okolica',
       children: [
+        { label: 'Atrakcje turystyczne', href: '/okolica/atrakcje' },
+        { label: 'Plaże i przyroda', href: '/okolica/plaze-przyroda' },
+        { label: 'Transport i dojazd', href: '/okolica/transport' },
         { label: 'Domki na wynajem Mrzeżyno', href: '/okolica/mrzezyna' },
         { label: 'Domki na wynajem Dźwirzyno', href: '/okolica/dzwirzyno' },
         { label: 'Domki na wynajem Kołobrzeg', href: '/okolica/kolobrzeg' },
