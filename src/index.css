@@ -216,6 +216,16 @@
   .floating-calendar {
     @apply bg-purple-500 text-white;
   }
+
+  .floating-facebook {
+    @apply text-white;
+    background-color: #1877F2;
+  }
+
+  .floating-whatsapp {
+    @apply text-white;
+    background-color: #25D366;
+  }
 }
 
 @keyframes fadeInUp {
