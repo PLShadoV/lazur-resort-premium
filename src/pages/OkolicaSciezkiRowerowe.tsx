@@ -7,9 +7,9 @@ const OkolicaSciezkiRowerowe = () => {
   const bikeRoutes = [
     {
       name: 'Trasa Rogowo - Mrzeżyno',
-      distance: '8 km',
+      distance: '3 km',
       difficulty: 'Łatwa',
-      time: '30 min',
+      time: '15 min',
       description: 'Malownicza trasa przez pola i lasy prowadząca do morza',
       highlights: ['Widoki na pola', 'Droga przez las', 'Zakończenie na plaży'],
     },

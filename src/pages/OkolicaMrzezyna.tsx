@@ -16,8 +16,8 @@ const OkolicaMrzezyna = () => {
                 Mrzeżyno – <span className="text-primary">port rybacki i klimatyczne plaże</span>
               </h1>
               <p className="text-lg text-foreground/70 leading-relaxed mb-6">
-                Mrzeżyno to nadmorska miejscowość z wyjątkowym klimatem, położona zaledwie 8 km 
-                od Rogowa. Znana z urokliwego portu rybackiego, gdzie można obserwować kutry 
+                 Mrzeżyno to nadmorska miejscowość z wyjątkowym klimatem, położona zaledwie 3 km 
+                od Rogowa. Znana z urokliwego portu rybackiego, gdzie można obserwować kutry
                 wypływające w morze i kupić świeże ryby prosto z łodzi.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -53,14 +53,14 @@ const OkolicaMrzezyna = () => {
               <CardContent className="p-6 text-center">
                 <Car size={32} style={{ color: '#967d48' }} className="mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-foreground mb-2">Odległość</h3>
-                <p className="text-foreground/70">8 km od Lazur Resort</p>
+                <p className="text-foreground/70">3 km od Lazur Resort</p>
               </CardContent>
             </Card>
             <Card className="glass-card border-0">
               <CardContent className="p-6 text-center">
                 <Clock size={32} style={{ color: '#967d48' }} className="mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-foreground mb-2">Czas dojazdu</h3>
-                <p className="text-foreground/70">10 minut samochodem</p>
+                <p className="text-foreground/70">5 minut samochodem</p>
               </CardContent>
             </Card>
             <Card className="glass-card border-0">

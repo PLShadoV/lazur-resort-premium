@@ -19,7 +19,7 @@ const OkolicaPlazePrzyroda = () => {
   const beaches = [
     {
       name: "Plaża w Rogowie",
-      distance: "300 m",
+      distance: "350 m",
       type: "Piaszczysta, szeroka",
       description: "Nasza najbliższa plaża to prawdziwa perełka Słowińskiego Wybrzeża, piaszczysta i szeroka z legendarnymi zachodami słońca nad morzem.",
       features: [
@@ -31,7 +31,7 @@ const OkolicaPlazePrzyroda = () => {
     },
     {
       name: "Plaża w Mrzeżynie", 
-      distance: "8 km",
+      distance: "3 km",
       type: "Dzika, naturalna",
       description: "Dzika plaża dla miłośników nietknietej przyrody. Warto wybrać się z aparatem na spacer z czworonożnym przyjacielem.",
       features: [
@@ -46,7 +46,7 @@ const OkolicaPlazePrzyroda = () => {
   const trails = [
     {
       name: "Ścieżka rowerowa Rogowo-Mrzeżyno",
-      length: "8 km",
+      length: "3 km",
       difficulty: "Łatwa",
       image: "/src/assets/sciezki-rowerowe-mrzezyno.jpg",
       features: [

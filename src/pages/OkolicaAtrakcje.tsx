@@ -35,8 +35,8 @@ const OkolicaAtrakcje = () => {
     },
     {
       name: "Mrzeżyno",
-      distance: "8 km", 
-      time: "12 min samochodem",
+      distance: "3 km", 
+      time: "5 min samochodem",
       rating: 5,
       description: "Urokliwe nadmorskie miasteczko z piękną plażą i unikalnymi krajobrazami.",
       features: [

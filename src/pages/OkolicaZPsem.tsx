@@ -16,7 +16,7 @@ const OkolicaZPsem = () => {
   const nearbyDogBeaches = [
     {
       name: 'Plaża dla psów Mrzeżyno',
-      distance: '8 km',
+      distance: '3 km',
       description: 'Wyznaczona strefa na plaży gdzie psy mogą swobodnie biegać',
     },
     {
