@@ -210,7 +210,7 @@ const Galeria: React.FC = () => {
             key={`${cat}-${image.id}`}
             type="button"
             onClick={() => openAt(cat, i)}
-            aria-label={`Otwórz podgląd: ${image.alt}`}
+            aria-label={`Otwórz podgląd zdjęcia ${i + 1}`}
             className="group text-left"
           >
             <Card className="overflow-hidden rounded-[28px] border border-white/10 bg-background/80 shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_18px_50px_rgba(0,0,0,0.16)] transition-all duration-500">
@@ -221,17 +221,7 @@ const Galeria: React.FC = () => {
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                   loading="lazy"
                 />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
-
-                <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
-                  <div className="translate-y-2 transition-transform duration-500 group-hover:translate-y-0">
-                    <div className="mb-3 h-px w-12 bg-white/70 transition-all duration-500 group-hover:w-20" />
-                    <p className="text-white text-sm md:text-base font-medium tracking-[0.01em] drop-shadow-sm">
-                      {image.alt}
-                    </p>
-                  </div>
-                </div>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
               </div>
             </Card>
           </button>
@@ -404,12 +394,10 @@ const Galeria: React.FC = () => {
           role="dialog"
           aria-modal="true"
         >
-          {/* top glow */}
           <div className="pointer-events-none absolute inset-0 opacity-40">
             <div className="absolute top-10 left-1/2 h-44 w-44 -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
           </div>
 
-          {/* Prev */}
           <button
             type="button"
             onClick={prev}
@@ -421,7 +409,6 @@ const Galeria: React.FC = () => {
             </svg>
           </button>
 
-          {/* Image */}
           <div className="max-w-[92vw] max-h-[88vh] relative px-4">
             <img
               src={current.src}
@@ -439,14 +426,10 @@ const Galeria: React.FC = () => {
                 <span className="text-sm md:text-base font-medium">
                   {index + 1} / {total}
                 </span>
-                <span className="text-xs md:text-sm text-white/80 mt-1">
-                  {current.alt}
-                </span>
               </div>
             </div>
           </div>
 
-          {/* Next */}
           <button
             type="button"
             onClick={next}
@@ -458,7 +441,6 @@ const Galeria: React.FC = () => {
             </svg>
           </button>
 
-          {/* Close */}
           <button
             type="button"
             onClick={close}
