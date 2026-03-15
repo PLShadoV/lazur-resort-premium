@@ -1,36 +1,86 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { House, Armchair, ChefHat, Shower, Table, TreeEvergreen, Fire, Car, WifiHigh, Bed, PawPrint, Waves, X, CaretLeft, CaretRight } from '@phosphor-icons/react';
+import { House, Armchair, ChefHat, Shower, Table, TreeEvergreen, Fire, Car, WifiHigh, Bed, PawPrint, Waves } from '@phosphor-icons/react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import cottageExterior from '@/assets/cottage-exterior.jpg';
-import cottageExteriorMobile from '@/assets/cottage-exterior-mobile.webp';
-import altana from '@/assets/altana.webp';
-import domekBok from '@/assets/domek-bok.webp';
-import lozko from '@/assets/domek-na-dzialce.webp';
-import domekPrzod from '@/assets/domek-przod.webp';
-import domekZTarasem from '@/assets/domek-z-tarasem.webp';
-import domekZewnatrz from '@/assets/domekzewnatrz.webp';
-import kanapa from '@/assets/kanapa.webp';
-import kuchnia from '@/assets/kuchnia.webp';
-import pomostOZmierzchu from '@/assets/pomost-o-zmierzchu.webp';
-import sypialnia from '@/assets/sypialnia.webp';
-import sypialnialozko from '@/assets/taras-wieczorem.webp';
-import tarasZDachu from '@/assets/taras-z-dachu.webp';
-import wejscieDoDomu from '@/assets/wejscie-do-domku.webp';
-import widokNaLas from '@/assets/widok-na-las.webp';
-import lazienka from '@/assets/widok-z-ogrodu.webp';
-import wnetrzeSalon from '@/assets/wnetrze-salon.webp';
-import zachodNadJeziorem from '@/assets/zachod-nad-jeziorem.webp';
-import tarasWieczorem from '@/assets/taras-wieczorem.webp';
-import domekNaDzialce from '@/assets/domek-na-dzialce.webp';
 
-const Galeria = () => {
+type GalleryKey = 'exterior' | 'interior';
+
+type ImgEntry = {
+  id: number;
+  src: string;
+  alt: string;
+};
+
+const CATEGORY_LABEL: Record<GalleryKey, string> = {
+  exterior: 'Domki z zewnątrz',
+  interior: 'Domki wewnątrz',
+};
+
+/* --- Automatyczne ładowanie obrazów z folderów --- */
+const modulesExterior = import.meta.glob<{ default: string }>(
+  '@/assets/gallery/exterior/*.{jpg,jpeg,png,webp}',
+  { eager: true }
+);
+
+const modulesInterior = import.meta.glob<{ default: string }>(
+  '@/assets/gallery/interior/*.{jpg,jpeg,png,webp}',
+  { eager: true }
+);
+
+function formatFilenameToAlt(filename: string) {
+  const clean = filename
+    .replace(/\.[^.]+$/, '')
+    .replace(/[-_]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  if (!clean) return '';
+
+  return clean.charAt(0).toUpperCase() + clean.slice(1);
+}
+
+function toEntries(
+  modules: Record<string, { default: string }>,
+  altPrefix: string
+): ImgEntry[] {
+  return Object.keys(modules)
+    .sort((a, b) => a.localeCompare(b, 'pl'))
+    .map((path, idx) => {
+      const url = modules[path]!.default;
+      const filename = path.split('/').pop() || `photo-${idx + 1}`;
+      const readableName = formatFilenameToAlt(filename);
+
+      return {
+        id: idx + 1,
+        src: url,
+        alt: readableName
+          ? `${altPrefix} – ${readableName}`
+          : `${altPrefix} – zdjęcie ${idx + 1}`,
+      };
+    });
+}
+
+const GALLERIES: Record<GalleryKey, ImgEntry[]> = {
+  exterior: toEntries(modulesExterior, CATEGORY_LABEL.exterior),
+  interior: toEntries(modulesInterior, CATEGORY_LABEL.interior),
+};
+
+const Galeria: React.FC = () => {
   const { t } = useLanguage();
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-  const [currentGallery, setCurrentGallery] = useState<'exterior' | 'interior'>('exterior');
+
+  const [activeTab, setActiveTab] = useState<GalleryKey>('exterior');
+
+  /* Lightbox */
+  const [open, setOpen] = useState(false);
+  const [category, setCategory] = useState<GalleryKey>('exterior');
+  const [index, setIndex] = useState(0);
+  const [scale, setScale] = useState(1);
+  const [touchX, setTouchX] = useState<number | null>(null);
+
+  const currentList = useMemo(() => GALLERIES[category] ?? [], [category]);
+  const total = currentList.length;
+  const current = useMemo(() => currentList[index], [currentList, index]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -57,77 +107,120 @@ const Galeria = () => {
     }
   };
 
-  const exteriorImages = [
-    { src: domekZewnatrz, srcMobile: domekZewnatrz, alt: 'Domek Lazur Resort od zewnątrz - domek letniskowy nad morzem' },
-    { src: domekPrzod, srcMobile: domekPrzod, alt: 'Domek na działce - widok ogólny całej nieruchomości' },
-    { src: domekBok, srcMobile: domekBok, alt: 'Główne wejście do domku - eleganckie i funkcjonalne wejście' },
-    { src: domekZTarasem, srcMobile: domekZTarasem, alt: 'Domek z tarasem - przestrzeń do relaksu na świeżym powietrzu' },
-    { src: tarasZDachu, srcMobile: tarasZDachu, alt: 'Widok tarasu z perspektywy dachu - panorama okolicy' },
-    { src: wejscieDoDomu, srcMobile: wejscieDoDomu, alt: 'Wejście do domku - stylowe i komfortowe wejście' },
-    { src: altana, srcMobile: altana, alt: 'Altana ogrodowa - dodatkowa przestrzeń relaksowa' },
-    { src: widokNaLas, srcMobile: widokNaLas, alt: 'Widok na las z okolic domku - bliskość natury' },
-    { src: pomostOZmierzchu, srcMobile: pomostOZmierzchu, alt: 'Pomost o zmierzchu - spokojne miejsce nad wodą' },
-    { src: zachodNadJeziorem, srcMobile: zachodNadJeziorem, alt: 'Zachód słońca nad jeziorem - malownicze widoki' },
-  ];
+  const openAt = useCallback((cat: GalleryKey, i: number) => {
+    setCategory(cat);
+    setIndex(i);
+    setScale(1);
+    setOpen(true);
 
-  const interiorImages = [
-    { src: wnetrzeSalon, srcMobile: wnetrzeSalon, alt: 'Salon z rozkładaną sofą - komfortowa przestrzeń wypoczynkowa dla 8 osób' },
-    { src: kanapa, srcMobile: kanapa, alt: 'Wygodna kanapa w salonie - miejsce relaksu dla całej rodziny' },
-    { src: kuchnia, srcMobile: kuchnia, alt: 'Kuchnia z pełnym wyposażeniem - nowoczesne urządzenia AGD' },
-    { src: sypialnialozko, srcMobile: tarasWieczorem, alt: 'Łóżko podwójne w sypialni' },
-    { src: lozko, srcMobile: domekNaDzialce, alt: 'Łóżko rozkładane' },
-    { src: sypialnia, srcMobile: sypialnia, alt: 'Sypialnia - komfortowe łóżko i przytulne wnętrze' },
-    { src: lazienka, srcMobile: lazienka, alt: 'Widok na łazienkę z prysznicem' },
-  ];
-
-  const allImages = [...exteriorImages, ...interiorImages];
-
-  const openLightbox = useCallback((index: number, gallery: 'exterior' | 'interior') => {
-    const galleryOffset = gallery === 'exterior' ? 0 : exteriorImages.length;
-    setSelectedImageIndex(galleryOffset + index);
-    setCurrentGallery(gallery);
-  }, [exteriorImages.length]);
-
-  const closeLightbox = useCallback(() => {
-    setSelectedImageIndex(null);
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = 'hidden';
+    }
   }, []);
 
-  const goToPrevious = useCallback(() => {
-    if (selectedImageIndex !== null) {
-      const newIndex = selectedImageIndex > 0 ? selectedImageIndex - 1 : allImages.length - 1;
-      setSelectedImageIndex(newIndex);
-      setCurrentGallery(newIndex < exteriorImages.length ? 'exterior' : 'interior');
-    }
-  }, [selectedImageIndex, allImages.length, exteriorImages.length]);
+  const close = useCallback(() => {
+    setOpen(false);
+    setScale(1);
 
-  const goToNext = useCallback(() => {
-    if (selectedImageIndex !== null) {
-      const newIndex = selectedImageIndex < allImages.length - 1 ? selectedImageIndex + 1 : 0;
-      setSelectedImageIndex(newIndex);
-      setCurrentGallery(newIndex < exteriorImages.length ? 'exterior' : 'interior');
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = '';
     }
-  }, [selectedImageIndex, allImages.length, exteriorImages.length]);
+  }, []);
 
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (selectedImageIndex !== null) {
-        switch (event.key) {
-          case 'Escape':
-            closeLightbox();
-            break;
-          case 'ArrowLeft':
-            goToPrevious();
-            break;
-          case 'ArrowRight':
-            goToNext();
-            break;
-        }
+    return () => {
+      if (typeof document !== 'undefined') {
+        document.body.style.overflow = '';
       }
     };
+  }, []);
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [selectedImageIndex, closeLightbox, goToPrevious, goToNext]);
+  const prev = useCallback(() => {
+    if (!total) return;
+    setIndex((i) => (i - 1 + total) % total);
+    setScale(1);
+  }, [total]);
+
+  const next = useCallback(() => {
+    if (!total) return;
+    setIndex((i) => (i + 1) % total);
+    setScale(1);
+  }, [total]);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    };
+
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open, close, prev, next]);
+
+  const onWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
+    const delta = e.deltaY > 0 ? -0.1 : 0.1;
+    setScale((s) => Math.min(3, Math.max(0.8, s + delta)));
+  };
+
+  const onTouchStart: React.TouchEventHandler<HTMLDivElement> = (e) => {
+    setTouchX(e.touches[0].clientX);
+  };
+
+  const onTouchEnd: React.TouchEventHandler<HTMLDivElement> = (e) => {
+    if (touchX === null) return;
+
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (dx > 50) prev();
+    if (dx < -50) next();
+
+    setTouchX(null);
+  };
+
+  const Grid: React.FC<{ cat: GalleryKey }> = ({ cat }) => {
+    const images = GALLERIES[cat];
+
+    if (images.length === 0) {
+      return (
+        <p className="text-center text-muted-foreground">
+          Dodaj zdjęcia do <code>src/assets/gallery/{cat}/</code> w formacie jpg, jpeg, png lub webp.
+        </p>
+      );
+    }
+
+    return (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {images.map((image, i) => (
+          <button
+            key={`${cat}-${image.id}`}
+            type="button"
+            onClick={() => openAt(cat, i)}
+            aria-label={`Otwórz podgląd: ${image.alt}`}
+            className="group text-left"
+          >
+            <Card className="overflow-hidden border-0 rounded-2xl bg-background shadow-md hover:shadow-2xl transition-all duration-300">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-x-0 bottom-0 p-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <p className="text-white text-sm font-medium line-clamp-2">
+                    {image.alt}
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </button>
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className="min-h-screen pt-16">
@@ -143,72 +236,51 @@ const Galeria = () => {
         </div>
       </section>
 
-      {/* Exterior Gallery */}
+      {/* Gallery */}
       <section ref={addToRefs} className="py-16 scroll-reveal">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-light tracking-tight mb-8 text-center">
-            {t('gallery.exterior')}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {exteriorImages.map((image, index) => (
-              <Card
-                key={index}
-                className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300 group cursor-pointer"
-                onClick={() => openLightbox(index, 'exterior')}
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <picture>
-                    <source media="(max-width: 768px)" srcSet={image.srcMobile} />
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                      width="576"
-                      height="512"
-                    />
-                  </picture>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <p className="text-white text-sm font-medium">{image.alt}</p>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            ))}
+          {/* Tabs */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <div className="flex items-center justify-center">
+              <div className="inline-flex rounded-2xl bg-muted p-2 shadow-sm border border-border/50">
+                {(['exterior', 'interior'] as GalleryKey[]).map((tab) => {
+                  const isActive = activeTab === tab;
+
+                  return (
+                    <button
+                      key={tab}
+                      type="button"
+                      onClick={() => setActiveTab(tab)}
+                      className={[
+                        'px-5 md:px-8 py-3 rounded-xl text-sm md:text-base font-medium transition-all duration-300',
+                        isActive
+                          ? 'bg-background text-foreground shadow-md'
+                          : 'text-muted-foreground hover:text-foreground',
+                      ].join(' ')}
+                      aria-current={isActive ? 'page' : undefined}
+                    >
+                      {CATEGORY_LABEL[tab]}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
-          <h2 className="text-3xl font-light tracking-tight mb-8 text-center">
-            {t('gallery.interior')}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {interiorImages.map((image, index) => (
-              <Card
-                key={index}
-                className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300 group cursor-pointer"
-                onClick={() => openLightbox(index, 'interior')}
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <picture>
-                    <source media="(max-width: 768px)" srcSet={image.srcMobile} />
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                      width="576"
-                      height="512"
-                    />
-                  </picture>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <p className="text-white text-sm font-medium">{image.alt}</p>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            ))}
+          {/* Intro for selected tab */}
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-4">
+              {CATEGORY_LABEL[activeTab]}
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              {activeTab === 'exterior'
+                ? 'Zobacz domki, tarasy i otoczenie ośrodka. Wszystkie zdjęcia ładują się automatycznie z folderu i wyświetlają w kolejności alfabetycznej.'
+                : 'Poznaj wnętrza domków — salon, kuchnię, sypialnie i przestrzeń wypoczynkową. Zdjęcia również wczytują się automatycznie z folderu.'}
+            </p>
           </div>
+
+          {/* Active gallery */}
+          <Grid cat={activeTab} />
         </div>
       </section>
 
@@ -218,65 +290,68 @@ const Galeria = () => {
           <h2 className="text-3xl font-light tracking-tight mb-12">
             {t('gallery.comfort.title')}
           </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-4">
               <h3 className="text-xl font-medium">{t('gallery.space.title')}</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2 justify-center md:justify-start">
                   <House size={16} weight="light" style={{ color: '#967d48' }} />
                   {t('gallery.space.bedrooms')}
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2 justify-center md:justify-start">
                   <Armchair size={16} weight="light" style={{ color: '#967d48' }} />
                   {t('gallery.space.living')}
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2 justify-center md:justify-start">
                   <ChefHat size={16} weight="light" style={{ color: '#967d48' }} />
                   {t('gallery.space.kitchen')}
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2 justify-center md:justify-start">
                   <Shower size={16} weight="light" style={{ color: '#967d48' }} />
                   {t('gallery.space.bathroom')}
                 </li>
               </ul>
             </div>
+
             <div className="space-y-4">
               <h3 className="text-xl font-medium">{t('gallery.relax.title')}</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2 justify-center md:justify-start">
                   <Table size={16} weight="light" style={{ color: '#967d48' }} />
                   {t('gallery.relax.terrace')}
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2 justify-center md:justify-start">
                   <TreeEvergreen size={16} weight="light" style={{ color: '#967d48' }} />
                   {t('gallery.relax.garden')}
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2 justify-center md:justify-start">
                   <Fire size={16} weight="light" style={{ color: '#967d48' }} />
                   {t('gallery.relax.grill')}
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2 justify-center md:justify-start">
                   <Car size={16} weight="light" style={{ color: '#967d48' }} />
                   {t('gallery.relax.parking')}
                 </li>
               </ul>
             </div>
+
             <div className="space-y-4">
               <h3 className="text-xl font-medium">{t('gallery.amenities.title')}</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2 justify-center md:justify-start">
                   <WifiHigh size={16} weight="light" style={{ color: '#967d48' }} />
                   {t('gallery.amenities.wifi')}
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2 justify-center md:justify-start">
                   <Bed size={16} weight="light" style={{ color: '#967d48' }} />
                   {t('gallery.amenities.linen')}
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2 justify-center md:justify-start">
                   <PawPrint size={16} weight="light" style={{ color: '#967d48' }} />
                   {t('gallery.amenities.pets')}
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-2 justify-center md:justify-start">
                   <Waves size={16} weight="light" style={{ color: '#967d48' }} />
                   {t('gallery.amenities.beach')}
                 </li>
@@ -286,65 +361,80 @@ const Galeria = () => {
         </div>
       </section>
 
-      {/* Lightbox Modal */}
-      <Dialog open={selectedImageIndex !== null} onOpenChange={closeLightbox}>
-        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 border-0 bg-black/95">
-          <div className="relative w-full h-[95vh] flex items-center justify-center">
-            {/* Close button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute top-4 right-4 z-50 text-white hover:bg-white/20"
-              onClick={closeLightbox}
-            >
-              <X size={24} />
-            </Button>
+      {/* Lightbox */}
+      {open && total > 0 && current && (
+        <div
+          className="fixed inset-0 z-[9999] bg-black/85 backdrop-blur-sm flex items-center justify-center"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) close();
+          }}
+          onWheel={onWheel}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+          role="dialog"
+          aria-modal="true"
+        >
+          {/* Prev */}
+          <button
+            type="button"
+            onClick={prev}
+            className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 hover:bg-white/20 p-3 text-white transition"
+            aria-label="Poprzednie zdjęcie"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
 
-            {/* Previous button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20"
-              onClick={goToPrevious}
-            >
-              <CaretLeft size={32} />
-            </Button>
+          {/* Image */}
+          <div className="max-w-[92vw] max-h-[90vh] relative">
+            <img
+              src={current.src}
+              alt={current.alt}
+              className="max-w-[92vw] max-h-[90vh] object-contain select-none"
+              style={{ transform: `scale(${scale})`, transformOrigin: 'center center' }}
+              draggable={false}
+            />
 
-            {/* Next button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20"
-              onClick={goToNext}
-            >
-              <CaretRight size={32} />
-            </Button>
-
-            {/* Image */}
-            {selectedImageIndex !== null && (
-              <div className="w-full h-full flex items-center justify-center p-8">
-                <img
-                  src={allImages[selectedImageIndex].src}
-                  alt={allImages[selectedImageIndex].alt}
-                  className="max-w-full max-h-full object-contain"
-                />
+            <div className="absolute left-1/2 -translate-x-1/2 bottom-3 text-sm text-white/90 px-4 py-2 rounded-full bg-black/40 text-center max-w-[90vw]">
+              <div className="font-medium">
+                {CATEGORY_LABEL[category]} • {index + 1}/{total}
               </div>
-            )}
-
-            {/* Image counter and description */}
-            {selectedImageIndex !== null && (
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-white">
-                <p className="text-sm mb-2">
-                  {selectedImageIndex + 1} / {allImages.length}
-                </p>
-                <p className="text-sm max-w-lg mx-auto px-4">
-                  {allImages[selectedImageIndex].alt}
-                </p>
+              <div className="text-white/80 text-xs md:text-sm mt-1">
+                {current.alt}
               </div>
-            )}
+            </div>
           </div>
-        </DialogContent>
-      </Dialog>
+
+          {/* Next */}
+          <button
+            type="button"
+            onClick={next}
+            className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 hover:bg-white/20 p-3 text-white transition"
+            aria-label="Następne zdjęcie"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M8.59 16.59 10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+            </svg>
+          </button>
+
+          {/* Close */}
+          <button
+            type="button"
+            onClick={close}
+            className="absolute top-3 right-3 md:top-6 md:right-6 rounded-full bg-white/10 hover:bg-white/20 p-3 text-white transition"
+            aria-label="Zamknij podgląd"
+            title="Zamknij (Esc)"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.41 4.29 19.71 2.88 18.3 9.17 12 2.88 5.71 4.29 4.29l6.3 6.3 6.29-6.3z"
+              />
+            </svg>
+          </button>
+        </div>
+      )}
     </div>
   );
 };
