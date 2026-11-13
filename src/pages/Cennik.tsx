@@ -252,7 +252,7 @@ const Cennik = () => {
               <div className="mt-8 p-4 bg-ocean/10 rounded-lg">
                 <h3 className="font-medium mb-2">{t('pricing.additional.title')}</h3>
                 <p className="text-sm text-muted-foreground">
-                  {t('pricing.additional.desc')} Cenę porównuj dla całej grupy. Przy terminach na granicy sezonów i pobytach obejmujących różne okresy potwierdź łączny koszt z obiektem.
+                  {t('pricing.additional.desc')}. Cenę porównuj dla całej grupy. Przy terminach na granicy sezonów i pobytach obejmujących różne okresy potwierdź łączny koszt z obiektem.
                 </p>
               </div>
               
