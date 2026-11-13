@@ -1,12 +1,12 @@
 {
   "/": {
     "title": "Domki w Rogowie 350 m od plaży | Lazur Resort Rogowo",
-    "description": "Lazur Resort w Rogowie: 4 domki dla maksymalnie 8 osób, 350 m od plaży. Dwie sypialnie, kuchnia, taras i bezpłatny parking. Zobacz zdjęcia i sprawdź ceny.",
+    "description": "Lazur Resort w Rogowie: 4 domki dla maksymalnie 8 osób, 350 m od plaży. Dwie sypialnie, kuchnia, taras, ogrodzona działka i parking. Pies mile widziany.",
     "h1": "Domki letniskowe w Rogowie, 350 m od plaży"
   },
   "/cennik": {
     "title": "Cennik wynajmu domków w Rogowie nad morzem | Lazur Resort",
-    "description": "Sprawdź ceny domków Lazur Resort w Rogowie dla 4, 6 i 8 osób. Porównaj terminy sezonowe, wyposażenie w cenie i warunki rezerwacji pobytu nad morzem.",
+    "description": "Cennik 2026 domków Lazur Resort w Rogowie dla 4, 6 i 8 osób. Ceny za domek za noc, minimum 2 noce, zadatek 20%. Pies 15 zł za dobę.",
     "h1": "Cennik domków Lazur Resort w Rogowie"
   },
   "/galeria": {
@@ -46,12 +46,12 @@
   },
   "/okolica/sciezki-rowerowe": {
     "title": "Trasy rowerowe w Rogowie i okolicy | Lazur Resort Rogowo",
-    "description": "Poznaj trasy rowerowe w okolicy Rogowa: do Mrzeżyna, nad jezioro Resko i w kierunku Kołobrzegu. Zaplanuj aktywny pobyt w domkach Lazur Resort nad morzem.",
+    "description": "Trasy rowerowe z Rogowa: szlak Velo Baltica (R10) do Mrzeżyna, Dźwirzyna i Kołobrzegu. Zaplanuj aktywny pobyt w domkach Lazur Resort.",
     "h1": "Trasy rowerowe w Rogowie i okolicy"
   },
   "/okolica/z-psem": {
     "title": "Domki z psem w Rogowie: pobyt nad morzem | Lazur Resort",
-    "description": "Planujesz pobyt z psem w Rogowie? Poznaj domki Lazur Resort, zasady pobytu ze zwierzętami oraz opis okolicznych plaż i miejsc na wspólne spacery.",
+    "description": "Domki z psem w Rogowie: pobyt psa w Lazur Resort kosztuje 15 zł za dobę, cała działka jest ogrodzona, a do plaży masz 350 m.",
     "h1": "Domki z psem w Rogowie nad morzem"
   },
   "/okolica/atrakcje": {
@@ -66,7 +66,12 @@
   },
   "/okolica/transport": {
     "title": "Dojazd do Rogowa i parking przy domkach | Lazur Resort",
-    "description": "Zaplanuj dojazd do domków Lazur Resort w Rogowie. Sprawdź informacje o podróży samochodem i komunikacją publiczną oraz bezpłatnym parkingu przy domkach.",
+    "description": "Dojazd do domków Lazur Resort: ul. Makowa 6, 72-330 Rogowo. Wjazd od ulicy, bezpłatny parking dla 2 aut, instrukcje zameldowania przed przyjazdem.",
     "h1": "Dojazd do Lazur Resort w Rogowie"
+  },
+  "/polityka-prywatnosci": {
+    "title": "Polityka prywatności | Lazur Resort Rogowo",
+    "description": "Polityka prywatności strony lazurrogowo.pl: kto przetwarza dane, w jakim celu, jak długo i jakie masz prawa.",
+    "h1": "Polityka prywatności"
   }
 }

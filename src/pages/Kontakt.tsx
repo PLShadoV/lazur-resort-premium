@@ -205,7 +205,7 @@ const Kontakt = () => {
                 </Card>
               ))}
 
-              <Card className="glass-card p-6"><MapPin size={28} className="text-[#967d48] mb-4"/><h3 className="text-xl mb-3">Przygotuj przyjazd do Rogowa</h3><p className="text-muted-foreground mb-5">Przed podróżą ustal z nami punkt przyjazdu i szczegóły odbioru domku. Podczas planowania drogi zobacz <Link to="/okolica/transport" className="underline underline-offset-4">wskazówki dojazdu do Lazur Resort</Link>. Jeśli przyjeżdżasz z psem, wspomnij o tym w wiadomości.</p><Button asChild className="btn-luxury"><a href="https://maps.google.com/?q=Lazur+Resort+Rogowo" target="_blank" rel="noopener noreferrer">Otwórz nawigację</a></Button></Card>
+              <Card className="glass-card p-6"><MapPin size={28} className="text-[#967d48] mb-4"/><h3 className="text-xl mb-3">Przygotuj przyjazd do Rogowa</h3><p className="text-muted-foreground mb-5">Wjazd na ogrodzoną działkę jest od ulicy Makowej, a instrukcje zameldowania wyślemy przed przyjazdem. Podczas planowania drogi zobacz <Link to="/okolica/transport" className="underline underline-offset-4">wskazówki dojazdu do Lazur Resort</Link>. Pobyt psa kosztuje 15 zł za dobę.</p><Button asChild className="btn-luxury"><a href="https://maps.google.com/?q=Lazur+Resort+Rogowo" target="_blank" rel="noopener noreferrer">Otwórz nawigację</a></Button></Card>
               {/* How to reach us */}
               <div className="mt-12">
                 <h3 className="text-xl font-light tracking-tight mb-6">

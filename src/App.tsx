@@ -27,6 +27,7 @@ const OkolicaSciezkiRowerowe = lazy(() => import("./pages/OkolicaSciezkiRowerowe
 const OkolicaAtrakcje = lazy(() => import("./pages/OkolicaAtrakcje"));
 const OkolicaPlazePrzyroda = lazy(() => import("./pages/OkolicaPlazePrzyroda"));
 const OkolicaTransport = lazy(() => import("./pages/OkolicaTransport"));
+const PolitykaPrywatnosci = lazy(() => import("./pages/PolitykaPrywatnosci"));
 
 const queryClient = new QueryClient();
 
@@ -54,6 +55,7 @@ export const AppContent = () => {
         <Route path="/okolica/atrakcje" element={<OkolicaAtrakcje />} />
         <Route path="/okolica/plaze-przyroda" element={<OkolicaPlazePrzyroda />} />
         <Route path="/okolica/transport" element={<OkolicaTransport />} />
+        <Route path="/polityka-prywatnosci" element={<PolitykaPrywatnosci />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       </Suspense>

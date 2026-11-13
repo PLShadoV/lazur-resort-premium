@@ -28,5 +28,5 @@ const gallery=await readFile('dist/galeria.html','utf8');assert(!/alt="[^"]*(?:W
 const missing=await readFile('dist/404.html','utf8');assert(missing.includes('noindex'));assert(missing.includes('href="/"'));
 const headers=await readFile('dist/_headers','utf8');assert(headers.includes('max-age=31536000, immutable'));assert(headers.includes('nosniff'));assert(headers.includes('Content-Security-Policy-Report-Only'));
 const redirects=await readFile('dist/_redirects','utf8');assert(!redirects.includes('index.html'));assert(!redirects.includes(' 200'));
-const sitemap=await readFile('dist/sitemap.xml','utf8');assert.equal((sitemap.match(/<url>/g)||[]).length,Object.keys(routes).length);assert(!sitemap.includes('polityka-prywatnosci'));
+const sitemap=await readFile('dist/sitemap.xml','utf8');assert.equal((sitemap.match(/<url>/g)||[]).length,Object.keys(routes).length);
 console.log(`SEO OK: ${Object.keys(routes).length} routes, unique metadata, heading hierarchy, schema, assets, no-JS menu and Cloudflare files.`);

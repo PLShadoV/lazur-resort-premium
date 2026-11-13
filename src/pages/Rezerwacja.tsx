@@ -127,7 +127,7 @@ const Rezerwacja = () => {
               </h2>
             </CardHeader>
             <div className="px-6 pb-6">
-              <p className="text-muted-foreground leading-relaxed mb-6">Rezerwację obsługuje formularz RoomAdmin. Status zgłoszenia i warunki sprawdź w jego podsumowaniu oraz otrzymanym potwierdzeniu. W sprawie indywidualnych ustaleń, w tym pobytu z psem, skontaktuj się z obiektem przed zakończeniem rezerwacji.</p>
+              <p className="text-muted-foreground leading-relaxed mb-6">Rezerwacja w systemie RoomAdmin jest wiążąca. Po jej złożeniu dostaniesz e-mailem dane do wpłaty zadatku (20%), a resztę zapłacisz w dniu przyjazdu na miejscu.</p>
               <div className="relative bg-white rounded-lg overflow-hidden">
                 <iframe
                   title="Formularz rezerwacji domku Lazur Resort w systemie RoomAdmin"
@@ -190,8 +190,8 @@ const Rezerwacja = () => {
                 <Button asChild className="btn-luxury"><Link to="/cennik">Porównaj ceny sezonowe</Link></Button>
               </CardContent>
             </Card>
-            <Card className="glass-card"><CardHeader><Calendar size={28} className="text-[#967d48]"/><CardTitle className="text-2xl">Przygotuj dane pobytu</CardTitle></CardHeader><CardContent className="space-y-5"><p className="text-muted-foreground">Wybierz daty przyjazdu i wyjazdu oraz podaj liczbę osób. Uzupełnij dane kontaktowe, aby można było przekazać informacje dotyczące Twojego pobytu.</p><p className="text-muted-foreground">Przeczytaj podsumowanie ceny i warunki przedstawione w formularzu. Zachowaj otrzymane potwierdzenie oraz ustalenia z gospodarzem.</p></CardContent></Card>
-            <Card className="glass-card"><CardHeader><Users size={28} className="text-[#967d48]"/><CardTitle className="text-2xl">Ustal szczegóły z obiektem</CardTitle></CardHeader><CardContent className="space-y-5"><p className="text-muted-foreground">Masz pytanie o przyjazd z psem, parking lub wyposażenie? Ustal szczegóły przed wyborem pobytu. Kontakt telefoniczny jest również alternatywą, gdy potrzebujesz pomocy przy formularzu.</p><Button asChild className="btn-luxury"><Link to="/kontakt">Skontaktuj się z Lazur Resort</Link></Button></CardContent></Card>
+            <Card className="glass-card"><CardHeader><Calendar size={28} className="text-[#967d48]"/><CardTitle className="text-2xl">Przygotuj dane pobytu</CardTitle></CardHeader><CardContent className="space-y-5"><p className="text-muted-foreground">Wybierz daty przyjazdu i wyjazdu oraz podaj liczbę osób. Uzupełnij dane kontaktowe, aby można było przekazać informacje dotyczące Twojego pobytu.</p><p className="text-muted-foreground">Minimalny pobyt to 2 noce. Zameldowanie od 15:00, wymeldowanie do 10:00 — instrukcje zameldowania wyślemy przed przyjazdem. Dodatkowo płatne są tylko opłata klimatyczna i pies (15 zł za dobę).</p></CardContent></Card>
+            <Card className="glass-card"><CardHeader><Users size={28} className="text-[#967d48]"/><CardTitle className="text-2xl">Masz pytanie?</CardTitle></CardHeader><CardContent className="space-y-5"><p className="text-muted-foreground">Przy domku zaparkujesz do 2 aut, a pies jest mile widziany. Jeśli potrzebujesz pomocy przy formularzu, zadzwoń — pomożemy.</p><Button asChild className="btn-luxury"><Link to="/kontakt">Skontaktuj się z Lazur Resort</Link></Button></CardContent></Card>
           </div>
         </div>
       </section>

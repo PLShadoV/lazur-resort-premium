@@ -156,14 +156,14 @@
   },
   "/okolica/plaze-przyroda": {
     "image": "hero-drone.webp",
-    "intro": "Plaża w Rogowie i spacery przyrodnicze to pomysł na dzień blisko domku. Lazur Resort podaje odległość 350 m od plaży. Zanim wybierzesz dojście, dopasuj je do potrzeb uczestników, zwłaszcza gdy zabierasz wózek lub podróżujesz z osobą o ograniczonej mobilności.",
+    "intro": "Plaża w Rogowie i spacery przyrodnicze to pomysł na dzień blisko domku. Do plaży masz 350 m, a w okolicy jest też jezioro Resko Przymorskie.",
     "heading": "Plaża w Rogowie i nadmorskie spacery",
     "cards": [
       [
         "Najbliższa plaża",
-        "Zaplanuj odpoczynek na piasku albo spacer wzdłuż brzegu. Przed kąpielą sprawdź pogodę i oznaczenia na plaży. Numer najbliższego wejścia oraz szczegóły dojścia możesz ustalić z gospodarzem przed przyjazdem.",
+        "Zaplanuj odpoczynek na piasku albo spacer wzdłuż brzegu. Do plaży masz 350 m. Przed kąpielą sprawdź pogodę i oznaczenia na plaży.",
         "/kontakt",
-        "Zapytaj o dojście do plaży"
+        "Zobacz dojazd i mapę"
       ],
       [
         "Spacer przy lesie",
@@ -187,12 +187,12 @@
   },
   "/okolica/sciezki-rowerowe": {
     "image": "bicycle-forest-path.jpg",
-    "intro": "Trasy rowerowe w okolicy Rogowa pozwalają połączyć pobyt nad morzem z aktywnym dniem. Mrzeżyno, jezioro Resko i kierunek na Kołobrzeg to pomysły na cel wycieczki. Przed ruszeniem wybierz konkretny przebieg, sprawdź nawierzchnię i zaplanuj powrót do Lazur Resort.",
+    "intro": "Przez Rogowo prowadzi nadmorski szlak rowerowy Velo Baltica (R10, część trasy EuroVelo 10). Z Rogowa pojedziesz nim do Mrzeżyna, Dźwirzyna i dalej do Kołobrzegu.",
     "heading": "Wybierz kierunek wycieczki rowerowej z Rogowa",
     "cards": [
       [
         "Rogowo–Mrzeżyno rowerem",
-        "Port i plaża mogą być celem postoju. Zanim ruszysz, sprawdź wybrany odcinek na mapie i upewnij się, którędy wrócisz. Dobierz długość przejazdu do najmniej doświadczonej osoby w grupie.",
+        "Velo Baltica łączy Rogowo z Mrzeżynem. W porcie zrobisz postój, a potem wrócisz tym samym szlakiem albo brzegiem morza na pieszo.",
         "/okolica/mrzezyna",
         "Zobacz cel wycieczki w Mrzeżynie"
       ],
@@ -204,28 +204,28 @@
       ],
       [
         "W kierunku Kołobrzegu",
-        "Zaplanuj cel w mieście i miejsce pozostawienia roweru na czas spaceru. Przy wyborze trasy uwzględnij także drogę powrotną. Dystans w jedną stronę nie jest długością całej wycieczki.",
+        "Z Mrzeżyna do Kołobrzegu prowadzi utwardzona droga rowerowa wzdłuż szosy i przez las, z kilkusetmetrową kładką nad wydmami w Dźwirzynie.",
         "/okolica/kolobrzeg",
         "Wybierz atrakcję w Kołobrzegu"
       ]
     ],
     "panel": "Przygotuj rower przed wyjazdem",
-    "detail": "Sprawdź hamulce, opony i oświetlenie. Zabierz wodę, zapięcie i mapę dostępną bez internetu. Przed przyjazdem zapytaj gospodarza o możliwość przechowywania roweru przy domku. Nie zakładaj dostępności wypożyczalni ani ładowania rowerów elektrycznych bez wcześniejszego ustalenia.",
+    "detail": "Na miejscu nie ma wypożyczalni rowerów — zabierz własne. Sprawdź hamulce, opony i oświetlenie, weź wodę i zapięcie.",
     "cta": "/kontakt",
-    "label": "Ustal szczegóły pobytu z rowerem",
+    "label": "Zobacz dojazd",
     "width": 1024,
     "height": 576
   },
   "/okolica/transport": {
     "image": "domekzewnatrz.webp",
-    "intro": "Planujesz dojazd do Lazur Resort w Rogowie? Przed wyjazdem wybierz trasę do obiektu i ustal szczegóły przyjazdu. Na terenie jest bezpłatny parking. Jeśli jedziesz komunikacją publiczną, zaplanuj również ostatni odcinek podróży do domku.",
+    "intro": "Planujesz dojazd do Lazur Resort w Rogowie? W nawigacji wpisz ul. Makowa 6, 72-330 Rogowo. Wjazd na ogrodzoną działkę jest od ulicy, a przy domku czeka bezpłatny parking dla 2 aut.",
     "heading": "Dojazd do Rogowa i parking przy domkach",
     "cards": [
       [
         "Podróż samochodem",
-        "W nawigacji wyszukaj Lazur Resort w Rogowie. Przed podróżą sprawdź, czy punkt docelowy odpowiada miejscu uzgodnionemu z gospodarzem. Czas przejazdu zależy od trasy, sezonu i bieżących warunków na drodze.",
+        "Adres do nawigacji: ul. Makowa 6, 72-330 Rogowo. Wjazd na teren obiektu jest od ulicy. Instrukcje zameldowania wyślemy Ci przed przyjazdem.",
         "/kontakt",
-        "Ustal punkt przyjazdu"
+        "Zobacz mapę dojazdu"
       ],
       [
         "Komunikacja publiczna",
@@ -235,13 +235,13 @@
       ],
       [
         "Bezpłatny parking",
-        "Parking jest dostępny na terenie obiektu. Jeśli przyjeżdżacie kilkoma samochodami, ustalcie wcześniej z gospodarzem liczbę potrzebnych miejsc. Godzinę przyjazdu i sposób odbioru domku również omów przed podróżą.",
+        "Przy domku zaparkujesz bezpłatnie do 2 aut, na ogrodzonym terenie obiektu.",
         "/rezerwacja",
         "Przejdź do rezerwacji"
       ]
     ],
     "panel": "Przed wyjazdem do Lazur Resort",
-    "detail": "Zapisz numer +48 502 939 725, aby mieć kontakt z obiektem podczas podróży. Nie opieraj planu na sztywnym czasie przejazdu z innego miasta. Przy późniejszym przyjeździe uzgodnij szczegóły bezpośrednio z gospodarzem.",
+    "detail": "Zapisz numer +48 502 939 725, aby mieć kontakt z obiektem podczas podróży. Zameldowanie od 15:00, wymeldowanie do 10:00 — instrukcje zameldowania dostaniesz przed przyjazdem.",
     "cta": "/kontakt",
     "label": "Zobacz dane kontaktowe",
     "width": 1534,
@@ -249,18 +249,18 @@
   },
   "/okolica/z-psem": {
     "image": "cute-dog-beach-mobile.webp",
-    "intro": "Szukasz domku z psem w Rogowie? Lazur Resort przyjmuje zwierzęta. Zgłoś przyjazd z pupilem przed rezerwacją i ustal warunki pobytu. Domki mają tarasy oraz ogrody, a spacer nad morzem możesz dopasować do potrzeb swojego psa.",
+    "intro": "Szukasz domku z psem w Rogowie? W Lazur Resort pies jest mile widziany — jego pobyt kosztuje 15 zł za dobę. Cała działka jest ogrodzona, a do plaży masz 350 m.",
     "heading": "Pobyt z psem w Lazur Resort",
     "cards": [
       [
-        "Zgłoś pupila przed przyjazdem",
-        "Przekaż gospodarzowi, z iloma zwierzętami chcesz przyjechać. Ustal opłatę i warunki dla swojego pobytu. W cenniku znajdują się informacje o kosztach; szczegóły warto potwierdzić przed dokonaniem rezerwacji.",
+        "Opłata za psa",
+        "Pobyt psa kosztuje 15 zł za dobę. Poza nim dodatkowo płatna jest tylko opłata klimatyczna.",
         "/cennik",
         "Sprawdź cennik pobytu"
       ],
       [
-        "Ogród przy domku",
-        "Ogród pozwala spędzać czas na zewnątrz razem z pupilem. Przed przyjazdem zapytaj o zakres i rodzaj ogrodzenia. Dopasuj nadzór do zachowania psa; nie traktuj ogrodu jako gwarancji swobodnego wybiegu.",
+        "Ogrodzony teren",
+        "Cała działka jest ogrodzona, więc po powrocie z plaży pies może odpocząć z Wami przy domku i na tarasie.",
         "/galeria",
         "Zobacz domki i otoczenie"
       ],
@@ -271,8 +271,8 @@
         "Zaplanuj spacer w Rogowie"
       ]
     ],
-    "panel": "Ustal szczegóły wspólnego pobytu",
-    "detail": "Przed rezerwacją opowiedz o potrzebach swojego psa i zapytaj o zasady obowiązujące na terenie obiektu. Zabierz jego posłanie oraz akcesoria używane na co dzień. W sprawie opłaty i warunków skontaktuj się bezpośrednio z Lazur Resort.",
+    "panel": "Zabierz psa nad morze",
+    "detail": "Zabierz posłanie i miski psa, wodę oraz woreczki na spacery. Przed wejściem na plażę sprawdź oznaczenia przy wejściu — zasady dla psów ustala gmina.",
     "cta": "/rezerwacja",
     "label": "Zaplanuj pobyt z psem",
     "width": 576,

@@ -4,6 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { House, Waves, Users, Car, WifiHigh, PawPrint, MapPin, Star, Bicycle, TreeEvergreen } from '@phosphor-icons/react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
+import reviews from '@/seo/reviews.json';
 import heroDrone from '@/assets/hero-drone-desktop.webp';
 import heroDroneMobile from '@/assets/hero-drone-portrait.webp';
 import cottageExterior from '@/assets/domekzewnatrz.webp';
@@ -280,6 +283,39 @@ const Homepage = () => {
               border: 0
             }} title="Mapa dojazdu do Lazur Resort" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="rounded-xl"></iframe>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Google reviews (5/5, verbatim) */}
+      <section ref={addToRefs} className="py-20 bg-muted/30 scroll-reveal">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">{t('home.reviews.title')}</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t('home.reviews.subtitle')}</p>
+          </div>
+          <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full px-2 md:px-12">
+            <CarouselContent className="-ml-4">
+              {reviews.map((review) => (
+                <CarouselItem key={review.author} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card className="glass-card h-full">
+                    <CardContent className="p-6 md:p-8 flex flex-col h-full">
+                      <div className="flex items-center gap-1 text-[#967d48] mb-4" aria-label="Ocena 5 na 5">
+                        {[0, 1, 2, 3, 4].map((i) => <Star key={i} size={18} weight="fill" aria-hidden="true" />)}
+                        <span className="ml-2 text-sm text-muted-foreground">Google</span>
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed flex-1">„{review.text}”</p>
+                      <p className="mt-6 font-medium text-foreground">{review.author}</p>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex -left-2" />
+            <CarouselNext className="hidden md:flex -right-2" />
+          </Carousel>
+          <div className="text-center mt-10">
+            <Button asChild variant="outline"><a href="https://share.google/8awS123JMhgbjYtuG" target="_blank" rel="noopener noreferrer">Zobacz wszystkie opinie w Google</a></Button>
           </div>
         </div>
       </section>
