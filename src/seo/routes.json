@@ -1,0 +1,72 @@
+{
+  "/": {
+    "title": "Domki w Rogowie 350 m od plaży | Lazur Resort Rogowo",
+    "description": "Lazur Resort w Rogowie: 4 domki dla maksymalnie 8 osób, 350 m od plaży. Dwie sypialnie, kuchnia, taras i bezpłatny parking. Zobacz zdjęcia i sprawdź ceny.",
+    "h1": "Domki letniskowe w Rogowie, 350 m od plaży"
+  },
+  "/cennik": {
+    "title": "Cennik wynajmu domków w Rogowie nad morzem | Lazur Resort",
+    "description": "Sprawdź ceny domków Lazur Resort w Rogowie dla 4, 6 i 8 osób. Porównaj terminy sezonowe, wyposażenie w cenie i warunki rezerwacji pobytu nad morzem.",
+    "h1": "Cennik domków Lazur Resort w Rogowie"
+  },
+  "/galeria": {
+    "title": "Galeria domków w Rogowie: wnętrza i tarasy | Lazur Resort",
+    "description": "Zobacz zdjęcia domków Lazur Resort w Rogowie: salonu, sypialni, kuchni, tarasów i ogrodów. Poznaj wyposażenie domków dla 8 osób i zaplanuj swój pobyt.",
+    "h1": "Galeria domków Lazur Resort w Rogowie"
+  },
+  "/kontakt": {
+    "title": "Kontakt i dojazd do domków w Rogowie | Lazur Resort",
+    "description": "Skontaktuj się z Lazur Resort w Rogowie: telefon +48 502 939 725 i e-mail lazurresort@op.pl. Zapytaj o pobyt w domku dla 8 osób, 350 metrów od plaży.",
+    "h1": "Kontakt z Lazur Resort w Rogowie"
+  },
+  "/okolica": {
+    "title": "Rogowo i okolice: plaże oraz wycieczki | Lazur Resort",
+    "description": "Zaplanuj wypoczynek w Rogowie z Lazur Resort. Poznaj plaże, trasy rowerowe i pobliskie miejscowości. Wybierz atrakcje i sprawdź wskazówki dojazdu.",
+    "h1": "Rogowo i okolice: pomysły na wypoczynek"
+  },
+  "/rezerwacja": {
+    "title": "Rezerwacja domku w Rogowie nad morzem | Lazur Resort",
+    "description": "Zaplanuj pobyt w Lazur Resort w Rogowie. Wypełnij formularz rezerwacji domku dla maksymalnie 8 osób, z dwiema sypialniami i bezpłatnym parkingiem.",
+    "h1": "Rezerwacja domku Lazur Resort w Rogowie"
+  },
+  "/okolica/dzwirzyno": {
+    "title": "Dźwirzyno i jezioro Resko: wycieczka z Rogowa | Lazur",
+    "description": "Poznaj Dźwirzyno podczas pobytu w Lazur Resort w Rogowie. Zobacz opis plaży, jeziora Resko Przymorskie, sportów wodnych i spacerów w tej okolicy.",
+    "h1": "Dźwirzyno i jezioro Resko: wycieczka z Rogowa"
+  },
+  "/okolica/kolobrzeg": {
+    "title": "Kołobrzeg: atrakcje i wycieczka z Rogowa | Lazur Resort",
+    "description": "Odkryj atrakcje Kołobrzegu podczas pobytu w Lazur Resort w Rogowie. Poznaj port, promenadę, muzea i plaże. Sprawdź opis wycieczki oraz dojazdu do miasta.",
+    "h1": "Kołobrzeg: atrakcje podczas pobytu w Rogowie"
+  },
+  "/okolica/mrzezyna": {
+    "title": "Mrzeżyno: port i plaża na wycieczkę z Rogowa | Lazur",
+    "description": "Zaplanuj wycieczkę do Mrzeżyna podczas pobytu w Lazur Resort w Rogowie. Poznaj port rybacki, plażę i miejsca na spacer. Zobacz opis pobliskiej okolicy.",
+    "h1": "Mrzeżyno: port, plaża i spacer z Rogowa"
+  },
+  "/okolica/sciezki-rowerowe": {
+    "title": "Trasy rowerowe w Rogowie i okolicy | Lazur Resort Rogowo",
+    "description": "Poznaj trasy rowerowe w okolicy Rogowa: do Mrzeżyna, nad jezioro Resko i w kierunku Kołobrzegu. Zaplanuj aktywny pobyt w domkach Lazur Resort nad morzem.",
+    "h1": "Trasy rowerowe w Rogowie i okolicy"
+  },
+  "/okolica/z-psem": {
+    "title": "Domki z psem w Rogowie: pobyt nad morzem | Lazur Resort",
+    "description": "Planujesz pobyt z psem w Rogowie? Poznaj domki Lazur Resort, zasady pobytu ze zwierzętami oraz opis okolicznych plaż i miejsc na wspólne spacery.",
+    "h1": "Domki z psem w Rogowie nad morzem"
+  },
+  "/okolica/atrakcje": {
+    "title": "Atrakcje turystyczne w okolicy Rogowa | Lazur Resort",
+    "description": "Wybierz wycieczkę z Rogowa do Mrzeżyna, Dźwirzyna lub Kołobrzegu. Poznaj porty, plaże i miejskie atrakcje podczas pobytu w domkach Lazur Resort.",
+    "h1": "Atrakcje turystyczne w okolicy Rogowa"
+  },
+  "/okolica/plaze-przyroda": {
+    "title": "Plaże i przyroda Rogowa: przewodnik | Lazur Resort",
+    "description": "Poznaj plaże i przyrodę w okolicy Rogowa podczas pobytu w Lazur Resort. Przeczytaj o plaży 350 m od domków, spacerach i wypoczynku nad Bałtykiem.",
+    "h1": "Plaże i przyroda w Rogowie i okolicy"
+  },
+  "/okolica/transport": {
+    "title": "Dojazd do Rogowa i parking przy domkach | Lazur Resort",
+    "description": "Zaplanuj dojazd do domków Lazur Resort w Rogowie. Sprawdź informacje o podróży samochodem i komunikacją publiczną oraz bezpłatnym parkingu przy domkach.",
+    "h1": "Dojazd do Lazur Resort w Rogowie"
+  }
+}

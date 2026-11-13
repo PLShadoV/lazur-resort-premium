@@ -263,3 +263,4 @@
     @apply bottom-6 right-4 translate-x-0 top-auto translate-y-0;
   }
 }
+@media (prefers-reduced-motion: reduce) { .scroll-reveal, .fade-in-up { opacity: 1; transform: none; filter: none; animation: none; } }

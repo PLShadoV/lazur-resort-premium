@@ -1,3 +1,6 @@
+import { lazy, Suspense, type ReactNode } from 'react';
+import seoRoutes from './seo/routes.json';
+import { Seo } from './seo/Seo';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,30 +12,33 @@ import { Footer } from "./components/Footer";
 import { LanguageSwitcher } from "./components/LanguageSwitcher";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { useScrollToTop } from "./hooks/useScrollToTop";
-import Homepage from "./pages/Homepage";
-import Galeria from "./pages/Galeria";
-import Cennik from "./pages/Cennik";
-import Kontakt from "./pages/Kontakt";
-import Rezerwacja from "./pages/Rezerwacja";
-import NotFound from "./pages/NotFound";
-import Okolica from "./pages/Okolica";
-import OkolicaMrzezyna from "./pages/OkolicaMrzezyna";
-import OkolicaDzwirzyno from "./pages/OkolicaDzwirzyno";
-import OkolicaKolobrzeg from "./pages/OkolicaKolobrzeg";
-import OkolicaZPsem from "./pages/OkolicaZPsem";
-import OkolicaSciezkiRowerowe from "./pages/OkolicaSciezkiRowerowe";
-import OkolicaAtrakcje from "./pages/OkolicaAtrakcje";
-import OkolicaPlazePrzyroda from "./pages/OkolicaPlazePrzyroda";
-import OkolicaTransport from "./pages/OkolicaTransport";
+const Homepage = lazy(() => import("./pages/Homepage"));
+const Galeria = lazy(() => import("./pages/Galeria"));
+const Cennik = lazy(() => import("./pages/Cennik"));
+const Kontakt = lazy(() => import("./pages/Kontakt"));
+const Rezerwacja = lazy(() => import("./pages/Rezerwacja"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Okolica = lazy(() => import("./pages/Okolica"));
+const OkolicaMrzezyna = lazy(() => import("./pages/OkolicaMrzezyna"));
+const OkolicaDzwirzyno = lazy(() => import("./pages/OkolicaDzwirzyno"));
+const OkolicaKolobrzeg = lazy(() => import("./pages/OkolicaKolobrzeg"));
+const OkolicaZPsem = lazy(() => import("./pages/OkolicaZPsem"));
+const OkolicaSciezkiRowerowe = lazy(() => import("./pages/OkolicaSciezkiRowerowe"));
+const OkolicaAtrakcje = lazy(() => import("./pages/OkolicaAtrakcje"));
+const OkolicaPlazePrzyroda = lazy(() => import("./pages/OkolicaPlazePrzyroda"));
+const OkolicaTransport = lazy(() => import("./pages/OkolicaTransport"));
 
 const queryClient = new QueryClient();
 
-const AppContent = () => {
+export const AppContent = () => {
   useScrollToTop();
   
   return (
     <div className="min-h-screen bg-background">
+      <Seo />
       <Navigation />
+      <noscript><nav aria-label="Menu bez JavaScript" className="pt-32 pb-6 px-6 bg-primary text-white"><ul className="flex flex-wrap gap-x-8 gap-y-4 max-w-7xl mx-auto">{Object.entries(seoRoutes).map(([path,page])=><li key={path}><a href={path} className="underline underline-offset-4">{path==='/'?'Strona główna':page.h1}</a></li>)}</ul></nav></noscript>
+      <Suspense fallback={<div className="min-h-screen pt-40 text-center" role="status">Wczytywanie strony…</div>}>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/galeria" element={<Galeria />} />
@@ -50,6 +56,7 @@ const AppContent = () => {
         <Route path="/okolica/transport" element={<OkolicaTransport />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      </Suspense>
       <Footer />
       <FloatingButtons />
       <LanguageSwitcher />
@@ -57,20 +64,10 @@ const AppContent = () => {
   );
 };
 
-const App = () => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <LanguageProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <AppContent />
-          </BrowserRouter>
-        </TooltipProvider>
-      </LanguageProvider>
-    </QueryClientProvider>
-  );
-};
-
+export const AppProviders = ({children}: {children: ReactNode}) => (
+  <QueryClientProvider client={queryClient}><LanguageProvider><TooltipProvider>
+    <Toaster /><Sonner />{children}
+  </TooltipProvider></LanguageProvider></QueryClientProvider>
+);
+const App = () => <AppProviders><BrowserRouter><AppContent /></BrowserRouter></AppProviders>;
 export default App;

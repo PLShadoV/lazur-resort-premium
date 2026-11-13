@@ -14,10 +14,10 @@ const NotFound = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
+        <h1 className="text-4xl font-bold mb-4">Nie znaleziono strony</h1>
+        <p className="text-xl text-gray-600 mb-4">Ten adres nie prowadzi do dostępnej strony Lazur Resort.</p>
         <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
+          Wróć na stronę główną
         </a>
       </div>
     </div>

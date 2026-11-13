@@ -1,0 +1,281 @@
+{
+  "/okolica": {
+    "image": "widok-na-las.webp",
+    "intro": "Rogowo i okolice to plaża, nadmorskie spacery i wycieczki do sąsiednich miejscowości. Lazur Resort znajduje się w Rogowie. Stąd możesz zaplanować dzień nad Bałtykiem, wyjazd rowerowy albo spacer po porcie. Wybierz pomysł pasujący do Waszego tempa i pogody.",
+    "heading": "Wybierz sposób wypoczynku",
+    "cards": [
+      [
+        "Plaża i przyroda",
+        "Plaża w Rogowie leży według informacji obiektu 350 m od domków. Zostaw w planie miejsce na spacer brzegiem morza i odpoczynek na piasku. Przed wyjściem sprawdź pogodę i oznaczenia przy wejściu.",
+        "/okolica/plaze-przyroda",
+        "Poznaj plaże"
+      ],
+      [
+        "Rogowo na rowerze",
+        "Mrzeżyno, jezioro Resko i kierunek na Kołobrzeg to pomysły na rowerowy dzień. Dobierz trasę do kondycji uczestników i zaplanuj powrót. Szczegóły przygotowania zebraliśmy w osobnym przewodniku.",
+        "/okolica/sciezki-rowerowe",
+        "Zaplanuj wycieczkę rowerową"
+      ],
+      [
+        "Wycieczki z Rogowa",
+        "W Mrzeżynie zajrzyj do portu, w Dźwirzynie połącz plażę z jeziorem Resko, a w Kołobrzegu wybierz promenadę i molo. To cele wyjazdów podczas pobytu w Rogowie.",
+        "/okolica/atrakcje",
+        "Wybierz cel wyjazdu"
+      ]
+    ],
+    "panel": "Wypoczynek w Rogowie po swojemu",
+    "detail": "Nie musisz planować całego urlopu z góry. Zobacz zdjęcia domków, wybierz termin i zostaw sobie czas na morze. Jeśli przyjeżdżasz z psem, omów warunki pobytu przed rezerwacją.",
+    "cta": "/galeria",
+    "label": "Zobacz domki i ogrody",
+    "width": 1536,
+    "height": 1152
+  },
+  "/okolica/mrzezyna": {
+    "image": "port-w-mrzezynie.jpg",
+    "intro": "Mrzeżyno, port i plaża to pomysł na wycieczkę z Rogowa. Nocujesz w Lazur Resort w Rogowie, a na spacer wybierasz sąsiednią miejscowość. Połącz oglądanie portu rybackiego z odpoczynkiem nad Bałtykiem. Długość wyjazdu dopasuj do pogody i własnego tempa.",
+    "heading": "Mrzeżyno: port i plaża",
+    "cards": [
+      [
+        "Spacer przy porcie",
+        "Port rybacki pozwala zobaczyć inną stronę nadmorskiego wypoczynku. Przyjrzyj się kutrom i portowej zabudowie. Poruszaj się po udostępnionych ciągach pieszych, z poszanowaniem pracy osób w porcie.",
+        "/okolica/atrakcje",
+        "Poznaj inne cele wycieczek"
+      ],
+      [
+        "Czas nad morzem",
+        "Plażę w Mrzeżynie możesz wybrać jako kolejny punkt po spacerze w porcie. Przed kąpielą sprawdź oznakowanie i warunki na miejscu. Na dłuższy pobyt nad wodą zabierz coś do picia oraz osłonę przed słońcem.",
+        "/okolica/plaze-przyroda",
+        "Przeczytaj o plażach"
+      ],
+      [
+        "Rogowo–Mrzeżyno rowerem",
+        "Wyjazd rowerowy daje swobodę zaplanowania postojów. Przed ruszeniem wybierz przebieg trasy i sprawdź drogę powrotną. Nie zakładaj, że cały odcinek będzie wydzieloną ścieżką rowerową.",
+        "/okolica/sciezki-rowerowe",
+        "Przygotuj wyjazd rowerem"
+      ]
+    ],
+    "panel": "Zaplanuj wycieczkę do Mrzeżyna z Rogowa",
+    "detail": "W nawigacji wskaż konkretny cel: port albo wybrane wejście na plażę. Czas przejazdu zależy od trasy i ruchu. Po spacerze wracasz do swojego domku w Rogowie, z kuchnią i tarasem do dyspozycji.",
+    "cta": "/rezerwacja",
+    "label": "Zaplanuj pobyt w Rogowie",
+    "width": 1280,
+    "height": 720
+  },
+  "/okolica/dzwirzyno": {
+    "image": "plaza-dzwirzyno.jpg",
+    "intro": "Wycieczka do Dźwirzyna z Rogowa pozwala połączyć pobyt nad Bałtykiem z widokiem na jezioro Resko Przymorskie. Lazur Resort jest w Rogowie, a Dźwirzyno to jeden z celów wyjazdu w okolicy. Wybierz plażę lub jezioro jako główny punkt dnia.",
+    "heading": "Dźwirzyno i jezioro Resko",
+    "cards": [
+      [
+        "Plaża w Dźwirzynie",
+        "Spacer nad morzem możesz połączyć z odpoczynkiem na piasku. Wybierz wejście odpowiednie dla wszystkich uczestników i sprawdź warunki na miejscu. Pogoda oraz oznakowanie kąpieliska powinny decydować o planie kąpieli.",
+        "/okolica/plaze-przyroda",
+        "Zobacz przewodnik plażowy"
+      ],
+      [
+        "Jezioro Resko Przymorskie",
+        "Jezioro to drugi, obok morza, punkt wycieczki do Dźwirzyna. Zaplanuj postój z widokiem na wodę. Jeśli interesują Cię sporty wodne, sprawdź bezpośrednio u usługodawcy dostępność sprzętu i warunki korzystania.",
+        "/okolica",
+        "Poznaj okolicę Rogowa"
+      ],
+      [
+        "Dzień we własnym tempie",
+        "Wybierz jeden główny cel i zostaw czas na spacer. Połączenie plaży i jeziora możesz dopasować do pogody. Przed wyjazdem ustal miejsce postoju, zamiast kierować się wyłącznie do centrum miejscowości.",
+        "/okolica/transport",
+        "Zaplanuj dojazd"
+      ]
+    ],
+    "panel": "Wyjazd z domku w Rogowie",
+    "detail": "Ustaw w nawigacji wybrany punkt w Dźwirzynie. Nie podajemy jednego czasu przejazdu dla całej miejscowości, bo zależy on od celu i warunków drogowych. Po powrocie do Lazur Resort odpoczniesz na tarasie swojego domku.",
+    "cta": "/rezerwacja",
+    "label": "Wybierz pobyt w Rogowie",
+    "width": 1778,
+    "height": 1000
+  },
+  "/okolica/kolobrzeg": {
+    "image": "molo-kolobrzeg.jpg",
+    "intro": "Kołobrzeg to cel wycieczki podczas pobytu w Rogowie. Z Lazur Resort możesz zaplanować wyjazd na promenadę, do portu lub muzeum. Domki znajdują się w Rogowie; ta strona pomaga wybrać atrakcje Kołobrzegu i ułożyć dzień poza obiektem.",
+    "heading": "Atrakcje Kołobrzegu podczas pobytu w Rogowie",
+    "cards": [
+      [
+        "Promenada i molo",
+        "Wybierz tę część miasta, jeśli masz ochotę na spacer nad wodą. Zostaw czas na postoje i widok na morze. Dostępność oraz ewentualne opłaty za wejście sprawdź przed wyjazdem u zarządcy atrakcji.",
+        "/okolica/plaze-przyroda",
+        "Poznaj nadmorską okolicę"
+      ],
+      [
+        "Port i latarnia morska",
+        "Okolice portu to pomysł dla osób, które lubią nadmorski krajobraz i fotografię. Jeśli chcesz wejść do latarni, sprawdź aktualne godziny. Sam spacer można zaplanować niezależnie od zwiedzania wnętrz.",
+        "/okolica/atrakcje",
+        "Porównaj cele wycieczek"
+      ],
+      [
+        "Muzeum zamiast plażowania",
+        "Wizyta w muzeum może uzupełnić plan przy gorszej pogodzie. Przed wyjazdem wybierz interesującą Was placówkę i sprawdź jej program, godziny oraz bilety. Dopasuj wizytę do wieku i zainteresowań uczestników.",
+        "/okolica/transport",
+        "Zaplanuj podróż"
+      ]
+    ],
+    "panel": "Kołobrzeg: organizacja wyjazdu z Rogowa",
+    "detail": "Najpierw wybierz atrakcję, potem punkt dojazdu i parking. Trasa do portu może różnić się od przejazdu do muzeum. Ogranicz liczbę punktów, jeśli podróżujesz z dziećmi. Nocleg i odpoczynek po zwiedzaniu planujesz w Lazur Resort w Rogowie.",
+    "cta": "/rezerwacja",
+    "label": "Zaplanuj nocleg w Rogowie",
+    "width": 1024,
+    "height": 768
+  },
+  "/okolica/atrakcje": {
+    "image": "latarnia-kolobrzeg.jpg",
+    "intro": "Pomysły na wycieczkę z Rogowa warto dopasować do pogody i osób, z którymi podróżujesz. W okolicy możesz wybrać spacer przy porcie, plażę albo zwiedzanie miasta. Lazur Resort znajduje się w Rogowie i może być punktem rozpoczęcia takiego dnia.",
+    "heading": "Wycieczki z Rogowa do pobliskich miejscowości",
+    "cards": [
+      [
+        "Mrzeżyno dla miłośników portu",
+        "Port rybacki i plaża to dwa punkty, które możesz połączyć podczas jednego wyjazdu. Zacznij od spaceru, a dalszy plan dopasuj do warunków nad morzem. Osobny przewodnik pomoże wybrać charakter wycieczki.",
+        "/okolica/mrzezyna",
+        "Zaplanuj spacer w Mrzeżynie"
+      ],
+      [
+        "Dźwirzyno nad morzem i jeziorem",
+        "Wybierz Dźwirzyno, jeśli chcesz zobaczyć plażę i jezioro Resko Przymorskie. Nie musisz łączyć wszystkich aktywności jednego dnia. Zdecyduj, czy zależy Ci na spacerze, czy na dłuższym odpoczynku nad wodą.",
+        "/okolica/dzwirzyno",
+        "Poznaj Dźwirzyno"
+      ],
+      [
+        "Kołobrzeg na dzień zwiedzania",
+        "Promenada, port, molo i muzea dają kilka różnych pomysłów na wyjazd. Wybierz najważniejsze dla siebie miejsca. Przed wizytą sprawdź godziny atrakcji i zasady wstępu, szczególnie poza sezonem.",
+        "/okolica/kolobrzeg",
+        "Wybierz atrakcje Kołobrzegu"
+      ]
+    ],
+    "panel": "Praktyczne planowanie wycieczki",
+    "detail": "Ustal punkt docelowy i sprawdź drogę powrotną do Rogowa. Na rower wybierz trasę odpowiednią do możliwości całej grupy. Przy podróży samochodem uwzględnij miejsce postoju. Informacje o dojeździe i parkingu przy domkach zebraliśmy w jednym miejscu.",
+    "cta": "/okolica/transport",
+    "label": "Przeczytaj o dojeździe",
+    "width": 1024,
+    "height": 768
+  },
+  "/okolica/plaze-przyroda": {
+    "image": "hero-drone.webp",
+    "intro": "Plaża w Rogowie i spacery przyrodnicze to pomysł na dzień blisko domku. Lazur Resort podaje odległość 350 m od plaży. Zanim wybierzesz dojście, dopasuj je do potrzeb uczestników, zwłaszcza gdy zabierasz wózek lub podróżujesz z osobą o ograniczonej mobilności.",
+    "heading": "Plaża w Rogowie i nadmorskie spacery",
+    "cards": [
+      [
+        "Najbliższa plaża",
+        "Zaplanuj odpoczynek na piasku albo spacer wzdłuż brzegu. Przed kąpielą sprawdź pogodę i oznaczenia na plaży. Numer najbliższego wejścia oraz szczegóły dojścia możesz ustalić z gospodarzem przed przyjazdem.",
+        "/kontakt",
+        "Zapytaj o dojście do plaży"
+      ],
+      [
+        "Spacer przy lesie",
+        "Leśne otoczenie to alternatywa dla dnia spędzonego wyłącznie na piasku. Wybieraj udostępnione ścieżki i stosuj się do oznaczeń. Trasę oraz długość spaceru dopasuj do pogody i kondycji uczestników.",
+        "/okolica",
+        "Wybierz aktywność w okolicy"
+      ],
+      [
+        "Nad jezioro Resko",
+        "Widok na jezioro może być celem osobnego wyjazdu. Jeśli chcesz połączyć go z Dźwirzynem, najpierw wybierz konkretny punkt nad wodą. Nie zakładaj, że każdy fragment brzegu jest dostępny dla spacerowiczów.",
+        "/okolica/dzwirzyno",
+        "Poznaj jezioro i Dźwirzyno"
+      ]
+    ],
+    "panel": "Na spacer z psem lub na rower",
+    "detail": "Przy wyjściu z psem sprawdź oznaczenia i zasady obowiązujące na wybranej plaży. Zabierz wodę oraz woreczki do sprzątania. Jeśli wolisz dłuższy wyjazd, zobacz wskazówki do przygotowania wycieczki rowerowej z Rogowa.",
+    "cta": "/okolica/sciezki-rowerowe",
+    "label": "Zaplanuj dzień na rowerze",
+    "width": 2560,
+    "height": 1920
+  },
+  "/okolica/sciezki-rowerowe": {
+    "image": "bicycle-forest-path.jpg",
+    "intro": "Trasy rowerowe w okolicy Rogowa pozwalają połączyć pobyt nad morzem z aktywnym dniem. Mrzeżyno, jezioro Resko i kierunek na Kołobrzeg to pomysły na cel wycieczki. Przed ruszeniem wybierz konkretny przebieg, sprawdź nawierzchnię i zaplanuj powrót do Lazur Resort.",
+    "heading": "Wybierz kierunek wycieczki rowerowej z Rogowa",
+    "cards": [
+      [
+        "Rogowo–Mrzeżyno rowerem",
+        "Port i plaża mogą być celem postoju. Zanim ruszysz, sprawdź wybrany odcinek na mapie i upewnij się, którędy wrócisz. Dobierz długość przejazdu do najmniej doświadczonej osoby w grupie.",
+        "/okolica/mrzezyna",
+        "Zobacz cel wycieczki w Mrzeżynie"
+      ],
+      [
+        "Wycieczka nad jezioro Resko",
+        "Wybierz konkretny, dostępny punkt nad jeziorem. Sprawdź, czy dojazd prowadzi drogą, ścieżką rowerową czy odcinkiem terenowym. Nie każdy fragment brzegu nadaje się do przejazdu rowerem.",
+        "/okolica/dzwirzyno",
+        "Poznaj okolice jeziora"
+      ],
+      [
+        "W kierunku Kołobrzegu",
+        "Zaplanuj cel w mieście i miejsce pozostawienia roweru na czas spaceru. Przy wyborze trasy uwzględnij także drogę powrotną. Dystans w jedną stronę nie jest długością całej wycieczki.",
+        "/okolica/kolobrzeg",
+        "Wybierz atrakcję w Kołobrzegu"
+      ]
+    ],
+    "panel": "Przygotuj rower przed wyjazdem",
+    "detail": "Sprawdź hamulce, opony i oświetlenie. Zabierz wodę, zapięcie i mapę dostępną bez internetu. Przed przyjazdem zapytaj gospodarza o możliwość przechowywania roweru przy domku. Nie zakładaj dostępności wypożyczalni ani ładowania rowerów elektrycznych bez wcześniejszego ustalenia.",
+    "cta": "/kontakt",
+    "label": "Ustal szczegóły pobytu z rowerem",
+    "width": 1024,
+    "height": 576
+  },
+  "/okolica/transport": {
+    "image": "domekzewnatrz.webp",
+    "intro": "Planujesz dojazd do Lazur Resort w Rogowie? Przed wyjazdem wybierz trasę do obiektu i ustal szczegóły przyjazdu. Na terenie jest bezpłatny parking. Jeśli jedziesz komunikacją publiczną, zaplanuj również ostatni odcinek podróży do domku.",
+    "heading": "Dojazd do Rogowa i parking przy domkach",
+    "cards": [
+      [
+        "Podróż samochodem",
+        "W nawigacji wyszukaj Lazur Resort w Rogowie. Przed podróżą sprawdź, czy punkt docelowy odpowiada miejscu uzgodnionemu z gospodarzem. Czas przejazdu zależy od trasy, sezonu i bieżących warunków na drodze.",
+        "/kontakt",
+        "Ustal punkt przyjazdu"
+      ],
+      [
+        "Komunikacja publiczna",
+        "Wyszukaj połączenie na wybrany dzień i zaplanuj dojazd od przystanku lub stacji do obiektu. Rozkłady mogą różnić się między sezonami. Sprawdź też połączenie powrotne i możliwość przewiezienia bagażu.",
+        "/kontakt",
+        "Zapytaj o ostatni odcinek podróży"
+      ],
+      [
+        "Bezpłatny parking",
+        "Parking jest dostępny na terenie obiektu. Jeśli przyjeżdżacie kilkoma samochodami, ustalcie wcześniej z gospodarzem liczbę potrzebnych miejsc. Godzinę przyjazdu i sposób odbioru domku również omów przed podróżą.",
+        "/rezerwacja",
+        "Przejdź do rezerwacji"
+      ]
+    ],
+    "panel": "Przed wyjazdem do Lazur Resort",
+    "detail": "Zapisz numer +48 502 939 725, aby mieć kontakt z obiektem podczas podróży. Nie opieraj planu na sztywnym czasie przejazdu z innego miasta. Przy późniejszym przyjeździe uzgodnij szczegóły bezpośrednio z gospodarzem.",
+    "cta": "/kontakt",
+    "label": "Zobacz dane kontaktowe",
+    "width": 1534,
+    "height": 1152
+  },
+  "/okolica/z-psem": {
+    "image": "cute-dog-beach-mobile.webp",
+    "intro": "Szukasz domku z psem w Rogowie? Lazur Resort przyjmuje zwierzęta. Zgłoś przyjazd z pupilem przed rezerwacją i ustal warunki pobytu. Domki mają tarasy oraz ogrody, a spacer nad morzem możesz dopasować do potrzeb swojego psa.",
+    "heading": "Pobyt z psem w Lazur Resort",
+    "cards": [
+      [
+        "Zgłoś pupila przed przyjazdem",
+        "Przekaż gospodarzowi, z iloma zwierzętami chcesz przyjechać. Ustal opłatę i warunki dla swojego pobytu. W cenniku znajdują się informacje o kosztach; szczegóły warto potwierdzić przed dokonaniem rezerwacji.",
+        "/cennik",
+        "Sprawdź cennik pobytu"
+      ],
+      [
+        "Ogród przy domku",
+        "Ogród pozwala spędzać czas na zewnątrz razem z pupilem. Przed przyjazdem zapytaj o zakres i rodzaj ogrodzenia. Dopasuj nadzór do zachowania psa; nie traktuj ogrodu jako gwarancji swobodnego wybiegu.",
+        "/galeria",
+        "Zobacz domki i otoczenie"
+      ],
+      [
+        "Spacery nad morzem",
+        "Przed wejściem na plażę sprawdź miejscowe oznaczenia i aktualne zasady. Zaplanuj wodę dla psa oraz woreczki do sprzątania. Długość spaceru dobierz do temperatury i możliwości pupila.",
+        "/okolica/plaze-przyroda",
+        "Zaplanuj spacer w Rogowie"
+      ]
+    ],
+    "panel": "Ustal szczegóły wspólnego pobytu",
+    "detail": "Przed rezerwacją opowiedz o potrzebach swojego psa i zapytaj o zasady obowiązujące na terenie obiektu. Zabierz jego posłanie oraz akcesoria używane na co dzień. W sprawie opłaty i warunków skontaktuj się bezpośrednio z Lazur Resort.",
+    "cta": "/rezerwacja",
+    "label": "Zaplanuj pobyt z psem",
+    "width": 576,
+    "height": 512
+  }
+}

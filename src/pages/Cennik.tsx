@@ -176,9 +176,9 @@ const Cennik = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-ocean to-ocean/60 rounded-full mx-auto mb-4 flex items-center justify-center">
                     <House size={24} weight="light" className="text-white" />
                   </div>
-                  <CardTitle className="text-xl font-light tracking-tight">
+                  <h2 className="text-xl font-light tracking-tight">
                     {season.name}
-                  </CardTitle>
+                  </h2>
                   <p className="text-sm text-muted-foreground">{season.period}</p>
                   <p className="text-sm text-muted-foreground italic">
                     {season.description}
@@ -186,6 +186,7 @@ const Cennik = () => {
                 </CardHeader>
 
                 <CardContent className="space-y-4">
+                  <p className="text-sm text-muted-foreground">Cena za domek według liczby gości:</p>
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
                       <span className="text-sm">{t('pricing.cottage.4')}</span>
@@ -224,7 +225,7 @@ const Cennik = () => {
             <Card className="glass-card p-8">
               <h2 className="text-2xl font-light tracking-tight mb-6 text-center">
                 {t('pricing.includes.title')}
-              </h2>
+              </h2><p className="text-muted-foreground mb-6">Wyposażenie dotyczy każdego z czterech jednakowych domków. Zobacz zdjęcia salonu, kuchni, sypialni i tarasu, aby wybrać pobyt odpowiadający potrzebom Twojej grupy.</p><Button asChild variant="outline" className="mb-6"><Link to="/galeria">Zobacz wyposażenie na zdjęciach</Link></Button>
               <div className="space-y-3">
                 {includes.map((item, index) => (
                   <div key={index} className="flex items-center space-x-3">
@@ -251,7 +252,7 @@ const Cennik = () => {
               <div className="mt-8 p-4 bg-ocean/10 rounded-lg">
                 <h3 className="font-medium mb-2">{t('pricing.additional.title')}</h3>
                 <p className="text-sm text-muted-foreground">
-                  {t('pricing.additional.desc')}
+                  {t('pricing.additional.desc')} Cenę porównuj dla całej grupy. Przy terminach na granicy sezonów i pobytach obejmujących różne okresy potwierdź łączny koszt z obiektem.
                 </p>
               </div>
               
@@ -261,10 +262,10 @@ const Cennik = () => {
                   <p className="font-medium">{t('pricing.bank.name')}</p>
                   <p>{t('pricing.bank.address')}</p>
                   <p className="mt-2">{t('pricing.bank.bank')}</p>
-                  <p className="font-mono">{t('pricing.bank.account')}</p>
+                  <p className="font-mono break-words">{t('pricing.bank.account')}</p>
                   <p className="text-xs mt-2 font-medium">W przypadku przelewu zagranicznego:</p>
-                  <p className="font-mono text-xs">{t('pricing.bank.iban')}</p>
-                  <p className="font-mono text-xs">{t('pricing.bank.bic')}</p>
+                  <p className="font-mono break-words text-xs">{t('pricing.bank.iban')}</p>
+                  <p className="font-mono break-words text-xs">{t('pricing.bank.bic')}</p>
                 </div>
               </div>
             </Card>
