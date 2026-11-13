@@ -2,12 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
 import { House, Waves, Users, Car, WifiHigh, PawPrint, MapPin, Star, Bicycle, TreeEvergreen } from '@phosphor-icons/react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import heroDrone from '@/assets/hero-drone.webp';
-import heroDroneMobile from '@/assets/hero-drone.webp';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
+import reviews from '@/seo/reviews.json';
+import heroDrone from '@/assets/hero-drone-desktop.webp';
+import heroDroneMobile from '@/assets/hero-drone-portrait.webp';
 import cottageExterior from '@/assets/domekzewnatrz.webp';
 import cottageExteriorMobile from '@/assets/domekzewnatrz.webp';
 import cuteDogBeach from '@/assets/cute-dog-beach-mobile.webp';
@@ -62,83 +63,34 @@ const Homepage = () => {
     title: t('home.feature.pets.title'),
     description: t('home.feature.pets.desc')
   }];
-  const reviews = [
-    {
-      author: "Anna Kowalska",
-      rating: 5,
-      comment: "Wspaniałe miejsce na relaks! Domki są czyste, dobrze wyposażone. Lokalizacja blisko morza to ogromny plus.",
-      platform: "Google"
-    },
-    {
-      author: "Marcin Nowak", 
-      rating: 5,
-      comment: "Bardzo polecam! Cisza, spokój i piękna przyroda. Idealne miejsce na rodzinne wakacje.",
-      platform: "Booking.com"
-    },
-    {
-      author: "Katarzyna Wiśniewska",
-      rating: 4,
-      comment: "Miły personel, czyste domki. Świetne miejsce dla rodzin z dziećmi. Na pewno wrócimy!",
-      platform: "Google"
-    },
-    {
-      author: "Piotr Zalewski",
-      rating: 5,
-      comment: "Fantastyczne wakacje! Domek był idealnie czysty, bardzo dobrze wyposażony. Polecam wszystkim!",
-      platform: "Booking.com"
-    },
-    {
-      author: "Magdalena Dąbrowska",
-      rating: 5,
-      comment: "Cudowne miejsce na odpoczynek. Blisko morze, las tuż obok. Domki nowocześnie urządzone.",
-      platform: "Google"
-    },
-    {
-      author: "Tomasz Krawczyk",
-      rating: 4,
-      comment: "Bardzo przyjemny pobyt. Dobra lokalizacja, spokojnie. Właściciele bardzo mili i pomocni.",
-      platform: "Booking.com"
-    },
-    {
-      author: "Agnieszka Pawlak",
-      rating: 5,
-      comment: "Najlepsze wakacje od lat! Domek jak z bajki, wszystko czyste i nowe. Dzieci zachwycone!",
-      platform: "Google"
-    },
-    {
-      author: "Robert Jankowski",
-      rating: 5,
-      comment: "Rewelacyjne miejsce! Doskonała lokalizacja, blisko plaża i atrakcje. Na pewno wrócimy!",
-      platform: "Booking.com"
-    }
-  ];
+
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <picture className="absolute inset-0">
           <source media="(max-width: 768px)" srcSet={heroDroneMobile} />
-          <img 
-            src={heroDrone} 
+          <img decoding="async" width="1440" height="1080"
+            src={heroDrone}
             alt="Lazur Resort w Rogowie - widok z drona"
             className="w-full h-full object-cover"
             loading="eager"
-            fetchPriority="high"
+            {...{fetchpriority: 'high'}}
           />
           <div className="absolute inset-0 bg-primary/30"></div>
         </picture>
-        
-        <div className="relative z-10 text-center text-white px-4 fade-in-up">
-          <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-6">
+
+        <div className="relative z-10 text-center text-white px-4 pt-28 pb-12 fade-in-up">
+          <h1 className="text-4xl md:text-6xl font-light tracking-tight mb-6 max-w-5xl mx-auto">
             {t('home.hero.title')}
           </h1>
           <p className="text-xl md:text-2xl font-light mb-6 opacity-90 max-w-3xl mx-auto">
             {t('home.hero.subtitle')}
           </p>
-          
-          
+
+
           <Button asChild className="btn-luxury text-lg px-12 py-6">
             <Link to="/rezerwacja">{t('button.book')}</Link>
-          </Button>
+          </Button><Button asChild variant="secondary" className="m-3 text-lg px-8 py-6"><Link to="/cennik">Sprawdź ceny domków</Link></Button>
         </div>
       </section>
 
@@ -155,6 +107,7 @@ const Homepage = () => {
       <section ref={addToRefs} className="py-20 scroll-reveal">
         <div className="container mx-auto px-4">
 
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-center mb-12">Domki w Rogowie blisko plaży</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => <Card key={index} className="glass-card hover:shadow-luxury transition-all duration-300">
                 <CardContent className="p-8 text-center">
@@ -174,13 +127,11 @@ const Homepage = () => {
             <div>
               <picture>
                 <source media="(max-width: 768px)" srcSet={cottageExteriorMobile} />
-                <img 
-                  src={cottageExterior} 
-                  alt="Domek Lazur Resort nad morzem w Rogowie" 
-                  className="rounded-2xl shadow-luxury w-full" 
+                <img decoding="async" width="1534" height="1152"
+                  src={cottageExterior}
+                  alt="Domek Lazur Resort nad morzem w Rogowie"
+                  className="rounded-2xl shadow-luxury w-full"
                   loading="lazy"
-                  width="576"
-                  height="512"
                 />
               </picture>
             </div>
@@ -223,22 +174,21 @@ const Homepage = () => {
       {/* Two Column Activities Section */}
       <section ref={addToRefs} className="py-20 scroll-reveal">
         <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-center mb-12">Pobyt w Rogowie</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <Card className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300">
-              <div className="relative aspect-[16/9] overflow-hidden">
+              <div className="relative overflow-hidden">
                 <picture>
                   <source media="(max-width: 768px)" srcSet={cuteDogBeachMobile} />
-                  <img 
-                    src={cuteDogBeach} 
+                  <img decoding="async" width="576" height="512"
+                    src={cuteDogBeach}
                     alt="Pobyt z psem nad morzem - domki przyjazne zwierzętom w Lazur Resort"
-                    className="w-full h-full object-cover"
+                    className="w-full h-64 object-cover"
                     loading="lazy"
-                    width="576"
-                    height="512"
                   />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
-                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-6 text-white">
+                <div className="bg-primary">
+                  <div className="p-6 text-white">
                     <div className="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-3">
                       <div className="w-8 h-8 sm:w-12 sm:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
                         <PawPrint size={16} weight="light" style={{ color: '#967d48' }} className="sm:hidden" />
@@ -246,34 +196,32 @@ const Homepage = () => {
                       </div>
                       <h3 className="text-base sm:text-2xl font-medium">{t('home.pets.title')}</h3>
                     </div>
-                    <p className="text-white/90 leading-relaxed mb-1 sm:mb-3 text-xs sm:text-base">
+                    <p className="text-white/90 leading-relaxed mb-1 sm:mb-3 text-base">
                       {t('home.pets.desc')}
                     </p>
-                    <ul className="space-y-0.5 text-xs sm:text-sm text-white/80">
+                    <ul className="space-y-0.5 text-sm text-white/80">
                       <li>• {t('home.pets.feature1')}</li>
                       <li>• {t('home.pets.feature2')}</li>
                       <li>• {t('home.pets.feature3')}</li>
-                    </ul>
+                    </ul><Button asChild variant="secondary" className="mt-5"><Link to="/okolica/z-psem">Pobyt z psem w Rogowie</Link></Button>
                   </div>
                 </div>
               </div>
             </Card>
 
             <Card className="glass-card overflow-hidden hover:shadow-luxury transition-all duration-300">
-              <div className="relative aspect-[16/9] overflow-hidden">
+              <div className="relative overflow-hidden">
                 <picture>
                   <source media="(max-width: 768px)" srcSet={bicycleForestPathMobile} />
-                  <img 
-                    src={bicycleForestPath} 
+                  <img decoding="async" width="1024" height="576"
+                    src={bicycleForestPath}
                     alt="Wycieczki rowerowe po lasach - ścieżki rowerowe koło Lazur Resort"
-                    className="w-full h-full object-cover"
+                    className="w-full h-64 object-cover"
                     loading="lazy"
-                    width="576"
-                    height="512"
                   />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
-                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-6 text-white">
+                <div className="bg-primary">
+                  <div className="p-6 text-white">
                     <div className="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-3">
                       <div className="w-8 h-8 sm:w-12 sm:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
                         <Bicycle size={16} weight="light" style={{ color: '#967d48' }} className="sm:hidden" />
@@ -281,14 +229,14 @@ const Homepage = () => {
                       </div>
                       <h3 className="text-base sm:text-2xl font-medium">{t('home.bikes.title')}</h3>
                     </div>
-                    <p className="text-white/90 leading-relaxed mb-1 sm:mb-3 text-xs sm:text-base">
+                    <p className="text-white/90 leading-relaxed mb-1 sm:mb-3 text-base">
                       {t('home.bikes.desc')}
                     </p>
-                    <ul className="space-y-0.5 text-xs sm:text-sm text-white/80">
+                    <ul className="space-y-0.5 text-sm text-white/80">
                       <li>• {t('home.bikes.feature1')}</li>
                       <li>• {t('home.bikes.feature2')}</li>
                       <li>• {t('home.bikes.feature3')}</li>
-                    </ul>
+                    </ul><Button asChild variant="secondary" className="mt-5"><Link to="/okolica/sciezki-rowerowe">Zaplanuj wycieczkę rowerową</Link></Button>
                   </div>
                 </div>
               </div>
@@ -315,10 +263,10 @@ const Homepage = () => {
                 <MapPin size={24} weight="light" className="text-ocean" />
                 <div>
                   <h3 className="font-medium">{t('home.location.address')}</h3>
-                  <p className="text-muted-foreground">{t('home.location.address.value')}</p>
+                  <p className="text-muted-foreground">{t('home.location.address.value')}</p><Button asChild className="btn-luxury mt-5"><Link to="/okolica/transport">Dojazd do Lazur Resort</Link></Button>
                 </div>
               </div>
-              
+
               <div className="space-y-4">
                 <h3 className="text-xl font-medium">{t('home.location.directions')}</h3>
                 <ul className="space-y-2 text-muted-foreground">
@@ -331,68 +279,47 @@ const Homepage = () => {
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-luxury">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4677.647891234567!2d15.5773896!3d54.2823456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f11.1!3m3!1m2!1s0x47aa5e5e5e5e5e5e%3A0x5e5e5e5e5e5e5e5e!2sMakowa+6%2C+72-330+Rogowo!5e0!3m2!1spl!2spl!4v1645123456789" width="100%" height="300" style={{
+              <iframe src="https://maps.google.com/maps?q=Lazur+Resort+Rogowo&amp;output=embed" width="100%" height="300" style={{
               border: 0
-            }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="rounded-xl"></iframe>
+            }} title="Mapa dojazdu do Lazur Resort" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="rounded-xl"></iframe>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Reviews Section */}
-      <section ref={addToRefs} className="py-20 bg-muted scroll-reveal">
+      {/* Google reviews (5/5, verbatim) */}
+      <section ref={addToRefs} className="py-20 bg-muted/30 scroll-reveal">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              {t('home.reviews.title')}
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              {t('home.reviews.subtitle')}
-            </p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">{t('home.reviews.title')}</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t('home.reviews.subtitle')}</p>
           </div>
-
-          <div className="relative">
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              plugins={[
-                Autoplay({
-                  delay: 4000,
-                }),
-              ]}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-2 md:-ml-4">
-                {reviews.map((review, index) => (
-                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                    <Card className="p-6 hover:shadow-lg transition-shadow h-full">
-                      <div className="flex items-center mb-4">
-                        <div className="flex text-yellow-500 mr-3">
-                          {[...Array(review.rating)].map((_, i) => (
-                            <Star key={i} size={20} weight="fill" />
-                          ))}
-                        </div>
-                        <span className="text-sm text-muted-foreground">{review.platform}</span>
+          <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]} className="w-full px-2 md:px-12">
+            <CarouselContent className="-ml-4">
+              {reviews.map((review) => (
+                <CarouselItem key={review.author} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card className="glass-card h-full">
+                    <CardContent className="p-6 md:p-8 flex flex-col h-full">
+                      <div className="flex items-center gap-1 text-[#967d48] mb-4" aria-label="Ocena 5 na 5">
+                        {[0, 1, 2, 3, 4].map((i) => <Star key={i} size={18} weight="fill" aria-hidden="true" />)}
+                        <span className="ml-2 text-sm text-muted-foreground">Google</span>
                       </div>
-                      <p className="text-muted-foreground mb-4 italic">"{review.comment}"</p>
-                      <div className="flex items-center">
-                        <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3">
-                          <div className="w-6 h-6 bg-primary rounded-full"></div>
-                        </div>
-                        <span className="font-medium">{review.author}</span>
-                      </div>
-                    </Card>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
-            </Carousel>
+                      <p className="text-muted-foreground leading-relaxed flex-1">„{review.text}”</p>
+                      <p className="mt-6 font-medium text-foreground">{review.author}</p>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex -left-2" />
+            <CarouselNext className="hidden md:flex -right-2" />
+          </Carousel>
+          <div className="text-center mt-10">
+            <Button asChild variant="outline"><a href="https://share.google/8awS123JMhgbjYtuG" target="_blank" rel="noopener noreferrer">Zobacz wszystkie opinie w Google</a></Button>
           </div>
         </div>
       </section>
+
     </div>;
 };
 export default Homepage;

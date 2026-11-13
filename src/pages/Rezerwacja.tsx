@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 import React, { useEffect, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -119,14 +121,16 @@ const Rezerwacja = () => {
         <div className="container mx-auto px-4">
           <Card className="glass-card">
             <CardHeader className="pb-4">
-              <CardTitle className="text-2xl font-light tracking-tight text-center flex items-center justify-center space-x-3">
+              <h2 className="text-2xl font-light tracking-tight text-center flex items-center justify-center space-x-3">
                 <Calendar size={24} weight="light" className="text-ocean" />
                 <span>{t("reservation.form.title")}</span>
-              </CardTitle>
+              </h2>
             </CardHeader>
             <div className="px-6 pb-6">
+              <p className="text-muted-foreground leading-relaxed mb-6">Rezerwacja w systemie RoomAdmin jest wiążąca. Po jej złożeniu dostaniesz e-mailem dane do wpłaty zadatku (20%), a resztę zapłacisz w dniu przyjazdu na miejscu.</p>
               <div className="relative bg-white rounded-lg overflow-hidden">
                 <iframe
+                  title="Formularz rezerwacji domku Lazur Resort w systemie RoomAdmin"
                   id={IFRAME_ID}
                   style={{
                     width: "100%",
@@ -166,7 +170,7 @@ const Rezerwacja = () => {
                   <span className="text-sm font-medium">2 sypialnie + salon</span>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="font-medium text-sm">Ceny dla domku (8 osób):</h3>
+                  <h3 className="font-medium text-sm">Cena za domek według liczby gości:</h3>
                   {priceInfo.map((item, index) => (
                     <div key={index} className="flex justify-between text-sm">
                       <span>{item.guests}</span>
@@ -182,8 +186,12 @@ const Rezerwacja = () => {
                     </div>
                   ))}
                 </div>
+                <p className="text-sm text-muted-foreground">Cztery jednakowe domki mają dwie sypialnie, salon, kuchnię i łazienkę. Taras z meblami ogrodowymi pozwala spędzać czas na zewnątrz. Wybierz liczbę gości odpowiadającą całej grupie.</p>
+                <Button asChild className="btn-luxury"><Link to="/cennik">Porównaj ceny sezonowe</Link></Button>
               </CardContent>
             </Card>
+            <Card className="glass-card"><CardHeader><Calendar size={28} className="text-[#967d48]"/><CardTitle className="text-2xl">Przygotuj dane pobytu</CardTitle></CardHeader><CardContent className="space-y-5"><p className="text-muted-foreground">Wybierz daty przyjazdu i wyjazdu oraz podaj liczbę osób. Uzupełnij dane kontaktowe, aby można było przekazać informacje dotyczące Twojego pobytu.</p><p className="text-muted-foreground">Minimalny pobyt to 2 noce. Zameldowanie od 15:00, wymeldowanie do 10:00 — instrukcje zameldowania wyślemy przed przyjazdem. Dodatkowo płatne są tylko opłata klimatyczna i pies (15 zł za dobę).</p></CardContent></Card>
+            <Card className="glass-card"><CardHeader><Users size={28} className="text-[#967d48]"/><CardTitle className="text-2xl">Masz pytanie?</CardTitle></CardHeader><CardContent className="space-y-5"><p className="text-muted-foreground">Przy domku zaparkujesz do 2 aut, a pies jest mile widziany. Jeśli potrzebujesz pomocy przy formularzu, zadzwoń — pomożemy.</p><Button asChild className="btn-luxury"><Link to="/kontakt">Skontaktuj się z Lazur Resort</Link></Button></CardContent></Card>
           </div>
         </div>
       </section>

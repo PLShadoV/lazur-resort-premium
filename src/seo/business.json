@@ -1,0 +1,17 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "@id": "https://lazurrogowo.pl/#obiekt",
+  "name": "Lazur Resort",
+  "url": "https://lazurrogowo.pl/",
+  "telephone": "+48 502 939 725",
+  "email": "lazurresort@op.pl",
+  "description": "Domki letniskowe w Rogowie. Oferta obejmuje 4 domki dla maksymalnie 8 osób każdy, z dwiema sypialniami, salonem, kuchnią, łazienką i tarasem.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Rogowo",
+    "postalCode": "72-330",
+    "addressRegion": "województwo zachodniopomorskie"
+  },
+  "petsAllowed": true
+}

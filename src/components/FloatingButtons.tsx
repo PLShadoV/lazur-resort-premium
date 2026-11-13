@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Envelope, MapPin, Calendar, CaretUp, CaretDown, FacebookLogo, WhatsappLogo } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 export const FloatingButtons = () => {
   const [isExpanded, setIsExpanded] = useState(true);
   const navigate = useNavigate();
+  useEffect(() => { if (window.matchMedia("(max-width: 768px)").matches) setIsExpanded(false); }, []);
 
   const buttons = [
     {
@@ -51,7 +52,7 @@ export const FloatingButtons = () => {
       {/* Action Buttons */}
       <div
         className={`flex flex-col gap-3 transition-all duration-300 ${
-          isExpanded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+          isExpanded ? 'opacity-100 translate-y-0' : 'invisible opacity-0 translate-y-4 pointer-events-none'
         }`}
       >
         {buttons.map((button, index) => (
@@ -72,6 +73,7 @@ export const FloatingButtons = () => {
         size="icon"
         className="floating-btn floating-toggle"
         onClick={() => setIsExpanded(!isExpanded)}
+        aria-expanded={isExpanded}
         title={isExpanded ? 'Ukryj' : 'Pokaż opcje'}
       >
         {isExpanded ? (

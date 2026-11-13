@@ -1,3 +1,7 @@
+import galleryAlts from '@/seo/gallery-alts.json';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import thumbnails from '@/seo/gallery-thumbs.json';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import {
@@ -22,6 +26,8 @@ type ImgEntry = {
   id: number;
   src: string;
   alt: string;
+  thumb: string;
+  srcSet: string;
 };
 
 const CATEGORY_LABEL: Record<GalleryKey, string> = {
@@ -57,25 +63,48 @@ function toEntries(
   altPrefix: string
 ): ImgEntry[] {
   return Object.keys(modules)
-    .sort((a, b) => a.localeCompare(b, 'pl'))
+    .filter(path => !path.endsWith('/hero-drone.jpg'))
+    .sort((a, b) => {
+      const label = (path: string) => {
+        const key = path.split('/').slice(-2).join('/');
+        return (galleryAlts as Record<string,string>)[key] || formatFilenameToAlt(path.split('/').pop() || '');
+      };
+      const rank = (text: string) => {
+        if (/sypial|łóż|spania/i.test(text)) return 2;
+        if (/łazien|prysznic/i.test(text)) return 3;
+        if (/kuchni|salon|jadal|części dziennej|narożnik/i.test(text)) return 1;
+        if (/taras/i.test(text)) return 4;
+        if (/ogród|trawnik|plac zabaw|huśtawk/i.test(text)) return 5;
+        return 0;
+      };
+      return rank(label(a)) - rank(label(b)) || label(a).localeCompare(label(b), 'pl');
+    })
     .map((path, idx) => {
       const url = modules[path]!.default;
       const filename = path.split('/').pop() || `photo-${idx + 1}`;
       const readableName = formatFilenameToAlt(filename);
+      const category = path.includes('/exterior/') ? 'exterior' : 'interior';
+      const thumbs = thumbnails as Record<string,string>;
 
       return {
         id: idx + 1,
         src: url,
-        alt: readableName
-          ? `${altPrefix} – ${readableName}`
-          : `${altPrefix} – zdjęcie ${idx + 1}`,
+        thumb: thumbs[category+'/'+filename] || url,
+        srcSet: [360,720].map(width => `${thumbs[category+'/'+filename]?.replace('.webp', `-${width}.webp`)} ${width}w`).join(', '),
+        alt: (galleryAlts as Record<string,string>)[category+'/'+filename] || readableName,
       };
     });
 }
 
+const allModules = {...modulesExterior,...modulesInterior};
+const isExterior = (path: string) => {
+ const key=path.split('/').slice(-2).join('/');
+ const alt=(galleryAlts as Record<string,string>)[key] || '';
+ return path.includes('/exterior/') || /taras|widok-z-ogrodu|domek-na-dzialce/.test(path) || alt.startsWith('Taras');
+};
 const GALLERIES: Record<GalleryKey, ImgEntry[]> = {
-  exterior: toEntries(modulesExterior, CATEGORY_LABEL.exterior),
-  interior: toEntries(modulesInterior, CATEGORY_LABEL.interior),
+ exterior: toEntries(Object.fromEntries(Object.entries(allModules).filter(([path])=>isExterior(path))),CATEGORY_LABEL.exterior),
+ interior: toEntries(Object.fromEntries(Object.entries(allModules).filter(([path])=>!isExterior(path))),CATEGORY_LABEL.interior),
 };
 
 const Galeria: React.FC = () => {
@@ -197,14 +226,14 @@ const Galeria: React.FC = () => {
       return (
         <div className="rounded-3xl border border-dashed border-border/70 bg-muted/20 px-6 py-10 text-center">
           <p className="text-muted-foreground">
-            Dodaj zdjęcia do <code>src/assets/gallery/{cat}/</code> w formacie jpg, jpeg, png lub webp.
+            Zdjęcia tej części galerii będą dostępne wkrótce.
           </p>
         </div>
       );
     }
 
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
         {images.map((image, i) => (
           <button
             key={`${cat}-${image.id}`}
@@ -216,13 +245,14 @@ const Galeria: React.FC = () => {
             <Card className="overflow-hidden rounded-[28px] border border-white/10 bg-background/80 shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_18px_50px_rgba(0,0,0,0.16)] transition-all duration-500">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
-                  src={image.src}
+                  src={image.thumb} srcSet={image.srcSet} sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 100vw" width="640" height="480" decoding="async"
                   alt={image.alt}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
               </div>
+              <p className="px-5 py-4 text-sm text-muted-foreground">{image.alt}</p>
             </Card>
           </button>
         ))}
@@ -264,8 +294,7 @@ const Galeria: React.FC = () => {
               Domki z zewnątrz
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Zobacz wygląd domków, tarasów oraz otoczenia ośrodka. Zdjęcia są wczytywane
-              automatycznie z folderu i wyświetlane w kolejności alfabetycznej.
+              Zobacz domki Lazur Resort w Rogowie od strony tarasów i ogrodów. Przyjrzyj się przestrzeni wokół budynków i wybierz zdjęcie do powiększenia. Taras z meblami to miejsce na wspólny posiłek lub odpoczynek po powrocie z plaży. Zdjęcia otoczenia pomogą Ci przygotować się do pobytu z rodziną lub znajomymi.
             </p>
           </div>
 
@@ -284,12 +313,11 @@ const Galeria: React.FC = () => {
               Domki wewnątrz
             </h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Poznaj wnętrza domków — salon, sypialnie, kuchnię i strefę wypoczynku.
-              Wszystkie zdjęcia także ładują się automatycznie z osobnego folderu.
+              Poznaj wnętrza domków Lazur Resort: salon z rozkładaną sofą, dwie sypialnie, kuchnię i łazienkę z prysznicem. Cały domek jest przeznaczony dla maksymalnie 8 osób. Zdjęcia pokazują umeblowanie i wykończenie pomieszczeń. Jeśli potrzebujesz dokładnego rozkładu miejsc do spania dla swojej grupy, zapytaj nas przed rezerwacją.
             </p>
           </div>
 
-          <Grid cat="interior" />
+          <Grid cat="interior" /><div className="flex flex-wrap justify-center gap-4 mt-10"><Button asChild className="btn-luxury"><Link to="/cennik">Sprawdź ceny domków</Link></Button><Button asChild variant="outline"><Link to="/rezerwacja">Wybierz termin pobytu</Link></Button></div>
         </div>
       </section>
 
@@ -410,7 +438,7 @@ const Galeria: React.FC = () => {
           </button>
 
           <div className="max-w-[92vw] max-h-[88vh] relative px-4">
-            <img
+            <img decoding="async"
               src={current.src}
               alt={current.alt}
               className="max-w-[92vw] max-h-[78vh] md:max-h-[82vh] object-contain select-none rounded-2xl"

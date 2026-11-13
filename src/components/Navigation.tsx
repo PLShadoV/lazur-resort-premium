@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { List, X, CaretDown } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import lazurLogo from '@/assets/lazur-logo-new-final.png';
+import lazurLogo from '@/assets/lazur-logo-header.webp';
 
 interface NavItem {
   label: string;
@@ -32,9 +32,9 @@ const getNavItems = (t: (key: string) => string) => ({
         { label: 'Plaże i przyroda', href: '/okolica/plaze-przyroda' },
         { label: 'Transport i dojazd', href: '/okolica/transport' },
         { label: '', href: '' }, // Separator
-        { label: 'Domki na wynajem Mrzeżyno', href: '/okolica/mrzezyna' },
-        { label: 'Domki na wynajem Dźwirzyno', href: '/okolica/dzwirzyno' },
-        { label: 'Domki na wynajem Kołobrzeg', href: '/okolica/kolobrzeg' },
+        { label: 'Wycieczka do Mrzeżyna', href: '/okolica/mrzezyna' },
+        { label: 'Wycieczka do Dźwirzyna', href: '/okolica/dzwirzyno' },
+        { label: 'Wycieczka do Kołobrzegu', href: '/okolica/kolobrzeg' },
         { label: 'Noclegi z psem', href: '/okolica/z-psem' },
         { label: 'Ścieżki rowerowe', href: '/okolica/sciezki-rowerowe' },
       ],
@@ -48,7 +48,7 @@ export const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
   const { t } = useLanguage();
-  
+
   const navItems = getNavItems(t);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export const Navigation = () => {
   };
 
   return (
-    <nav
+    <nav aria-label="Nawigacja główna"
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
           ? 'shadow-luxury'
@@ -97,9 +97,9 @@ export const Navigation = () => {
 
           {/* Center Logo */}
           <Link to="/" className="flex items-center flex-shrink-0 mx-8">
-            <img 
-              src={lazurLogo} 
-              alt="Lazur Resort" 
+            <img width="240" height="203"
+              src={lazurLogo}
+              alt="Lazur Resort" decoding="async"
               className="h-24 w-auto max-w-none"
             />
           </Link>
@@ -123,7 +123,7 @@ export const Navigation = () => {
                         activeDropdown === item.label ? 'rotate-180' : ''
                       }`}
                     />
-                    
+
                     {/* Dropdown Menu */}
                     <div
                       className={`absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-luxury overflow-hidden transition-all duration-300 z-50 ${
@@ -159,7 +159,7 @@ export const Navigation = () => {
                 )}
               </div>
             ))}
-            
+
             <Button asChild className="btn-luxury ml-6">
               <Link to="/rezerwacja">{t('button.book')}</Link>
             </Button>
@@ -185,9 +185,9 @@ export const Navigation = () => {
         >
           {/* Header with Logo and Close Button */}
           <div className="flex items-center justify-between p-6 border-b border-white/10">
-            <img 
-              src={lazurLogo} 
-              alt="Lazur Resort" 
+            <img width="240" height="203"
+              src={lazurLogo}
+              alt="Lazur Resort" decoding="async"
               className="h-16 w-auto"
             />
             <button
@@ -198,7 +198,7 @@ export const Navigation = () => {
               <X size={24} />
             </button>
           </div>
-          
+
           <div className="p-6 space-y-6 overflow-y-auto" style={{ height: 'calc(100vh - 96px)' }}>
             {/* Mobile Menu Items - Combined */}
             {[...navItems.left, ...navItems.right].map((item: NavItem) => (
@@ -247,7 +247,7 @@ export const Navigation = () => {
                 )}
               </div>
             ))}
-            
+
             {/* Call to Action Button */}
             <div className="pt-4">
               <Button asChild className="btn-luxury w-full h-12 text-lg">

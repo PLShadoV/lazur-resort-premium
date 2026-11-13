@@ -20,6 +20,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
+    manifest: true,
     // Production optimizations
     minify: 'esbuild',
     cssMinify: true,
