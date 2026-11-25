@@ -156,24 +156,24 @@
   },
   "/okolica/plaze-przyroda": {
     "image": "hero-drone.webp",
-    "intro": "Plaża w Rogowie i spacery przyrodnicze to pomysł na dzień blisko domku. Do plaży masz 350 m, a w okolicy jest też jezioro Resko Przymorskie.",
-    "heading": "Plaża w Rogowie i nadmorskie spacery",
+    "intro": "Plaża w Rogowie (woj. zachodniopomorskie), nadmorski deptak i jezioro Resko Przymorskie to trzy powody, dla których goście wracają do Lazur Resort. Do szerokiej plaży masz 350 m spacerem od domku.",
+    "heading": "Plaża w Rogowie, deptak i jezioro Resko",
     "cards": [
       [
-        "Najbliższa plaża",
-        "Zaplanuj odpoczynek na piasku albo spacer wzdłuż brzegu. Do plaży masz 350 m. Przed kąpielą sprawdź pogodę i oznaczenia na plaży.",
+        "Plaża w Rogowie (350 m)",
+        "Szeroka, piaszczysta plaża w Rogowie leży zaledwie 350 m od domków Lazur. Łatwo tu o spokojne miejsce z dala od tłumów dużych kurortów — przed kąpielą sprawdź pogodę i oznaczenia przy wejściu.",
         "/kontakt",
         "Zobacz dojazd i mapę"
       ],
       [
-        "Spacer przy lesie",
-        "Leśne otoczenie to alternatywa dla dnia spędzonego wyłącznie na piasku. Wybieraj udostępnione ścieżki i stosuj się do oznaczeń. Trasę oraz długość spaceru dopasuj do pogody i kondycji uczestników.",
+        "Deptak i leśne ścieżki w Rogowie",
+        "Nadmorski deptak w Rogowie oraz sosnowe ścieżki między morzem a jeziorem sprawdzają się idealnie na poranny spacer, bieganie lub wyjście z wózkiem poza godzinami plażowania.",
         "/okolica",
         "Wybierz aktywność w okolicy"
       ],
       [
-        "Nad jezioro Resko",
-        "Widok na jezioro może być celem osobnego wyjazdu. Jeśli chcesz połączyć go z Dźwirzynem, najpierw wybierz konkretny punkt nad wodą. Nie zakładaj, że każdy fragment brzegu jest dostępny dla spacerowiczów.",
+        "Jezioro Resko Przymorskie",
+        "Położone po drugiej stronie Rogowa jezioro Resko Przymorskie to świetny kierunek na spokojny spacer, zachód słońca nad wodą albo wycieczkę w stronę Dźwirzyna.",
         "/okolica/dzwirzyno",
         "Poznaj jezioro i Dźwirzyno"
       ]
